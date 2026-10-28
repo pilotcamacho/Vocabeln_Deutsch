@@ -199,9 +199,10 @@ Se calcula en el dispositivo con las tarjetas locales, sin coste de servidor.
 ### Crear un conjunto a partir de un texto
 
 1. El estudiante pega el texto en la aplicación.
-2. Una Lambda lo divide en palabras y convierte cada forma en su lema con una tabla
-   forma → lema. La tabla se genera a partir de Wiktionary (`data/raw/kaikki`) y se incluye en
-   la propia Lambda; no se usan servicios externos.
+2. Una Lambda lo divide en palabras y convierte cada forma en su lema con la tabla
+   `data/export/formas.json`, generada a partir de Wiktionary (hecho el 28-10-2026). La tabla se
+   incluye en la propia Lambda; no se usan servicios externos. La referencia de su
+   comportamiento es `scripts/lematizar.py`.
 3. Detecta los verbos separables («kommt … an» → *ankommen*) cuando la partícula está al final de
    la oración. Es una detección aproximada.
 4. Guarda el `Conjunto` y sus `ConjuntoPalabra`. El texto se descarta.

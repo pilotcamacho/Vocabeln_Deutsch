@@ -18,9 +18,18 @@ en `CLAUDE.md`; aquí va solo el avance.
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
-**Siguiente paso:** terminar la fase 0 del diseño.
-- Hecho: exportador a `palabras.json` con ids permanentes.
-- Pendiente: repositorio git, cuenta de AWS con el CLI configurado y tabla forma → lema.
+**Fase 0 casi terminada.**
+- Hecho: ids permanentes y `palabras.json`, tabla forma → lema con su lematizador de referencia,
+  repositorio git local (rama `main`) y cuenta de AWS verificada.
+- AWS: cuenta 383704632098, usuario `cli-access` con AdministratorAccess, región us-east-1 y CDK
+  ya preparado (`CDKToolkit`).
+- Falta: subir el repositorio a GitHub (`pilotcamacho`, privado). `gh` no está instalado.
+
+**Siguiente paso:**
+- decidir la tecnología de la app. El usuario tiene un kit propio, `claude_skills` →
+  `expo-amplify-kit` (Expo + Amplify Gen 2, referencia `bacuy-x`), distinto de la PWA con
+  React y Vite de `docs/diseno_app.md`;
+- después, la fase 1.
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 
@@ -101,6 +110,16 @@ Errores que hay que buscar en cada tramo:
   - En `palabras.json` hay 14 raíces que no son palabras de la lista y se ignoran: *Esse*, *Gute*,
     *Haufen*, *Ion*, *Miss*, *Ur*, *Warte*, *des*, *ein*, *genannt*, *häufen*, *muten*, *stet*,
     *zeihen*. Varias son raíces falsas que conviene corregir al curar su tramo.
+  - Repositorio git local: primer commit con todo menos `data/raw/` (≈2,2 GB de datos de
+    terceros, en `.gitignore`).
+  - Tabla forma → lema (`scripts/construir_formas.py`):
+    - 14.131 lemas, 95.161 formas y 12.116 verbos separables partidos;
+    - se excluyen las palabras funcionales y se añaden las contracciones (*am* → *an*).
+
+    Lematizador de referencia `scripts/lematizar.py`, probado con `tests/texto_prueba.txt`:
+    acierta *ankam* → *ankommen*, *stieg aus* → *aussteigen*, *sah sich um* → *umsehen*,
+    *rief an*, *fing an*, *kam heraus*, *aufzustehen*, *besten* → *gut*. En ese texto, el 58 %
+    de las palabras están en la lista; el resto son palabras funcionales y nombres propios.
 
 ## Pendientes conocidos
 

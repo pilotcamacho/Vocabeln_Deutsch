@@ -277,6 +277,30 @@ la maestra (`lema` + `categoria` + `significado_maestra`):
 **Nunca se borran filas del registro ni se cambian sus ids.** Hay que ejecutar el exportador
 después de cada `aplicar_curacion.py`.
 
+### Tabla forma → lema (conjuntos a partir de textos)
+
+```
+python -I -X utf8 scripts/construir_formas.py      # → data/export/formas.json (2,7 MB)
+python -I -X utf8 scripts/lematizar.py texto.txt --detalle
+```
+
+`construir_formas.py` toma de Wiktionary todas las formas de las palabras exportadas:
+- casos y plurales, conjugaciones, comparativos, participios y *anzukommen*;
+- verbos separables partidos (*kommt an*);
+- contracciones (*am* → *an*).
+
+Excluye las palabras funcionales que coinciden con alguna forma (*weil* ≠ *weilen*). Hay que
+volver a ejecutarlo después del exportador.
+
+`lematizar.py` es la **especificación de referencia** de la Lambda que creará los conjuntos. Sus
+reglas están en el propio script:
+- divide el texto en cláusulas;
+- reconoce la mayúscula de principio de oración;
+- une el verbo separable con la partícula final de la cláusula, eligiendo el verbo más cercano;
+- si una forma es ambigua, elige el lema más frecuente.
+
+Texto de prueba: `tests/texto_prueba.txt`.
+
 Las pistas curadas se muestran **después** de intentar recordar (o tras un fallo), nunca en la
 cara de la pregunta.
 
