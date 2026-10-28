@@ -37,8 +37,8 @@ en `CLAUDE.md`; aquí va solo el avance.
 - Publicada en Amplify Hosting (app `d10r9rml7svpuc`, rama `main`):
   https://main.d10r9rml7svpuc.amplifyapp.com. Cada push a `main` despliega backend y frontend.
   `amplify.yml` usa `npm install`, no `npm ci` (ver el comentario del archivo).
-- Falta: hacer admin al usuario real del usuario en el grupo de usuarios de producción
-  (distinto del sandbox).
+- Grupo de usuarios de producción: `us-east-1_GSBsw0ciR` (el del sandbox es otro). El usuario
+  se registró y está en `estudiante` (lo puso la función de alta, que funciona) y en `admin`.
 
 Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLAUDE.md`,
 «Aplicación»).
