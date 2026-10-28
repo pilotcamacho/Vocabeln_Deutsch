@@ -304,7 +304,31 @@ Texto de prueba: `tests/texto_prueba.txt`.
 Las pistas curadas se muestran **después** de intentar recordar (o tras un fallo), nunca en la
 cara de la pregunta.
 
-## Líneas a explorar
+## Aplicación (PWA + Amplify Gen 2)
+
+Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los datos:
+
+| Ruta | Contenido |
+|---|---|
+| `src/` | PWA con React + TypeScript + Vite (`vite-plugin-pwa`) |
+| `amplify/` | Backend: `auth/` (Cognito, grupos `admin` y `estudiante`), `data/resource.ts` (modelos y permisos) |
+| `amplify.yml` | Compilación en Amplify Hosting (backend + frontend, Node 22) |
+| `scripts/copiar_datos.mjs` | Copia `data/export/palabras.json` a `public/datos/` antes de `dev` y `build` |
+| `tests/probar_permisos.mjs` | Prueba los permisos de los modelos contra el sandbox |
+
+```
+npm run sandbox -- --once --profile default   # backend de desarrollo → amplify_outputs.json
+npm run dev                                    # PWA en local
+npm run build                                  # comprueba tipos y genera dist/
+CLAVE_PRUEBA=... node tests/probar_permisos.mjs
+```
+
+- Todo usuario nuevo entra en el grupo `estudiante` al confirmar su correo (función
+  `amplify/auth/alta-estudiante`). El grupo `admin` se asigna a mano:
+  `aws cognito-idp admin-add-user-to-group --user-pool-id <id> --username <usuario> --group-name admin`.
+- TypeScript se queda en la versión 6, como en `bacuy-x`, por compatibilidad con Amplify Gen 2.
+  La 7 no se ha probado.
+
 
 - Fuentes de listas de frecuencia (p. ej. corpus DeReWo del IDS, SUBTLEX-DE, OpenSubtitles, Leipzig Corpora) y cómo limpiarlas, lematizarlas y filtrarlas por categoría gramatical.
 - Algoritmos de repetición espaciada (SM-2, FSRS) y parámetros óptimos.
@@ -321,5 +345,5 @@ leerla al empezar cada sesión y actualizarla al terminar.
 - Revisión de la investigación hecha (ver «Método basado en la investigación»).
 - Lista maestra de 16.000 palabras generada (ver «Datos: la lista maestra»).
 - Curación: tramos 1–2.000 de la maestra `validado` (ver `data/curacion/tramos.csv`).
-- Herramienta de estudio: PWA propia sobre AWS Amplify Gen 2 (Cognito, AppSync/DynamoDB, Lambda, Hosting), para varios estudiantes, con `ts-fsrs` y modo sin conexión. Diseño y modelo de datos en `docs/diseno_app.md`.
+- Herramienta de estudio: PWA propia sobre AWS Amplify Gen 2 (Cognito, AppSync/DynamoDB, Lambda, Hosting), para varios estudiantes, con `ts-fsrs` y modo sin conexión. Diseño y modelo de datos en `docs/diseno_app.md`. Fase 1 (esqueleto) hecha: ver «Aplicación».
 - Pendiente: completar las traducciones que faltan e implementar la aplicación por fases. Las decisiones técnicas (lenguaje, formato de datos, exportación a Anki u otra app) se documentarán aquí a medida que se tomen.

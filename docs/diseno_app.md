@@ -76,12 +76,22 @@ español de las tarjetas de producción.
 
 ## Modelo de datos (DynamoDB vía Amplify Data)
 
+Implementado en `amplify/data/resource.ts` (fase 1). Los permisos se comprueban con
+`tests/probar_permisos.mjs` contra el sandbox. Notas comunes:
+
+- **`owner`** se guarda como `<sub>::<username>`, aunque la API lo devuelve recortado
+  (`<sub>`). Las consultas por índice (`repasosPorFecha`, `tarjetasPorOwner`) usan el valor
+  completo, que da `getCurrentUser()`: `` `${userId}::${username}` ``. El estudiante no puede
+  reasignarlo.
+- **`direccion`** vale `de_es` o `es_de`: los enums de GraphQL no admiten guiones. En
+  `palabras.json` sigue siendo `de-es` / `es-de`.
+
 ### `Perfil`: uno por estudiante
 
 | Campo | Notas |
 |---|---|
 | `id`, `owner` | `owner` = usuario de Cognito |
-| `nombre`, `rol` | `rol` = `estudiante` o `admin` |
+| `nombre` | El rol no se guarda aquí: lo dan los grupos de Cognito (`admin`, `estudiante`) |
 | `nuevasPorDia` | p. ej. 15 |
 | `retencionObjetivo` | 0,90 |
 | `parametrosFsrs` | JSON. Al principio los genéricos; después, los ajustados a este estudiante |
@@ -98,7 +108,8 @@ español de las tarjetas de producción.
 | `tiempoMs`, `diasDesdeAnterior`, `rPrevista` | `rPrevista` = probabilidad de recordar estimada por FSRS. Sirve para comprobar si el modelo acierta |
 | `versionAlgoritmo`, `dispositivo` | |
 
-Índice: `owner` + `fechaHora`, para descargar «lo nuevo desde la última sincronización».
+Índice: `owner` + `fechaHora` (`repasosPorFecha`), para descargar «lo nuevo desde la última
+sincronización». Permisos: el estudiante solo crea y lee; nadie modifica ni borra un repaso.
 
 ### `Tarjeta`: estado actual por estudiante, palabra y dirección
 
@@ -107,10 +118,11 @@ rápido. Si hay dudas, se recalcula desde el historial.
 
 | Campo | Notas |
 |---|---|
-| `owner`, `palabraId`, `direccion` | clave |
+| `id` | `<sub>_<palabraId>_<direccion>`: fijo, para actualizar siempre la misma fila |
+| `owner`, `palabraId`, `direccion` | índice `tarjetasPorOwner` por `owner` |
 | `estado` | `nueva` · `aprendiendo` · `repaso` · `conocida` · `aprendida` · `retirada` |
 | `nivel` | según el intervalo: 1 = 1 d, 2 = 3 d, 3 = 7 d, 4 = 14 d, 5 = 30 d, 6 = 60 d, 7 = 90 d o más |
-| `intervaloDias`, `proximaFecha` | |
+| `intervaloDias`, `proximaFecha`, `ultimaFecha` | |
 | `estabilidad`, `dificultad` | FSRS |
 | `nRepasos`, `nFallos`, `fechaInicio`, `fechaAprendida` | |
 
@@ -123,7 +135,7 @@ Con 16.000 palabras en dos direcciones son unas 24.000 filas como máximo por es
 |---|---|
 | `id`, `nombre`, `tipo` | `libro`, `tema` o `texto` |
 | `descripcion` | |
-| `visibilidad` | `publico` (solo lo crea un admin) o `privado` (de su `owner`) |
+| `lectores` | grupos que pueden leerlo: `["estudiante"]` = público; vacío = privado de su `owner`. Solo un admin puede rellenarlo |
 | `owner`, `nTokens`, `nTokensEnLista`, `creadoEn` | `nTokens` = palabras totales del texto |
 
 **No se guarda el texto original**, porque los libros tienen derechos de autor. Solo se guarda la

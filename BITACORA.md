@@ -27,7 +27,17 @@ en `CLAUDE.md`; aquí va solo el avance.
   kit propio `expo-amplify-kit` porque publicar en iPhone exige la licencia de desarrollador de
   Apple; la PWA se instala desde Safari («Añadir a pantalla de inicio») sin licencia.
 
-**Siguiente paso:** la fase 1 (esqueleto Amplify).
+**Fase 1 casi terminada** (esqueleto Amplify; estructura en `CLAUDE.md`, «Aplicación»).
+- PWA con React + Vite: acceso con Cognito en español, perfil creado al entrar, rol según el
+  grupo, lista de palabras cargada (15.859 significados, 1.880 para estudiar) e indicador de
+  conexión. Iconos generados desde `public/logo.svg`.
+- Backend en un sandbox de AWS (`amplify-vocabelndeutsch-pilot-sandbox-d251d836b1`), con los
+  cinco modelos del diseño. `tests/probar_permisos.mjs`: 19 comprobaciones, todas pasan.
+- Usuarios de prueba en el sandbox: `prueba-a`, `prueba-b`, `prueba-admin` @vocabeln.invalid.
+- Falta: conectar el repositorio de GitHub en la consola de Amplify Hosting (lo hace el usuario,
+  porque necesita autorizar la app de GitHub) y hacer admin a su usuario real.
+
+**Siguiente paso:** la fase 2 (estudio: tarjeta, FSRS, cola, modo sin conexión).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 
@@ -118,6 +128,12 @@ Errores que hay que buscar en cada tramo:
     acierta *ankam* → *ankommen*, *stieg aus* → *aussteigen*, *sah sich um* → *umsehen*,
     *rief an*, *fing an*, *kam heraus*, *aufzustehen*, *besten* → *gut*. En ese texto, el 58 %
     de las palabras están en la lista; el resto son palabras funcionales y nombres propios.
+
+- Fase 1:
+  - repositorio subido a GitHub; se confirmó la PWA en lugar de Expo (licencia de Apple);
+  - esqueleto de la PWA y backend Amplify Gen 2 en un sandbox;
+  - dos ajustes tras las pruebas de permisos: el `owner` completo es `<sub>::<username>`, y el
+    `owner` de los conjuntos públicos debe poder leerlo el grupo lector.
 
 ## Pendientes conocidos
 
