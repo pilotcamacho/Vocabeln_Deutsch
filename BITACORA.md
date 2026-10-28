@@ -18,18 +18,16 @@ en `CLAUDE.md`; aquí va solo el avance.
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
-**Fase 0 casi terminada.**
-- Hecho: ids permanentes y `palabras.json`, tabla forma → lema con su lematizador de referencia,
-  repositorio git local (rama `main`) y cuenta de AWS verificada.
+**Fase 0 terminada.**
+- Ids permanentes y `palabras.json`, tabla forma → lema con su lematizador de referencia.
+- Repositorio en GitHub: `pilotcamacho/Vocabeln_Deutsch` (privado), rama `main`.
 - AWS: cuenta 383704632098, usuario `cli-access` con AdministratorAccess, región us-east-1 y CDK
   ya preparado (`CDKToolkit`).
-- Falta: subir el repositorio a GitHub (`pilotcamacho`, privado). `gh` no está instalado.
+- Tecnología confirmada: **PWA con React y Vite**, como en `docs/diseno_app.md`. Se descartó el
+  kit propio `expo-amplify-kit` porque publicar en iPhone exige la licencia de desarrollador de
+  Apple; la PWA se instala desde Safari («Añadir a pantalla de inicio») sin licencia.
 
-**Siguiente paso:**
-- decidir la tecnología de la app. El usuario tiene un kit propio, `claude_skills` →
-  `expo-amplify-kit` (Expo + Amplify Gen 2, referencia `bacuy-x`), distinto de la PWA con
-  React y Vite de `docs/diseno_app.md`;
-- después, la fase 1.
+**Siguiente paso:** la fase 1 (esqueleto Amplify).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 
