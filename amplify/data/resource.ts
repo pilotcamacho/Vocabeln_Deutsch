@@ -54,8 +54,13 @@ const schema = a.schema({
 
   // Historial: solo se añade, nunca se modifica. El id es un uuid generado en el dispositivo,
   // así reenviar un lote tras un corte de red no duplica repasos.
+  // Se sincroniza por createdAt (hora de llegada a la nube, la pone el servidor) y no por
+  // fechaHora: un dispositivo que estuvo días sin conexión sube repasos con fechas pasadas.
   Repaso: a
     .model({
+      // Declarado para que el dispositivo pueda enviar su id: con permisos por campo (owner),
+      // el id implícito no admite valores del cliente («Unauthorized on [id]»).
+      id: a.id().required(),
       palabraId: a.integer().required(),
       direccion: a.ref("Direccion").required(),
       fechaHora: a.datetime().required(),
@@ -67,9 +72,10 @@ const schema = a.schema({
       versionAlgoritmo: a.string(),
       dispositivo: a.string(),
       owner: propietario(),
+      createdAt: a.datetime(),
     })
     .secondaryIndexes((index) => [
-      index("owner").sortKeys(["fechaHora"]).queryField("repasosPorFecha"),
+      index("owner").sortKeys(["createdAt"]).queryField("repasosPorLlegada"),
     ])
     .authorization((allow) => [
       allow.owner().to(["create", "read"]),
@@ -80,6 +86,7 @@ const schema = a.schema({
   // id = «<sub de Cognito>_<palabraId>_<direccion>», para que cada tarjeta tenga un id fijo.
   Tarjeta: a
     .model({
+      id: a.id().required(), // ver Repaso
       palabraId: a.integer().required(),
       direccion: a.ref("Direccion").required(),
       estado: a.ref("EstadoTarjeta").required(),
@@ -93,6 +100,7 @@ const schema = a.schema({
       nFallos: a.integer(),
       fechaInicio: a.datetime(),
       fechaAprendida: a.datetime(),
+      fsrs: a.json(), // la tarjeta completa de ts-fsrs (incluye el paso de aprendizaje)
       owner: propietario(),
     })
     .secondaryIndexes((index) => [index("owner").queryField("tarjetasPorOwner")])

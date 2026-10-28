@@ -311,15 +311,19 @@ Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los 
 | Ruta | Contenido |
 |---|---|
 | `src/` | PWA con React + TypeScript + Vite (`vite-plugin-pwa`) |
+| `src/motor/` | Código puro: `reglas.ts` (FSRS y reglas de estado) y `cola.ts` (la sesión diaria) |
+| `src/datos/` | Base local IndexedDB (`base.ts`), sincronización (`sincronizar.ts`) y perfil |
 | `amplify/` | Backend: `auth/` (Cognito, grupos `admin` y `estudiante`), `data/resource.ts` (modelos y permisos) |
 | `amplify.yml` | Compilación en Amplify Hosting (backend + frontend, Node 22) |
 | `scripts/copiar_datos.mjs` | Copia `data/export/palabras.json` a `public/datos/` antes de `dev` y `build` |
+| `tests/motor.test.ts` | Pruebas de las reglas y la cola (`npm test`) |
 | `tests/probar_permisos.mjs` | Prueba los permisos de los modelos contra el sandbox |
 
 ```
 npm run sandbox -- --once --profile default   # backend de desarrollo → amplify_outputs.json
 npm run dev                                    # PWA en local
 npm run build                                  # comprueba tipos y genera dist/
+npm test                                       # reglas y cola
 CLAVE_PRUEBA=... node tests/probar_permisos.mjs
 ```
 

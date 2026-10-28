@@ -39,8 +39,8 @@ comprobar('A no puede modificar un repaso',
   !permitido(await cliente.models.Repaso.update({ id: repasoA.data.id, resultado: 'fallo' })))
 comprobar('A no puede borrar un repaso', !permitido(await cliente.models.Repaso.delete({ id: repasoA.data.id })))
 const { userId, username } = await getCurrentUser()
-const porFecha = await cliente.models.Repaso.repasosPorFecha({ owner: `${userId}::${username}` })
-comprobar('A consulta sus repasos por fecha', porFecha.data?.some((r) => r.id === repasoA.data.id))
+const porFecha = await cliente.models.Repaso.repasosPorLlegada({ owner: `${userId}::${username}`, createdAt: { gt: '2026-01-01T00:00:00Z' } })
+comprobar('A consulta sus repasos por hora de llegada', porFecha.data?.some((r) => r.id === repasoA.data.id))
 const tarjetaA = await cliente.models.Tarjeta.create({ palabraId: 1, direccion: 'de_es', estado: 'aprendiendo' })
 comprobar('A crea y modifica su tarjeta', permitido(tarjetaA) &&
   permitido(await cliente.models.Tarjeta.update({ id: tarjetaA.data.id, estado: 'repaso', nivel: 1 })))

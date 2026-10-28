@@ -43,7 +43,19 @@ en `CLAUDE.md`; aquí va solo el avance.
 Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLAUDE.md`,
 «Aplicación»).
 
-**Siguiente paso:** la fase 2 (estudio: tarjeta, FSRS, cola, modo sin conexión).
+**Fase 2 hecha en `dev`, sin publicar** (estudio: tarjeta, FSRS, cola, modo sin conexión).
+- `src/motor/` (reglas y cola, 10 pruebas en `npm test`), `src/datos/` (IndexedDB y
+  sincronización), `src/Sesion.tsx` y `src/Tarjeta.tsx`.
+- Probado en el navegador contra el sandbox con `prueba-b`: sesión de estudio, subida y
+  reconstrucción completa en un «dispositivo nuevo» (base local borrada).
+- Cambios de esquema: `Repaso` se sincroniza por `createdAt`; `Tarjeta` guarda la tarjeta de
+  FSRS (`fsrs`); `id` declarado en `Repaso` y `Tarjeta`, porque si no la nube rechaza el id del
+  dispositivo («Unauthorized on [id]»).
+- Sin probar todavía: el modo sin conexión en un móvil real (modo avión).
+- Detalle conocido: las teclas pulsadas muy seguidas (más rápido que el repintado) se pierden.
+
+**Siguiente paso:** el usuario prueba la fase 2 y decide publicarla (fusionar `dev` en `main`).
+Después, la fase 3 (marcar conocidas).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 

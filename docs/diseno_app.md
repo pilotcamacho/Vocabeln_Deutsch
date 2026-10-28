@@ -35,8 +35,11 @@ conexión y sincroniza con AWS cuando hay red.
 | Funciones | Lambda: lematizar textos, recalcular estadísticas y ajustar FSRS |
 | Alojamiento | Amplify Hosting, con despliegue desde un repositorio git (p. ej. GitHub gratuito) |
 
-- **Sincronización sin conexión.** Amplify Gen 2 ya no ofrece DataStore, así que el modo sin
-  conexión es propio. Los repasos se guardan en IndexedDB y se envían por lotes al recuperar la
+- **Sincronización sin conexión** (`src/datos/sincronizar.ts`). Amplify Gen 2 ya no ofrece
+  DataStore, así que el modo sin conexión es propio. Los repasos son la fuente de verdad: cada
+  dispositivo reconstruye las tarjetas aplicándolos en orden, y como `ts-fsrs` es determinista
+  (la variación aleatoria de intervalos sale de una semilla fija), todos llegan al mismo estado.
+  Un dispositivo nuevo baja todo el historial. Las tarjetas en la nube sirven para los informes. Los repasos se guardan en IndexedDB y se envían por lotes al recuperar la
   red. Como los repasos solo se añaden y nunca se modifican, unir los de varios dispositivos no
   produce conflictos.
 - **iPhone.** La aplicación debe instalarse en la pantalla de inicio. Si no, Safari puede borrar
@@ -108,8 +111,9 @@ Implementado en `amplify/data/resource.ts` (fase 1). Los permisos se comprueban 
 | `tiempoMs`, `diasDesdeAnterior`, `rPrevista` | `rPrevista` = probabilidad de recordar estimada por FSRS. Sirve para comprobar si el modelo acierta |
 | `versionAlgoritmo`, `dispositivo` | |
 
-Índice: `owner` + `fechaHora` (`repasosPorFecha`), para descargar «lo nuevo desde la última
-sincronización». Permisos: el estudiante solo crea y lee; nadie modifica ni borra un repaso.
+Índice: `owner` + `createdAt` (`repasosPorLlegada`), para descargar «lo nuevo desde la última
+sincronización». `createdAt` es la hora de llegada a la nube y la pone el servidor; no sirve
+`fechaHora`, porque un dispositivo que estuvo sin conexión sube repasos con fechas pasadas. Permisos: el estudiante solo crea y lee; nadie modifica ni borra un repaso.
 
 ### `Tarjeta`: estado actual por estudiante, palabra y dirección
 
@@ -156,10 +160,16 @@ lista de palabras con sus recuentos.
 
 ### Sesión diaria (cola)
 
+Implementada en `src/motor/cola.ts`, con pruebas en `tests/motor.test.ts`. El día cambia a las
+4 de la madrugada. Las respuestas son binarias: «No lo sabía» = *Again* y «Lo sabía» = *Good* en
+FSRS. Las tarjetas en aprendizaje (pasos de 1 y 10 minutos) vuelven a salir en la misma sesión.
+
 1. **Repasos pendientes** (`proximaFecha` ≤ hoy), primero los de menor probabilidad de recordar.
    Se incluyen los *controles* de las palabras marcadas.
 2. **Producción desbloqueada**: palabras con `orden` ≤ 8.000 cuyo reconocimiento ya está
-   *en repaso*. Nunca se pregunta el mismo día que la otra dirección.
+   *en repaso*. Nunca se pregunta el mismo día que la otra dirección. Como mucho `nuevasPorDia`
+   al día, igual que las nuevas. Si las dos direcciones de una palabra tocan el mismo día, va la
+   producción y el reconocimiento se aplaza.
 3. **Nuevas**, hasta `nuevasPorDia`:
    - primero las del conjunto activo, si lo hay, y después por `orden`;
    - solo entran palabras de tramos validados;
