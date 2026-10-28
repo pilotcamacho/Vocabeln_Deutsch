@@ -1,0 +1,1209 @@
+lema,categoria,significado_n,columna,valor,motivo
+in,preposición,1,traduccion_es,"en, dentro de",«a» sobra
+haben,verbo,1,traduccion_es,tener,el auxiliar va en el significado 2
+haben,verbo,2,traduccion_es,"haber (auxiliar: *ich habe gesehen* = he visto)",«contener» duplicaba el significado 1
+werden,verbo,1,traduccion_es,"volverse, llegar a ser",«ir a» no es el significado principal
+werden,verbo,2,traduccion_es,"(auxiliar) futuro y pasiva: *ich werde gehen* = iré",separar el uso auxiliar
+auf,preposición,1,traduccion_es,"sobre, encima de, en",«arriba» es adverbio
+können,verbo,1,tipo_verbo,modal,faltaba
+können,verbo,1,traduccion_es,"poder, saber (hacer)",precisar
+müssen,verbo,1,tipo_verbo,modal,faltaba
+wollen,verbo,1,tipo_verbo,modal,faltaba
+wollen,verbo,1,traduccion_es,querer,«desear» es secundario
+sollen,verbo,1,tipo_verbo,modal,faltaba
+dürfen,verbo,1,tipo_verbo,modal,faltaba
+dürfen,verbo,1,traduccion_es,"poder (tener permiso), estar permitido",«tener» erróneo
+mögen,verbo,1,tipo_verbo,modal,faltaba
+wissen,verbo,1,tipo_verbo,mixto,faltaba
+kennen,verbo,1,tipo_verbo,mixto,irregular → mixto
+kennen,verbo,1,traduccion_es,conocer,«saber» es *wissen*
+zu,preposición,1,traduccion_es,"a, hacia (destino: *zum Arzt*)",precisar
+nur,adverbio,1,traduccion_es,"solo, solamente",la más común primero
+gut,adjetivo,1,traduccion_es,bueno,«fiel» erróneo
+gut,adjetivo,2,traduccion_es,bien (como adverbio),precisar
+aus,preposición,1,traduccion_es,"de (procedencia), fuera de",precisar
+nach,preposición,1,traduccion_es,"a, hacia (ciudades y países: *nach Berlin*)",precisar
+nach,preposición,2,traduccion_es,después de (*nach dem Essen*),«de, por» erróneo
+gehen,verbo,1,traduccion_es,ir,«andar» va en el significado 2
+geben,verbo,1,traduccion_es,dar,«donar» sobra
+geben,verbo,2,traduccion_es,haber (*es gibt* = hay),precisar el uso
+aber,adverbio,1,traduccion_es,"pero, sin embargo",«mas» arcaico
+um,preposición,1,traduccion_es,"a (con horas: *um acht Uhr* = a las ocho)",precisar
+dann,adverbio,1,traduccion_es,"entonces, luego",«después» incompleto
+vor,preposición,1,traduccion_es,"antes de, hace (*vor zwei Jahren* = hace dos años)",precisar
+vor,preposición,2,traduccion_es,delante de,precisar
+je,adverbio,1,traduccion_es,"alguna vez; cada (*je zwei* = de dos en dos)",incompleto
+noch,adverbio,1,traduccion_es,"todavía, aún",
+doch,adverbio,1,traduccion_es,"¡sí! (contra una negación); sin embargo",glosa inglesa
+also,adverbio,1,traduccion_es,"así que, entonces, pues",«de este modo» poco usado
+mal,adverbio,1,traduccion_es,"vez, veces (*dreimal* = tres veces); a ver",glosa inglesa
+ganz,adverbio,1,traduccion_es,"totalmente, completamente; bastante",incompleto
+ganz,adjetivo,1,traduccion_es,"entero, todo, completo",orden
+einfach,adjetivo,1,traduccion_es,"simple, sencillo, fácil",«humilde» marginal
+einfach,adjetivo,1,raices,ein,ein = uno (no el prefijo «hacia dentro»)
+einfach,adjetivo,1,afijos,-fach,ein = uno (no el prefijo «hacia dentro»)
+einmal,adverbio,1,raices,ein + Mal,ein = uno (no el prefijo «hacia dentro»)
+einmal,adverbio,1,afijos,,ein = uno (no el prefijo «hacia dentro»)
+seit,preposición,1,traduccion_es,"desde, desde hace",precisar
+weit,adjetivo,1,traduccion_es,"amplio, ancho",«extenso» poco natural; «lejos» va en el 2
+weit,adjetivo,2,traduccion_es,"lejos, lejano",
+Mensch,sustantivo,1,traduccion_es,"ser humano, persona",duplicados
+etwas,adverbio,1,traduccion_es,"algo, un poco",«chin» erróneo
+alt,adjetivo,1,traduccion_es,"viejo, antiguo",«fiambre» erróneo
+selbst,adverbio,1,traduccion_es,"mismo (*ich selbst* = yo mismo); incluso",«aún» incompleto
+vielleicht,adverbio,1,traduccion_es,"quizá, tal vez",«capaz» regional
+bei,preposición,2,traduccion_es,"durante, al (hacer algo): *beim Essen* = al comer",precisar
+dort,adverbio,1,traduccion_es,"allí, allá",
+Mal,sustantivo,1,traduccion_es,vez (*das erste Mal* = la primera vez),«marca» erróneo como principal
+wirken,verbo,1,traduccion_es,"hacer efecto, actuar; parecer",precisar
+wirklich,adjetivo,1,traduccion_es,"real, verdadero; de verdad",precisar
+zeigen,verbo,1,traduccion_es,"mostrar, enseñar, indicar",
+spielen,verbo,1,traduccion_es,"jugar, tocar (un instrumento), actuar",precisar
+liegen,verbo,1,traduccion_es,"estar tumbado, yacer; estar situado",«tender» erróneo
+dabei,adverbio,1,traduccion_es,"con ello, presente; al mismo tiempo",«ahí, por» erróneo
+spät,adjetivo,1,traduccion_es,"tarde, tardío",
+schön,adjetivo,1,traduccion_es,"bonito, bello, lindo",orden
+ander,adjetivo,1,traduccion_es,"otro, distinto",glosa inglesa
+recht,adjetivo,1,traduccion_es,"derecho (lado), correcto",precisar
+genau,adjetivo,1,traduccion_es,"exacto, exactamente",
+gerade,adverbio,1,traduccion_es,"justo (ahora), precisamente",«recién» impreciso
+Stadt,sustantivo,1,traduccion_es,ciudad,«urbe» sobra
+stellen,verbo,1,traduccion_es,"poner (de pie), colocar",«parar» erróneo
+wohl,adverbio,1,traduccion_es,"probablemente; bien",incompleto
+Geld,sustantivo,1,traduccion_es,dinero,«plata» regional; «billete» erróneo
+gleich,adjetivo,1,traduccion_es,"igual, mismo; (adv.) enseguida",precisar
+verstehen,verbo,1,traduccion_es,"entender, comprender",«experto, ser» erróneo
+fahren,verbo,1,traduccion_es,"ir (en vehículo), conducir",precisar
+dazu,adverbio,1,traduccion_es,"además, para ello",
+erst,adverbio,1,traduccion_es,"primero; solo, no antes de (*erst morgen* = no hasta mañana)",incompleto
+gar,adverbio,1,traduccion_es,"en absoluto (*gar nicht*); incluso",incompleto
+davon,adverbio,1,traduccion_es,"de ello, de eso",«de allí» impreciso
+etwa,adverbio,1,traduccion_es,"aproximadamente, unos",«acaso» va en el significado 2
+etwa,adverbio,2,traduccion_es,"acaso, por casualidad (*bist du etwa krank?*)",«por ejemplo» poco frecuente
+treffen,verbo,1,traduccion_es,"encontrarse (con), quedar; acertar",«con» suelto
+meinen,verbo,1,traduccion_es,"opinar, creer; querer decir",incompleto
+schaffen,verbo,1,traduccion_es,crear,«lograr» va en el significado 2
+über,preposición,1,traduccion_es,"sobre, por encima de",orden
+über,preposición,2,traduccion_es,"acerca de, sobre (un tema: *über Politik*)",«durante» marginal
+führen,verbo,1,traduccion_es,"llevar, guiar, dirigir",orden
+Fall,sustantivo,1,traduccion_es,caso,«caso» es el uso más frecuente; «caída» va en el 2
+setzen,verbo,1,traduccion_es,"poner, colocar; sentar",«cifrar» erróneo
+ab,preposición,1,traduccion_es,"desde, a partir de (*ab Montag*)",precisar
+Seite,sustantivo,1,traduccion_es,"lado, página",«faz, flanco» marginales
+natürlich,adverbio,1,traduccion_es,"por supuesto, claro; naturalmente",glosa inglesa
+laufen,verbo,1,traduccion_es,"correr; andar; funcionar",incompleto
+nennen,verbo,1,tipo_verbo,mixto,irregular → mixto
+nennen,verbo,1,traduccion_es,"llamar, nombrar, mencionar",orden
+Grund,sustantivo,1,traduccion_es,"razón, motivo; suelo, fondo",incompleto
+reden,verbo,1,traduccion_es,"hablar, conversar",
+weiter,adverbio,1,traduccion_es,"más allá, más lejos; (seguir) adelante",glosa inglesa
+weiter,adverbio,1,afijos,-er (comparativo),no es el sufijo de agente
+viel,adverbio,1,traduccion_es,mucho,glosa inglesa
+lange,adverbio,1,traduccion_es,"mucho tiempo, largo rato",«mucho» impreciso
+Film,sustantivo,1,traduccion_es,"película, filme",«capa» marginal
+Stunde,sustantivo,1,traduccion_es,hora; clase,incompleto
+Teil,sustantivo,1,traduccion_es,parte,
+schwer,adjetivo,1,traduccion_es,"pesado; difícil",incompleto
+darauf,adverbio,1,traduccion_es,"sobre eso, encima; después",«en, eso» erróneo
+darauf,adverbio,1,afijos,da(r)- (ahí),no es «presentar, ofrecer»
+einzig,adjetivo,1,traduccion_es,"único, solo",
+Million,sustantivo,1,traduccion_es,millón,«cuento» erróneo
+Monat,sustantivo,1,articulo,der,das es raro
+Monat,sustantivo,1,genero,masculino,das es raro
+Platz,sustantivo,1,traduccion_es,"plaza, lugar, sitio, asiento",«puesto» → asiento
+fallen,verbo,1,traduccion_es,caer,«abandonar» marginal
+darüber,adverbio,1,traduccion_es,"sobre eso, encima; acerca de eso",impreciso
+darüber,adverbio,1,afijos,da(r)- (ahí),no es «presentar, ofrecer»
+passieren,verbo,1,traduccion_es,"pasar, ocurrir",
+eigentlich,adverbio,1,traduccion_es,"en realidad, de hecho",precisar
+stimmen,verbo,1,traduccion_es,"ser correcto, ser cierto; votar",«afinar» no es el principal
+lieb,adjetivo,1,traduccion_es,"querido, amable",
+immer,adverbio,2,traduccion_es,cada vez (más): *immer besser* = cada vez mejor,precisar
+Art,sustantivo,1,traduccion_es,"tipo, clase; manera",incompleto
+Sohn,sustantivo,1,traduccion_es,hijo,«retoño» sobra
+holen,verbo,1,traduccion_es,"ir a buscar, traer, recoger",incompleto
+allein,adverbio,1,traduccion_es,solo (sin compañía),«único» impreciso
+Magd,sustantivo,1,traduccion_es,"criada, sirvienta",«asistenta» moderno
+tragen,verbo,1,traduccion_es,"llevar (cargado o puesto), cargar",precisar
+Bild,sustantivo,1,traduccion_es,"imagen, cuadro, foto",
+lassen,verbo,2,traduccion_es,hacer (que alguien haga): *ich lasse das Auto reparieren* = hago reparar el coche,precisar
+daran,adverbio,1,traduccion_es,"en eso, de eso (*denk daran* = piensa en eso)",«al lado» erróneo
+Schule,sustantivo,1,traduccion_es,"escuela, colegio",«discípulo» erróneo
+scheinen,verbo,1,traduccion_es,"brillar; parecer",incompleto
+zwar,adverbio,1,traduccion_es,"es cierto que (*zwar… aber*); *und zwar* = en concreto",precisar
+denn,adverbio,1,traduccion_es,"pues, entonces (en preguntas: *Was ist denn los?*)",«porque» es la conjunción
+finden,verbo,2,traduccion_es,"opinar, parecer (*ich finde das gut* = me parece bien)",«aparecer» erróneo
+Abend,sustantivo,1,traduccion_es,"tarde (al anochecer), noche",«víspera, velada» marginales
+hinter,preposición,1,traduccion_es,"detrás de, tras",
+groß,adjetivo,2,traduccion_es,"mayor, adulto (*wenn ich groß bin* = cuando sea mayor)",precisar
+sonst,adverbio,1,traduccion_es,"si no, de lo contrario; normalmente",«por lo demás» incompleto
+fühlen,verbo,1,traduccion_es,"sentir, palpar",
+Chance,sustantivo,1,traduccion_es,oportunidad,
+frei,adjetivo,1,traduccion_es,libre,«liberal» marginal
+falsch,adjetivo,1,traduccion_es,"falso, equivocado, incorrecto",
+genug,adverbio,1,traduccion_es,"suficiente, bastante",glosa inglesa
+töten,verbo,1,traduccion_es,matar,«achiar» erróneo
+schlagen,verbo,1,traduccion_es,"golpear, pegar; vencer",«debelar» arcaico
+stehen,verbo,2,traduccion_es,"estar escrito, poner (*Was steht da?* = ¿qué pone ahí?)",«encontrar» erróneo
+rufen,verbo,1,traduccion_es,"llamar, gritar",
+sitzen,verbo,1,traduccion_es,estar sentado,«sentarse» es *sich setzen*
+hoffen,verbo,1,traduccion_es,esperar (tener esperanza),precisar
+sofort,adverbio,1,traduccion_es,"enseguida, inmediatamente",
+ziehen,verbo,1,traduccion_es,"tirar (de), arrastrar; mudarse",incompleto
+legen,verbo,1,traduccion_es,"poner (tumbado), colocar",«acostar, causar» marginales
+Junge,sustantivo,1,traduccion_es,"chico, muchacho",
+morgen,adverbio,1,traduccion_es,mañana (el día siguiente),«cras» arcaico
+Haupt,sustantivo,1,traduccion_es,"cabeza (culto); (en compuestos) principal: *Hauptstadt* = capital",precisar
+überhaupt,adverbio,1,traduccion_es,"en absoluto (*überhaupt nicht*); en general",«generalmente» impreciso
+leicht,adjetivo,1,traduccion_es,"ligero; fácil",«light» inglés
+deuten,verbo,1,traduccion_es,"interpretar; señalar",orden
+reichen,verbo,1,traduccion_es,"bastar, alcanzar; pasar (algo a alguien)",incompleto
+anders,adverbio,1,traduccion_es,"de otra manera, distinto",
+eben,adverbio,1,traduccion_es,"justo, precisamente",«ahora» impreciso
+verlassen,verbo,1,traduccion_es,"dejar, abandonar, salir de",
+echt,adjetivo,1,traduccion_es,"auténtico, genuino; (coloq.) de verdad",
+Krieg,sustantivo,1,traduccion_es,guerra,«conflagración» sobra
+scheiden,verbo,1,traduccion_es,"separar; divorciarse",incompleto
+zusammen,adverbio,1,traduccion_es,"juntos, junto",
+Tag,sustantivo,2,traduccion_es,"asamblea, parlamento (*Bundestag*)",«dieta» confuso
+Ziel,sustantivo,1,traduccion_es,"objetivo, meta; destino",
+darum,adverbio,1,traduccion_es,por eso,«en conclusión» erróneo
+Stelle,sustantivo,1,traduccion_es,"lugar, sitio; puesto (de trabajo)",«autoridad» marginal
+damals,adverbio,1,traduccion_es,"entonces, en aquella época",
+schließen,verbo,1,traduccion_es,"cerrar; concluir",incompleto
+Folge,sustantivo,1,traduccion_es,"consecuencia; episodio",incompleto
+Herz,sustantivo,1,plural,Herzen,faltaba
+allerdings,adverbio,1,traduccion_es,"sin embargo, no obstante; ¡desde luego!",incompleto
+toll,adjetivo,1,traduccion_es,"genial, estupendo",«loco» es el sentido antiguo
+Zukunft,sustantivo,1,traduccion_es,"futuro, porvenir",
+Glück,sustantivo,1,traduccion_es,"suerte; felicidad",«ventura» arcaico
+außer,preposición,1,traduccion_es,"excepto, aparte de; fuera de",orden
+endlich,adverbio,1,traduccion_es,"por fin, finalmente",
+Stück,sustantivo,1,traduccion_es,"trozo, pedazo; pieza; obra (de teatro)",incompleto
+gern,adverbio,1,traduccion_es,"con gusto, de buena gana",
+übernehmen,verbo,1,traduccion_es,"asumir, hacerse cargo de",«usurpar» marginal
+gemein,adjetivo,1,traduccion_es,"malo, mezquino; común",el sentido moderno va primero
+Alter,sustantivo,1,traduccion_es,"edad; vejez",«viejo» erróneo
+bestimmen,verbo,1,traduccion_es,"determinar, decidir",
+Wahl,sustantivo,1,traduccion_es,"elección; opción",«calidad, categoría» marginales
+oben,adverbio,1,traduccion_es,arriba,
+danach,adverbio,1,traduccion_es,"después, luego",«eso» suelto
+wahr,adjetivo,1,traduccion_es,"verdadero, cierto",
+während,preposición,1,traduccion_es,durante,
+tot,adjetivo,1,traduccion_es,muerto,sinónimos sobrantes
+bekannt,adjetivo,1,traduccion_es,conocido,
+neben,preposición,1,traduccion_es,"al lado de, junto a",
+vergessen,verbo,1,traduccion_es,olvidar,«dejar» marginal
+bestehen,verbo,1,traduccion_es,"aprobar (un examen); existir; consistir (*aus* = en)",incompleto
+gegen,preposición,2,traduccion_es,"hacia, alrededor de (con horas: *gegen acht*)",«conta, por» erróneo
+steigen,verbo,1,traduccion_es,subir,
+Anfang,sustantivo,1,traduccion_es,"principio, comienzo",
+Dame,sustantivo,1,traduccion_es,"señora, dama",
+treten,verbo,1,traduccion_es,"pisar, dar un paso; patear",«pedalear» erróneo
+eher,adverbio,1,traduccion_es,"antes; más bien",incompleto
+her,adverbio,1,traduccion_es,"aquí, acá (hacia el que habla)",precisar
+völlig,adjetivo,1,traduccion_es,"completo, total; completamente",
+bauen,verbo,1,traduccion_es,construir,
+froh,adjetivo,1,traduccion_es,"contento, alegre",
+freuen,verbo,1,traduccion_es,alegrarse (*sich freuen*),precisar
+bieten,verbo,1,traduccion_es,ofrecer,
+gelten,verbo,1,traduccion_es,"valer, ser válido; considerarse",simplificar
+Rolle,sustantivo,1,traduccion_es,"papel, rol; rollo",incompleto
+Raum,sustantivo,1,traduccion_es,"espacio; habitación, sala",incompleto
+schwinden,verbo,1,traduccion_es,"menguar, disminuir",
+Firma,sustantivo,1,traduccion_es,empresa,«firma» es falso amigo en este sentido
+Gast,sustantivo,1,traduccion_es,"invitado, huésped; cliente",
+Uhr,sustantivo,2,traduccion_es,hora (*um drei Uhr* = a las tres),precisar
+Möglichkeit,sustantivo,1,traduccion_es,posibilidad,
+Gesicht,sustantivo,1,traduccion_es,"cara, rostro",
+verletzen,verbo,1,traduccion_es,"herir, lesionar; ofender",
+dank,preposición,1,traduccion_es,gracias a,
+manchmal,adverbio,1,traduccion_es,a veces,
+stecken,verbo,1,traduccion_es,"meter, poner (dentro); estar metido",precisar
+vorstellen,verbo,1,traduccion_es,"presentar; imaginarse (*sich etwas vorstellen*)",incompleto
+erkennen,verbo,1,traduccion_es,reconocer,
+erkennen,verbo,1,tipo_verbo,mixto,irregular → mixto
+Spaß,sustantivo,1,traduccion_es,"diversión; broma",«recocha» regional
+rot,adjetivo,1,traduccion_es,rojo,
+Gut,sustantivo,1,traduccion_es,"bien, propiedad; finca",precisar
+Zahl,sustantivo,1,traduccion_es,"número, cifra",
+trotzdem,adverbio,1,traduccion_es,"sin embargo, a pesar de ello",
+fertig,adjetivo,1,traduccion_es,"listo, terminado; agotado",«quemado» coloquial
+weniger,adverbio,1,traduccion_es,menos,«menor» erróneo
+Band,sustantivo,1,traduccion_es,"cinta; lazo",
+handeln,verbo,1,traduccion_es,"actuar; comerciar; tratarse de (*es handelt sich um*)",incompleto
+halten,verbo,2,traduccion_es,considerar (*ich halte ihn für klug* = lo considero listo),precisar
+ziemlich,adverbio,1,traduccion_es,bastante,glosa inglesa
+Arzt,sustantivo,1,traduccion_es,"médico, doctor",«físico» arcaico
+Morgen,sustantivo,1,traduccion_es,mañana (parte del día),«madrugada» impreciso
+Gruppe,sustantivo,1,traduccion_es,grupo,«hatajo» despectivo
+Gefühl,sustantivo,1,traduccion_es,"sentimiento, sensación",
+Geschäft,sustantivo,1,traduccion_es,"negocio; tienda",«ganancia» marginal
+dürfen,verbo,2,traduccion_es,probablemente (con *dürfte*: *das dürfte stimmen* = eso debe de ser cierto),precisar
+Tat,sustantivo,1,traduccion_es,"acción, hecho",
+tatsächlich,adjetivo,1,traduccion_es,"real; realmente, en efecto",
+verschieden,adjetivo,1,traduccion_es,"diferente, distinto; varios",incompleto
+Job,sustantivo,1,traduccion_es,"trabajo, empleo",«pega» regional
+feiern,verbo,1,traduccion_es,"celebrar, festejar",
+drehen,verbo,1,traduccion_es,"girar, dar vueltas; rodar (una película)",
+meist,adverbio,1,traduccion_es,"casi siempre, la mayoría de las veces",
+Karte,sustantivo,1,traduccion_es,"tarjeta; mapa; entrada",incompleto
+passen,verbo,1,traduccion_es,"quedar bien, encajar; convenir",
+halb,adjetivo,1,traduccion_es,"medio, mitad",
+werfen,verbo,1,traduccion_es,"lanzar, tirar",
+kümmern,verbo,1,traduccion_es,"ocuparse (de), cuidar (*sich kümmern um*)",precisar
+wählen,verbo,1,traduccion_es,"elegir; votar; marcar (un número)",incompleto
+egal,adjetivo,1,traduccion_es,"igual (*das ist mir egal* = me da igual)",precisar
+verdienen,verbo,1,traduccion_es,"ganar (dinero); merecer",
+Fehler,sustantivo,1,traduccion_es,"error, fallo",
+befinden,verbo,1,traduccion_es,"encontrarse, estar situado (*sich befinden*)",precisar
+müssen,verbo,3,traduccion_es,deber de (suposición: *er muss krank sein* = debe de estar enfermo),precisar
+leider,adverbio,1,traduccion_es,"lamentablemente, por desgracia",
+wie,adverbio,1,traduccion_es,"cómo; como",
+melden,verbo,1,traduccion_es,"informar, avisar; dar señales (*sich melden*)",
+Glied,sustantivo,1,traduccion_es,"miembro (del cuerpo); eslabón",orden
+ruhig,adjetivo,1,traduccion_es,"tranquilo, quieto",
+Weg,sustantivo,2,traduccion_es,"manera, modo",«camino» duplica el 1
+richten,verbo,1,traduccion_es,"dirigir, orientar; arreglar",«enderezar» marginal
+Schiff,sustantivo,1,traduccion_es,"barco, buque",
+schwarz,adjetivo,1,traduccion_es,negro,
+müssen,verbo,3,tipo_verbo,modal,faltaba
+dürfen,verbo,2,tipo_verbo,modal,faltaba
+wahrscheinlich,adjetivo,1,traduccion_es,"probable; probablemente",incompleto
+Wert,sustantivo,1,traduccion_es,valor,
+rein,adjetivo,1,traduccion_es,"puro, limpio",orden
+teilen,verbo,1,traduccion_es,"dividir, repartir; compartir",incompleto
+Tor,sustantivo,1,traduccion_es,"portón, puerta; gol",faltaba «gol»
+tief,adjetivo,1,traduccion_es,"profundo, hondo; bajo",orden
+schießen,verbo,1,traduccion_es,"disparar; chutar",«balear» regional
+Menge,sustantivo,1,traduccion_es,"cantidad, montón; multitud",
+Menge,sustantivo,1,afijos,,«-e» no es sufijo aquí
+hören,verbo,2,traduccion_es,hacer caso (*auf jemanden hören*),precisar
+bewegen,verbo,1,traduccion_es,mover,
+jedoch,adverbio,1,traduccion_es,"sin embargo, no obstante",«empero, mas» arcaicos
+Schwester,sustantivo,1,traduccion_es,"hermana; enfermera",«sor» marginal
+hin,adverbio,1,traduccion_es,hacia allá (alejándose del que habla),«tomado» erróneo
+Lage,sustantivo,1,traduccion_es,"situación; ubicación",incompleto
+Meister,sustantivo,1,traduccion_es,"maestro; campeón",«maese» arcaico
+Mark,sustantivo,1,traduccion_es,marco (moneda),precisar
+Bank,sustantivo,1,traduccion_es,banco (asiento y entidad),«escaño» marginal
+nutzen,verbo,1,traduccion_es,"usar, aprovechar; servir",
+hängen,verbo,1,traduccion_es,"colgar; estar colgado",«ahorcar» marginal
+Hund,sustantivo,1,traduccion_es,perro,
+Aufgabe,sustantivo,1,traduccion_es,"tarea; misión",
+Ruhe,sustantivo,1,traduccion_es,"tranquilidad, calma; silencio",
+nämlich,adverbio,1,traduccion_es,"es decir, o sea; es que",incompleto
+Sorge,sustantivo,1,traduccion_es,"preocupación; cuidado",
+versprechen,verbo,1,traduccion_es,prometer,«esperar» marginal
+besuchen,verbo,1,traduccion_es,"visitar; asistir a",
+langsam,adjetivo,1,traduccion_es,"lento, despacio",
+Blick,sustantivo,1,traduccion_es,"mirada, vistazo; vista",
+raus,adverbio,1,traduccion_es,"fuera, afuera",
+Zug,sustantivo,1,traduccion_es,"tren; trago; jugada",incompleto
+klingen,verbo,1,traduccion_es,sonar,«tintinear» demasiado específico
+erfahren,verbo,1,traduccion_es,"enterarse (de); experimentar",«sufrir, padecer» marginales
+schlimm,adjetivo,1,traduccion_es,"grave, malo, terrible",
+Schuld,sustantivo,1,traduccion_es,"culpa; deuda (pl. *Schulden*)",incompleto
+kriegen,verbo,1,traduccion_es,"recibir, conseguir (coloquial)",
+interessieren,verbo,1,traduccion_es,"interesar; interesarse (*sich interessieren für*)",
+Sonne,sustantivo,1,traduccion_es,sol,
+bloß,adjetivo,1,traduccion_es,"mero; desnudo; (adv.) solo",orden
+Zeitung,sustantivo,1,traduccion_es,"periódico, diario",«rotativo» sobra
+erscheinen,verbo,1,traduccion_es,"aparecer; publicarse",
+zuerst,adverbio,1,traduccion_es,"primero, al principio",
+heiß,adjetivo,1,traduccion_es,caliente,«tórrido» sobra
+Boden,sustantivo,1,traduccion_es,"suelo; fondo",«territorio» marginal
+Opfer,sustantivo,1,traduccion_es,"víctima; sacrificio",orden
+wohnen,verbo,1,traduccion_es,"vivir (residir), habitar",
+schätzen,verbo,1,traduccion_es,"estimar, calcular; apreciar",
+heißen,verbo,2,traduccion_es,significar (*das heißt* = es decir),«tachar de» marginal
+Tier,sustantivo,1,traduccion_es,animal,
+geschehen,verbo,1,traduccion_es,"suceder, ocurrir, pasar",«acaecer» arcaico
+gehen,verbo,3,traduccion_es,"irse, marcharse (*ich gehe jetzt* = me voy)",precisar
+Gespräch,sustantivo,1,traduccion_es,"conversación, charla",
+Gesetz,sustantivo,1,traduccion_es,ley,«fuero» marginal
+schön,adjetivo,2,traduccion_es,"agradable, bueno (*schönes Wetter* = buen tiempo)",precisar
+Wohnung,sustantivo,1,traduccion_es,"piso, apartamento, vivienda",
+Herr,sustantivo,2,traduccion_es,el Señor (Dios),precisar
+Kosten,sustantivo,1,traduccion_es,"costes, gastos",
+Gebäude,sustantivo,1,traduccion_es,edificio,
+Krankenhaus,sustantivo,1,traduccion_es,hospital,«nosocomio» sobra
+Krankenhaus,sustantivo,1,raices,krank + Haus,faltaba *krank*
+Traum,sustantivo,1,traduccion_es,sueño,
+Geselle,sustantivo,1,traduccion_es,"oficial (de un oficio); compañero",
+Gesellschaft,sustantivo,1,traduccion_es,"sociedad; compañía",
+halt,adverbio,1,traduccion_es,"pues, simplemente (resignación: *das ist halt so*)",precisar
+aufnehmen,verbo,1,traduccion_es,"recoger; acoger; grabar",incompleto
+Antwort,sustantivo,1,traduccion_es,respuesta,
+leisten,verbo,1,traduccion_es,"lograr, rendir; permitirse (*sich leisten*)",incompleto
+Bericht,sustantivo,1,traduccion_es,"informe, reportaje",
+wickeln,verbo,1,traduccion_es,"envolver, enrollar",«cambiar» incompleto
+entwickeln,verbo,1,traduccion_es,"desarrollar; revelar (fotos)",
+gebären,verbo,1,traduccion_es,"dar a luz, parir",«criar, nacer» erróneos
+deutlich,adjetivo,1,traduccion_es,"claro, nítido",
+Geburtstag,sustantivo,1,traduccion_es,cumpleaños,sinónimos arcaicos
+Grüne,sustantivo,1,traduccion_es,"lo verde, zona verde; *die Grünen* = los Verdes (partido)",glosa inglesa
+berichten,verbo,1,traduccion_es,"informar, relatar",
+mindest,adjetivo,1,traduccion_es,mínimo,glosa inglesa
+Körper,sustantivo,1,traduccion_es,cuerpo,
+beschäftigen,verbo,1,traduccion_es,"ocupar; emplear; ocuparse de (*sich beschäftigen mit*)",
+rund,adverbio,1,traduccion_es,"aproximadamente, unos",
+daher,adverbio,1,traduccion_es,"por eso, por lo tanto; de allí",orden
+darin,adverbio,1,traduccion_es,"en ello, ahí dentro",
+darin,adverbio,1,afijos,da(r)- (ahí),no es «presentar» ni forma femenina
+fangen,verbo,1,traduccion_es,"atrapar, coger",
+Hundert,sustantivo,1,traduccion_es,"centenar, cien",
+Baby,sustantivo,1,traduccion_es,bebé,
+Not,sustantivo,1,traduccion_es,"necesidad; apuro, emergencia",incompleto
+Dank,sustantivo,1,traduccion_es,"agradecimiento, gracias",
+plötzlich,adjetivo,1,traduccion_es,"repentino; de repente",
+stellen,verbo,2,traduccion_es,plantear (*eine Frage stellen* = hacer una pregunta),«ajustar» marginal
+All,sustantivo,1,traduccion_es,"universo, cosmos",
+überall,adverbio,1,traduccion_es,en todas partes,
+fordern,verbo,1,traduccion_es,"exigir, reclamar",
+trinken,verbo,1,traduccion_es,"beber, tomar",
+Sieg,sustantivo,1,traduccion_es,victoria,
+Erde,sustantivo,1,traduccion_es,"tierra, suelo; Tierra (planeta)",
+nett,adjetivo,1,traduccion_es,"amable, simpático",«bonito» impreciso
+gesamt,adjetivo,1,traduccion_es,"total, entero",
+Wagen,sustantivo,1,traduccion_es,"coche; carro, vagón",
+Einsatz,sustantivo,1,traduccion_es,"uso, empleo; intervención; apuesta",«despliegue» parcial
+Schluss,sustantivo,1,traduccion_es,"final, fin; conclusión",
+dafür,adverbio,2,traduccion_es,a favor (*ich bin dafür* = estoy a favor),precisar
+enden,verbo,1,traduccion_es,"terminar, acabar",
+beenden,verbo,1,traduccion_es,"terminar, acabar",
+Gedanke,sustantivo,1,traduccion_es,"pensamiento, idea",
+Versuch,sustantivo,1,traduccion_es,"intento; experimento",
+Los,sustantivo,1,traduccion_es,"suerte, destino; billete de lotería",
+Treffen,sustantivo,1,traduccion_es,"encuentro, reunión",«jornadas» erróneo
+langen,verbo,1,traduccion_es,"bastar; alcanzar (coloquial)",
+Nähe,sustantivo,1,traduccion_es,"cercanía, proximidad",
+ergeben,verbo,1,traduccion_es,"dar como resultado, resultar; rendirse (*sich ergeben*)",«arrojar» poco natural
+ebenfalls,adverbio,1,traduccion_es,"igualmente, también",
+lachen,verbo,1,traduccion_es,"reír, reírse",
+ähnlich,adjetivo,1,traduccion_es,"parecido, similar",
+ähnlich,adjetivo,1,afijos,-lich,no lleva el prefijo «ein-»
+Land,sustantivo,2,traduccion_es,campo (*auf dem Land* = en el campo),«campaña» erróneo
+fest,adjetivo,1,traduccion_es,"firme, sólido, fijo",
+Feuer,sustantivo,1,traduccion_es,fuego,
+heiraten,verbo,1,traduccion_es,casarse (con),
+lösen,verbo,1,traduccion_es,"soltar, desatar; resolver (*ein Problem lösen*)",«desconectar» erróneo
+Himmel,sustantivo,1,traduccion_es,cielo,
+knapp,adjetivo,1,traduccion_es,"escaso, justo; apenas, por poco",incompleto
+gegenüber,preposición,1,traduccion_es,"enfrente de, frente a; respecto a",glosa inglesa
+starten,verbo,1,traduccion_es,"empezar, arrancar; despegar",
+deswegen,adverbio,1,raices,des + wegen,no viene de *Des* (re bemol)
+Hotel,sustantivo,1,traduccion_es,hotel,
+Paar,sustantivo,1,traduccion_es,"pareja; par",
+genauso,adverbio,1,traduccion_es,"exactamente igual, igual de",«coincidir» erróneo
+außen,adverbio,1,traduccion_es,"fuera, por fuera",
+draußen,adverbio,1,traduccion_es,fuera (al aire libre),precisar
+jedenfalls,adverbio,1,traduccion_es,"en todo caso, de todas formas",
+Bereich,sustantivo,1,traduccion_es,"área, ámbito",
+Angebot,sustantivo,1,traduccion_es,oferta,
+Weise,sustantivo,1,traduccion_es,"manera, modo",«guisa» arcaico
+sorgen,verbo,1,traduccion_es,"encargarse de (*für etwas sorgen*); preocuparse (*sich sorgen*)",«importar» erróneo
+schlafen,verbo,1,traduccion_es,dormir,«apolillar» regional
+aussehen,verbo,1,traduccion_es,"parecer, tener aspecto (de)",
+stützen,verbo,1,traduccion_es,"apoyar, sostener",
+unterstützen,verbo,1,traduccion_es,"apoyar, ayudar",
+vorher,adverbio,1,traduccion_es,"antes, previamente",
+irgend,adverbio,1,traduccion_es,"algún, cualquier (*irgendwo* = en algún sitio)",«qualquiera» con errata
+Chef,sustantivo,1,traduccion_es,jefe,
+wachsen,verbo,1,traduccion_es,crecer,
+Gericht,sustantivo,1,traduccion_es,"tribunal; plato (comida)",faltaba «plato»
+Stand,sustantivo,1,traduccion_es,"estado, situación; puesto (de mercado)",«estado civil» impreciso
+ständig,adjetivo,1,traduccion_es,"constante, continuo",
+Büro,sustantivo,1,traduccion_es,"oficina, despacho",
+Interesse,sustantivo,1,raices,,no viene de *intern* + *Esse*
+entstehen,verbo,1,traduccion_es,"surgir, originarse, formarse",
+Zimmer,sustantivo,1,traduccion_es,habitación,
+besitzen,verbo,1,traduccion_es,"poseer, tener",
+beziehen,verbo,1,traduccion_es,"referirse (*sich beziehen auf*); recibir; mudarse a",«instalarse» parcial
+annehmen,verbo,1,traduccion_es,"aceptar; suponer",incompleto
+fahren,verbo,2,traduccion_es,llevar (en coche: *ich fahre dich* = te llevo),precisar
+binden,verbo,1,traduccion_es,atar,«liar» regional
+verbinden,verbo,1,traduccion_es,"unir, conectar; vendar",«vendar» no es el principal
+Verbindung,sustantivo,1,traduccion_es,"conexión, unión",
+Mond,sustantivo,1,traduccion_es,luna,
+Dach,sustantivo,1,traduccion_es,"tejado, techo",
+decken,verbo,1,traduccion_es,"cubrir; poner (la mesa)",
+entdecken,verbo,1,traduccion_es,descubrir,
+Wochenende,sustantivo,1,traduccion_es,fin de semana,
+erleben,verbo,1,traduccion_es,"vivir, experimentar",
+Lauf,sustantivo,1,traduccion_es,"carrera; curso, transcurso",
+Leid,sustantivo,1,traduccion_es,"pena, sufrimiento",
+einzeln,adjetivo,1,traduccion_es,"individual, suelto, por separado",«solo» impreciso
+kalt,adjetivo,1,traduccion_es,frío,«fiambre» erróneo
+versuchen,verbo,2,traduccion_es,probar (comida: *den Wein versuchen*),precisar
+bisschen,adverbio,1,traduccion_es,un poco (*ein bisschen*),«chin» erróneo
+weisen,verbo,1,traduccion_es,"señalar, indicar",
+beweisen,verbo,1,traduccion_es,"demostrar, probar",
+Geist,sustantivo,1,traduccion_es,"espíritu; mente; fantasma",incompleto
+Bein,sustantivo,1,traduccion_es,"pierna; pata",
+erfolgreich,adjetivo,1,traduccion_es,exitoso,«afortunado, boyante» erróneos
+Ruf,sustantivo,1,traduccion_es,"llamada, grito; reputación",incompleto
+Unfall,sustantivo,1,traduccion_es,accidente,
+behalten,verbo,1,traduccion_es,"quedarse con, conservar; recordar",«tener» impreciso
+Kollege,sustantivo,1,traduccion_es,"colega, compañero de trabajo",
+Brief,sustantivo,1,traduccion_es,carta,
+unterwegs,adverbio,1,traduccion_es,"en camino, de viaje",
+einsetzen,verbo,1,traduccion_es,"introducir; emplear; nombrar",orden
+bestimmt,adjetivo,1,traduccion_es,"determinado; (adv.) seguramente",incompleto
+übrig,adjetivo,1,traduccion_es,"restante, sobrante",
+übrigens,adverbio,1,traduccion_es,"por cierto, a propósito",
+Teufel,sustantivo,1,traduccion_es,diablo,
+behandeln,verbo,1,traduccion_es,tratar,«exponer» marginal
+Partner,sustantivo,1,traduccion_es,"pareja, socio, compañero",
+Lied,sustantivo,1,traduccion_es,canción,
+kosten,verbo,1,traduccion_es,"costar; probar (comida)",faltaba «probar»
+Schau,sustantivo,1,traduccion_es,"espectáculo, exposición",
+Bett,sustantivo,1,traduccion_es,cama,«cauce» marginal
+Quelle,sustantivo,1,traduccion_es,"fuente, manantial",
+Reihe,sustantivo,1,traduccion_es,"fila, hilera; serie",
+Erinnerung,sustantivo,1,traduccion_es,"recuerdo, memoria",orden
+fassen,verbo,1,traduccion_es,"agarrar, tomar; comprender",incompleto
+ledig,adjetivo,1,traduccion_es,soltero,
+erledigen,verbo,1,traduccion_es,"despachar, hacer, terminar",
+ansehen,verbo,1,traduccion_es,"mirar, contemplar",
+Gemeinde,sustantivo,1,traduccion_es,"municipio; comunidad, parroquia",
+Schloss,sustantivo,1,traduccion_es,"cerradura; castillo",faltaba «castillo»
+anbieten,verbo,1,traduccion_es,ofrecer,
+Werk,sustantivo,1,traduccion_es,"obra; fábrica",
+wenden,verbo,1,traduccion_es,"dar la vuelta, girar; dirigirse a (*sich wenden an*)",precisar
+verwenden,verbo,1,traduccion_es,"usar, emplear",
+entfernt,adjetivo,1,traduccion_es,"lejano, distante; alejado",
+Runde,sustantivo,1,traduccion_es,"ronda, vuelta",
+Einzel,sustantivo,1,traduccion_es,individual (partido),
+Nachweis,sustantivo,1,traduccion_es,"prueba, comprobante",
+eigen,adjetivo,2,traduccion_es,"peculiar, raro",
+teuer,adjetivo,1,traduccion_es,caro,
+Tote,sustantivo,1,traduccion_es,"muerta; (pl.) muertos, víctimas mortales",«baja» impreciso
+willkommen,adjetivo,1,traduccion_es,bienvenido,
+englisch,adjetivo,1,traduccion_es,inglés,
+bilden,verbo,1,traduccion_es,"formar; educar",
+rein,adverbio,1,traduccion_es,adentro (*komm rein!* = ¡pasa!),
+Griff,sustantivo,1,traduccion_es,"agarre; asa, mango",
+Angriff,sustantivo,1,traduccion_es,ataque,
+Stamm,sustantivo,1,traduccion_es,"tronco; tribu; raíz (gramatical)",incompleto
+stammen,verbo,1,traduccion_es,"proceder, provenir",
+hindern,verbo,1,traduccion_es,"impedir, estorbar",
+Berg,sustantivo,1,traduccion_es,montaña,
+dadurch,adverbio,1,traduccion_es,"así, de ese modo; por ahí",«por allí» parcial
+gelingen,verbo,1,traduccion_es,"salir bien, lograrse (*es gelingt mir* = lo consigo)",precisar
+schaffen,verbo,2,traduccion_es,"lograr, conseguir (*Ich schaffe das!* = ¡lo consigo!)",precisar
+Besuch,sustantivo,1,traduccion_es,visita,
+Datum,sustantivo,1,traduccion_es,fecha,«data» sobra
+bedingt,adjetivo,1,traduccion_es,"condicionado; en parte",
+unbedingt,adjetivo,1,traduccion_es,"sin falta, absolutamente; incondicional",orden
+Gebiet,sustantivo,1,traduccion_es,"territorio, zona, área",
+einladen,verbo,1,traduccion_es,invitar,
+über,preposición,3,traduccion_es,"por, vía (*über Berlin* = vía Berlín)",precisar
+Kreis,sustantivo,1,traduccion_es,"círculo; distrito",incompleto
+landen,verbo,1,traduccion_es,"aterrizar; acabar en",«abordar, aterrar» marginales
+Polizist,sustantivo,1,traduccion_es,policía (agente),
+Fall,sustantivo,2,traduccion_es,caída,«caso» va en el significado 1
+Satz,sustantivo,1,traduccion_es,"frase, oración; salto; set",incompleto
+merken,verbo,1,traduccion_es,"notar, darse cuenta; memorizar (*sich etwas merken*)",incompleto
+setzen,verbo,2,traduccion_es,sentarse (*sich setzen*),precisar
+Ehre,sustantivo,1,traduccion_es,honor,
+ehrlich,adjetivo,1,traduccion_es,"honesto, sincero",«fiel» erróneo
+heutig,adjetivo,1,traduccion_es,"de hoy, actual",
+Rat,sustantivo,1,traduccion_es,"consejo; consejo (órgano)",«aviso» erróneo
+gewiss,adjetivo,1,traduccion_es,"cierto, seguro",«un tal» marginal
+mindestens,adverbio,1,traduccion_es,"por lo menos, como mínimo",
+ehemals,adverbio,1,traduccion_es,"antes, antiguamente",«antaño» culto
+ehemals,adverbio,1,raices,,no viene de *Ehe* + *mal*
+ehemalig,adjetivo,1,traduccion_es,"antiguo, ex-",
+Auftrag,sustantivo,1,traduccion_es,"encargo, pedido; misión",
+Sprache,sustantivo,1,traduccion_es,"idioma, lengua; habla",
+sichern,verbo,1,traduccion_es,"asegurar; guardar (un archivo)",
+Riese,sustantivo,1,traduccion_es,gigante,
+riesig,adjetivo,1,traduccion_es,"gigantesco, enorme",
+Druck,sustantivo,1,traduccion_es,"presión; impresión",incompleto
+verbringen,verbo,1,traduccion_es,pasar (el tiempo),«dedicar» impreciso
+Lösung,sustantivo,1,traduccion_es,solución,
+Zeug,sustantivo,1,traduccion_es,"cosas, trastos, material",
+Flugzeug,sustantivo,1,traduccion_es,avión,
+Aufnahme,sustantivo,1,traduccion_es,"grabación; foto; admisión, acogida",«comienzo» erróneo
+Vertrag,sustantivo,1,traduccion_es,"contrato, tratado",
+Letzter,sustantivo,1,traduccion_es,el último,«aguantar» erróneo
+zuletzt,adverbio,1,traduccion_es,"por último, al final; últimamente",
+Mitte,sustantivo,1,traduccion_es,"mitad, medio, centro",
+Zeichen,sustantivo,1,traduccion_es,"signo, señal",
+eng,adjetivo,1,traduccion_es,"estrecho, ajustado; cercano",
+weiterhin,adverbio,1,traduccion_es,"todavía, en adelante; además",
+vor,preposición,3,traduccion_es,de (causa: *vor Angst zittern* = temblar de miedo),precisar
+lauten,verbo,1,traduccion_es,"decir, rezar (un texto)",
+lustig,adjetivo,1,traduccion_es,"divertido, gracioso",
+greifen,verbo,1,traduccion_es,"agarrar, coger",
+Mannschaft,sustantivo,1,traduccion_es,"equipo; tripulación",orden
+selten,adjetivo,1,traduccion_es,"raro, poco frecuente; rara vez",
+offenbar,adjetivo,1,traduccion_es,"evidentemente, al parecer",
+Hinweis,sustantivo,1,traduccion_es,"indicación, pista, aviso",
+dennoch,adverbio,1,traduccion_es,"sin embargo, no obstante",
+rechts,adverbio,1,traduccion_es,a la derecha,
+gefangen,adjetivo,1,traduccion_es,"preso, cautivo; atrapado",
+Gefängnis,sustantivo,1,traduccion_es,"cárcel, prisión",
+Wille,sustantivo,1,traduccion_es,voluntad,
+vermutlich,adverbio,1,traduccion_es,"probablemente, presuntamente",
+betreffen,verbo,1,traduccion_es,"afectar, concernir",
+krank,adjetivo,1,traduccion_es,enfermo,
+beschließen,verbo,1,traduccion_es,"decidir, acordar",
+Figur,sustantivo,1,traduccion_es,"figura; personaje",
+ahnen,verbo,1,traduccion_es,"sospechar, intuir, presentir",«temer» erróneo
+Ahnung,sustantivo,1,traduccion_es,"idea, presentimiento (*keine Ahnung* = ni idea)",
+treiben,verbo,1,traduccion_es,"impulsar, empujar; practicar (*Sport treiben*)",
+erfüllen,verbo,1,traduccion_es,"cumplir; llenar",orden
+leid,adjetivo,1,traduccion_es,"(*es tut mir leid* = lo siento); harto de (*etwas leid sein*)",«incómodo» erróneo
+Pass,sustantivo,1,traduccion_es,"pasaporte; paso (de montaña); pase",
+inzwischen,adverbio,1,traduccion_es,"entretanto, mientras tanto; ya, a estas alturas",
+schwach,adjetivo,1,traduccion_es,"débil, flojo",
+Sicht,sustantivo,1,traduccion_es,"vista, visibilidad",
+sichtlich,adjetivo,1,traduccion_es,"visible, evidente",«abierto» erróneo
+rechnen,verbo,1,traduccion_es,"calcular; contar con (*mit etwas rechnen*)",
+inner,adjetivo,1,traduccion_es,interior,glosa inglesa
+innerhalb,preposición,1,traduccion_es,dentro de,
+längst,adverbio,1,traduccion_es,"hace mucho; desde hace tiempo",
+dahin,adverbio,1,traduccion_es,"allí, hacia allí",
+still,adjetivo,1,traduccion_es,"callado, silencioso, quieto",«inmóvil» parcial
+liefern,verbo,1,traduccion_es,"entregar, suministrar",
+Gott,sustantivo,2,traduccion_es,Dios (*Gott sei Dank* = gracias a Dios),precisar
+Kaffee,sustantivo,1,traduccion_es,café,«feca» regional
+Farbe,sustantivo,1,traduccion_es,"color; pintura",«palo» marginal
+raten,verbo,1,traduccion_es,"aconsejar; adivinar",incompleto
+geraten,verbo,1,traduccion_es,"ir a parar, meterse en (*in Schwierigkeiten geraten*)",
+Freude,sustantivo,1,traduccion_es,alegría,
+anrufen,verbo,1,traduccion_es,llamar (por teléfono),
+Milliarde,sustantivo,1,traduccion_es,mil millones,«millardo» raro
+Pferd,sustantivo,1,traduccion_es,caballo,
+drauf,adverbio,1,traduccion_es,"encima, sobre eso (coloquial de *darauf*)",glosa inglesa
+artig,adjetivo,1,traduccion_es,"bueno, obediente (niños)",
+großartig,adjetivo,1,traduccion_es,"magnífico, estupendo",«famoso» erróneo
+genießen,verbo,1,traduccion_es,disfrutar,«saborear» parcial
+gering,adjetivo,1,traduccion_es,"escaso, poco, pequeño",
+Kurs,sustantivo,1,traduccion_es,"curso; rumbo; cotización",
+gewinnen,verbo,2,traduccion_es,"obtener, extraer",
+bereiten,verbo,1,traduccion_es,"preparar; causar (*Freude bereiten*)",
+gleichzeitig,adjetivo,1,traduccion_es,"simultáneo; al mismo tiempo",
+Dienstag,sustantivo,1,raices,,no viene de *dienen* + *Tag*
+Bus,sustantivo,1,traduccion_es,"autobús, bus",regionalismos
+Sommer,sustantivo,1,traduccion_es,verano,«estío» culto
+Computer,sustantivo,1,traduccion_es,"ordenador, computadora",
+Spur,sustantivo,1,traduccion_es,"huella, rastro; carril",incompleto
+hinten,adverbio,1,traduccion_es,"detrás, atrás; al fondo",
+Furcht,sustantivo,1,plural,—,«Befürchtungen» es otra palabra
+Fest,sustantivo,1,traduccion_es,fiesta,regionalismos
+prüfen,verbo,1,traduccion_es,"comprobar, revisar; examinar",
+überprüfen,verbo,1,traduccion_es,"comprobar, verificar, revisar",
+Schlag,sustantivo,1,traduccion_es,"golpe; latido",
+Vorschlag,sustantivo,1,traduccion_es,"propuesta, sugerencia",«oferta» impreciso
+Mitarbeiter,sustantivo,1,traduccion_es,"empleado, colaborador",
+Schauspiel,sustantivo,1,traduccion_es,"obra de teatro; espectáculo",
+aufgeben,verbo,1,traduccion_es,"abandonar, dejar, rendirse; enviar (un paquete)",
+nächst,preposición,1,traduccion_es,"próximo, siguiente; más cercano (*nächste Woche*)",
+zunächst,adverbio,1,traduccion_es,"primero, en primer lugar; de momento",
+Deutsche,sustantivo,1,traduccion_es,"alemana; (*das Deutsche*) el alemán",
+Bühne,sustantivo,1,traduccion_es,escenario,
+ausgehen,verbo,1,traduccion_es,"salir (de fiesta); acabarse (*das Geld geht aus*)",incompleto
+Geleit,sustantivo,1,traduccion_es,"escolta, acompañamiento",
+verraten,verbo,1,traduccion_es,"traicionar; revelar",incompleto
+irgendwo,adverbio,1,traduccion_es,"en algún sitio, en alguna parte",
+entschuldigen,verbo,1,traduccion_es,"disculpar, perdonar; disculparse (*sich entschuldigen*)",
+Unterstützung,sustantivo,1,traduccion_es,"apoyo, ayuda",
+böse,adjetivo,1,traduccion_es,"malo, malvado; enfadado (*böse sein*)",incompleto
+Rede,sustantivo,1,traduccion_es,"discurso; habla",
+verpassen,verbo,1,traduccion_es,"perder (tren, ocasión)",precisar
+drücken,verbo,1,traduccion_es,"apretar, presionar, pulsar",
+Eins,sustantivo,1,traduccion_es,"uno (la cifra); sobresaliente (nota)",
+Einheit,sustantivo,1,traduccion_es,unidad,marginales
+leiten,verbo,1,traduccion_es,"dirigir, guiar; conducir",
+Leitung,sustantivo,1,traduccion_es,"dirección; línea, tubería, cable",«conducción» impreciso
+Höhe,sustantivo,1,traduccion_es,altura,
+abschließen,verbo,1,traduccion_es,"cerrar con llave; terminar, concluir",incompleto
+Wunder,sustantivo,1,traduccion_es,"milagro; maravilla",
+Antrag,sustantivo,1,traduccion_es,solicitud,
+Freiheit,sustantivo,1,traduccion_es,libertad,
+Vorstellung,sustantivo,1,traduccion_es,"idea, imagen; presentación; función (teatro)",incompleto
+zuschauen,verbo,1,traduccion_es,"mirar, ver (como espectador)",«contemplar» impreciso
+eröffnen,verbo,1,traduccion_es,"abrir, inaugurar",
+Gewalt,sustantivo,1,traduccion_es,"violencia; fuerza, poder",
+Ring,sustantivo,1,traduccion_es,"anillo; ring",
+fallen,verbo,2,traduccion_es,"bajar, descender (precios, temperatura)",precisar
+geschickt,adjetivo,1,traduccion_es,"hábil, habilidoso",
+Kilometer,sustantivo,1,traduccion_es,kilómetro,
+Wand,sustantivo,1,traduccion_es,pared,
+natürlich,adjetivo,1,traduccion_es,natural,«lógico» impreciso
+scharf,adjetivo,1,traduccion_es,"afilado; picante; nítido",incompleto
+warten,verbo,2,traduccion_es,"revisar, dar mantenimiento (*eine Maschine warten*)",precisar
+einstellen,verbo,1,traduccion_es,"contratar; ajustar, regular; suspender",incompleto
+gelegen,adjetivo,1,traduccion_es,"situado; oportuno (*gelegen kommen*)",incompleto
+Gelegenheit,sustantivo,1,traduccion_es,"oportunidad, ocasión",regionalismo
+nochmal,adverbio,1,traduccion_es,"otra vez, de nuevo",
+Vogel,sustantivo,1,traduccion_es,"pájaro, ave",
+bezeichnen,verbo,1,traduccion_es,"llamar, designar, calificar de",
+blau,adjetivo,1,traduccion_es,"azul; borracho (coloquial)",
+Schatz,sustantivo,1,traduccion_es,"tesoro; cariño (apelativo)",
+Schatz,sustantivo,1,plural,Schätze,faltaba
+reisen,verbo,1,traduccion_es,viajar,«ir, pasar» erróneos
+tanzen,verbo,1,traduccion_es,bailar,
+Linie,sustantivo,1,traduccion_es,línea,
+schenken,verbo,1,traduccion_es,regalar,«donar» impreciso
+Geschenk,sustantivo,1,traduccion_es,regalo,
+dick,adjetivo,1,traduccion_es,"gordo, grueso",
+eigentlich,adjetivo,1,traduccion_es,"propio, verdadero, real",
+eigentlich,adverbio,2,traduccion_es,"en realidad, de hecho",
+Heim,sustantivo,1,traduccion_es,"hogar; residencia (*Altenheim*)",
+geheim,adjetivo,1,traduccion_es,secreto,
+Geheimnis,sustantivo,1,traduccion_es,"secreto; misterio",
+Leiter,sustantivo,1,articulo,der,*die Leiter* es la escalera
+Leiter,sustantivo,1,plural,Leiter,*Leitern* es de la escalera
+Leiter,sustantivo,1,genero,masculino,*die Leiter* es la escalera
+Fluss,sustantivo,1,traduccion_es,"río; flujo",
+Gang,sustantivo,1,traduccion_es,"marcha (del coche); paso, andar; plato (de una comida)",
+Amt,sustantivo,1,traduccion_es,"oficina pública, organismo; cargo",
+Heilige,sustantivo,1,traduccion_es,"santa; (*der Heilige*) santo",
+beschreiben,verbo,1,traduccion_es,describir,«escribir» erróneo
+Partei,sustantivo,1,traduccion_es,"partido (político); parte (en un juicio)",
+erklären,verbo,2,traduccion_es,"declarar (*den Krieg erklären*)",
+Vorsitzende,sustantivo,1,traduccion_es,presidenta (de un órgano),
+Vorsitzende,sustantivo,1,raices,Vorsitz,no contiene *Ende*
+Witz,sustantivo,1,traduccion_es,"chiste, broma",«fiesta» erróneo
+Streit,sustantivo,1,traduccion_es,"pelea, discusión, disputa",
+erhöhen,verbo,1,traduccion_es,"aumentar, subir, elevar",
+sammeln,verbo,1,traduccion_es,"recoger, reunir; coleccionar",
+vorsichtig,adjetivo,1,traduccion_es,"cuidadoso, prudente",
+Leistung,sustantivo,1,traduccion_es,"rendimiento, logro; prestación",«obra» impreciso
+irgendwann,adverbio,1,traduccion_es,"algún día, en algún momento",
+missen,verbo,1,traduccion_es,"echar en falta, prescindir de",
+Zeitpunkt,sustantivo,1,traduccion_es,momento,
+Fan,sustantivo,1,traduccion_es,"fan, aficionado",regionalismos
+Zusatz,sustantivo,1,traduccion_es,"añadido, aditivo",
+stoßen,verbo,1,traduccion_es,"empujar, chocar; toparse con (*auf etwas stoßen*)",incompleto
+Entwicklung,sustantivo,1,traduccion_es,"desarrollo; evolución",
+vorbei,adverbio,1,traduccion_es,"pasado, terminado (*es ist vorbei*); por delante",
+trachten,verbo,1,traduccion_es,aspirar a (*nach etwas trachten*),
+betrachten,verbo,1,traduccion_es,"mirar, contemplar; considerar",
+Prozess,sustantivo,1,traduccion_es,"proceso; juicio",
+komisch,adjetivo,1,traduccion_es,"raro, extraño; cómico",orden: «raro» es lo más frecuente
+Diskussion,sustantivo,1,raices,,no viene de *Diskus* + *Ion*
+täglich,adjetivo,1,traduccion_es,"diario, cotidiano",orden
+Brücke,sustantivo,1,traduccion_es,puente,«bóveda» marginal
+Schmerz,sustantivo,1,traduccion_es,"dolor; pena",
+Bier,sustantivo,1,traduccion_es,cerveza,
+Wein,sustantivo,1,traduccion_es,vino,«vid» y «caldo» marginales
+ursprünglich,adjetivo,1,traduccion_es,"original, inicial; originalmente",
+aufgrund,preposición,1,traduccion_es,"debido a, a causa de",
+notwendig,adjetivo,1,raices,Not + wenden,*wendig* no es la raíz
+Wind,sustantivo,1,traduccion_es,viento,
+dunkel,adjetivo,1,traduccion_es,oscuro,
+Beginn,sustantivo,1,traduccion_es,"comienzo, inicio",
+Schuss,sustantivo,1,traduccion_es,"disparo, tiro",
+Boot,sustantivo,1,traduccion_es,"barca, bote",«barco» es *Schiff*
+Ohr,sustantivo,1,traduccion_es,"oreja; oído",
+erneut,adjetivo,1,traduccion_es,"de nuevo, otra vez; renovado",
+ewig,adjetivo,1,traduccion_es,eterno,
+fällen,verbo,1,traduccion_es,"talar; tomar, dictar (*eine Entscheidung fällen*)",incompleto
+Amerikaner,sustantivo,1,traduccion_es,"estadounidense, americano",
+Aussage,sustantivo,1,traduccion_es,"declaración, afirmación",
+Truppe,sustantivo,1,traduccion_es,"tropa; compañía (de teatro)",
+konzentrieren,verbo,1,traduccion_es,"concentrar; concentrarse (*sich konzentrieren*)",
+Hintergrund,sustantivo,1,traduccion_es,"fondo; trasfondo, contexto",
+traurig,adjetivo,1,traduccion_es,triste,regionalismos
+sauber,adjetivo,1,traduccion_es,"limpio; honrado",
+Show,sustantivo,1,traduccion_es,"espectáculo, show",
+fügen,verbo,1,traduccion_es,"unir, juntar; someterse (*sich fügen*)",
+verfügen,verbo,1,traduccion_es,"disponer de (*über etwas verfügen*); decretar",orden
+Verfügung,sustantivo,1,traduccion_es,"disposición (*zur Verfügung stehen*)",
+Leiche,sustantivo,1,traduccion_es,cadáver,«fiambre» coloquial
+vergeben,verbo,1,traduccion_es,"perdonar; asignar, otorgar",«perdonar» faltaba
+kündigen,verbo,1,traduccion_es,"despedir; dimitir, darse de baja; rescindir",incompleto
+per,preposición,1,traduccion_es,"por, mediante (*per E-Mail*)",
+Besucher,sustantivo,1,traduccion_es,visitante,
+warm,adjetivo,1,traduccion_es,"caliente, cálido; templado",
+untersuchen,verbo,1,traduccion_es,"examinar, investigar",
+Untersuchung,sustantivo,1,traduccion_es,"investigación, examen; reconocimiento médico",
+insgesamt,adverbio,1,traduccion_es,"en total, en conjunto",«sobretodo» erróneo
+Fahrt,sustantivo,1,traduccion_es,"viaje, trayecto",
+Termin,sustantivo,1,traduccion_es,"cita; fecha, plazo",orden
+Zustand,sustantivo,1,traduccion_es,"estado, condición",
+Schwierigkeit,sustantivo,1,traduccion_es,dificultad,regionalismos
+Fisch,sustantivo,1,traduccion_es,"pez; pescado",
+aufhören,verbo,1,traduccion_es,"dejar de, parar, terminar",
+rücken,verbo,1,traduccion_es,"mover, correr (un mueble); acercarse (*näher rücken*)",
+immerhin,adverbio,1,traduccion_es,"al menos, después de todo",
+stoppen,verbo,1,traduccion_es,"parar, detener; cronometrar",
+seltsam,adjetivo,1,traduccion_es,"extraño, raro",
+Tasche,sustantivo,1,traduccion_es,"bolso, bolsa; bolsillo",
+hübsch,adjetivo,1,traduccion_es,"bonito, guapo, mono",
+kontrollieren,verbo,1,traduccion_es,"controlar, revisar, comprobar",
+Begriff,sustantivo,1,traduccion_es,"concepto, término",
+Entschuldigung,sustantivo,1,traduccion_es,"disculpa; ¡perdón!; justificante",
+miteinander,adverbio,1,traduccion_es,"juntos; entre sí, unos con otros",
+vertreten,verbo,1,traduccion_es,"representar; sustituir",
+klären,verbo,1,traduccion_es,aclarar,
+aufhalten,verbo,1,traduccion_es,"detener, retener; estar, permanecer (*sich aufhalten*)",incompleto
+Aktion,sustantivo,1,traduccion_es,"acción, campaña; oferta",
+beteiligen,verbo,1,traduccion_es,"hacer partícipe; participar (*sich beteiligen an*)",
+Star,sustantivo,1,traduccion_es,estrella (famoso),«estornino» no explica la frecuencia
+Star,sustantivo,1,plural,Stars,plural de la estrella
+nachdenken,verbo,1,traduccion_es,"reflexionar, pensar (*über etwas nachdenken*)",
+Auftritt,sustantivo,1,traduccion_es,"actuación, aparición (en escena)",
+wischen,verbo,1,traduccion_es,"limpiar (con un paño), fregar; deslizar (en una pantalla)",
+erwischen,verbo,1,traduccion_es,"pillar, atrapar; alcanzar (*den Zug erwischen*)",
+bewusst,adjetivo,1,traduccion_es,"consciente; deliberado",
+zurück,adverbio,1,raices,zu + Rücken,no viene de *rücken*
+kehren,verbo,1,traduccion_es,"barrer; girar, dar la vuelta",
+Kerl,sustantivo,1,traduccion_es,"tío, tipo",regionalismos
+Lust,sustantivo,1,traduccion_es,ganas (*Lust haben* = tener ganas),
+sowieso,adverbio,1,traduccion_es,"de todos modos, de todas formas",
+entsprechend,adjetivo,1,traduccion_es,"correspondiente, adecuado",
+lehnen,verbo,1,traduccion_es,"apoyar(se), recostar(se)",
+ablehnen,verbo,1,traduccion_es,"rechazar, rehusar",
+ungefähr,adjetivo,1,traduccion_es,"aproximado; aproximadamente",
+Bau,sustantivo,1,traduccion_es,"construcción; obra; edificio",
+Fahrer,sustantivo,1,traduccion_es,conductor,
+Steuer,sustantivo,1,traduccion_es,impuesto,el artículo *die* corresponde a «impuesto»
+Steuer,sustantivo,2,traduccion_es,"volante, timón",intercambiado con el significado 1
+Steuer,sustantivo,2,articulo,das,*das Steuer* = volante
+Steuer,sustantivo,2,plural,Steuer,*das Steuer* = volante
+Steuer,sustantivo,2,genero,neutro,*das Steuer* = volante
+fähig,adjetivo,1,traduccion_es,capaz,
+Fähigkeit,sustantivo,1,traduccion_es,"capacidad, habilidad",
+cool,adjetivo,1,traduccion_es,"guay, genial; tranquilo",
+aufbauen,verbo,1,traduccion_es,"construir, montar, levantar",
+Regisseur,sustantivo,1,traduccion_es,director (de cine o teatro),
+Anteil,sustantivo,1,traduccion_es,"parte, participación",
+Gerät,sustantivo,1,traduccion_es,"aparato, dispositivo",
+Nase,sustantivo,1,traduccion_es,nariz,
+Detail,sustantivo,1,traduccion_es,detalle,
+Ärger,sustantivo,1,traduccion_es,"enfado; problemas, líos (*Ärger bekommen*)",
+davor,adverbio,1,traduccion_es,"delante; antes; de eso (*Angst davor haben*)",incompleto
+unterschiedlich,adjetivo,1,traduccion_es,"diferente, distinto",
+voll,adjetivo,2,traduccion_es,borracho (coloquial),
+mitteilen,verbo,1,traduccion_es,"comunicar, informar",
+Start,sustantivo,1,traduccion_es,"comienzo, salida; despegue",
+sonst,adverbio,2,traduccion_es,por lo demás (*sonst noch etwas?* = ¿algo más?),
+Kino,sustantivo,1,traduccion_es,cine,
+möglicherweise,adverbio,1,traduccion_es,"posiblemente, tal vez",
+stürzen,verbo,1,traduccion_es,"caerse; derrocar; precipitarse",«caerse» faltaba
+Bauer,sustantivo,1,traduccion_es,"agricultor, campesino",
+Ton,sustantivo,1,traduccion_es,"sonido, tono",«arcilla» no explica la frecuencia
+Ton,sustantivo,1,plural,Töne,plural de «sonido»
+Ton,sustantivo,2,traduccion_es,arcilla,intercambiado con el significado 1
+fühlen,verbo,2,traduccion_es,sentirse (*sich fühlen*),
+Spitze,sustantivo,1,traduccion_es,"punta, cima; cabeza (*an der Spitze*)",
+recht,adjetivo,2,traduccion_es,bastante (*recht gut* = bastante bien),«verdadero» marginal
+Urteil,sustantivo,1,traduccion_es,"sentencia, veredicto; juicio, opinión",
+verurteilen,verbo,1,traduccion_es,"condenar",
+entlang,preposición,1,traduccion_es,a lo largo de (*die Straße entlang*),
+angeben,verbo,1,traduccion_es,"indicar, dar (datos); presumir, fanfarronear",incompleto
+angeblich,adjetivo,1,traduccion_es,"supuesto; supuestamente",
+haften,verbo,1,traduccion_es,"adherirse, pegarse; responder (*für etwas haften*)",incompleto
+verhaften,verbo,1,traduccion_es,"detener, arrestar",
+Weihnachten,sustantivo,1,traduccion_es,Navidad,«Crismes» erróneo
+wagen,verbo,1,traduccion_es,"atreverse, arriesgar",«osar» culto
+mitten,adverbio,1,traduccion_es,en medio de (*mitten in der Nacht*),
+Führung,sustantivo,1,traduccion_es,"dirección, liderazgo; visita guiada; ventaja (*in Führung*)",«regencia» erróneo
+zulassen,verbo,1,traduccion_es,"permitir, admitir; autorizar",
+Stein,sustantivo,1,traduccion_es,piedra,
+hierher,adverbio,1,traduccion_es,"aquí, hacia aquí",
+bemerken,verbo,1,traduccion_es,"notar, darse cuenta; comentar",
+Loch,sustantivo,1,traduccion_es,agujero,
+Größe,sustantivo,1,traduccion_es,"tamaño; talla; estatura",
+heraus,adverbio,1,traduccion_es,"fuera, afuera (hacia el que habla)",
+herausfinden,verbo,1,traduccion_es,"descubrir, averiguar",
+Garten,sustantivo,1,traduccion_es,"jardín; huerto",
+schreien,verbo,1,traduccion_es,gritar,
+stattfinden,verbo,1,traduccion_es,"tener lugar, celebrarse",
+unterhalten,verbo,1,traduccion_es,"entretener, divertir; conversar (*sich unterhalten*); mantener",incompleto
+Ei,sustantivo,1,traduccion_es,huevo,
+Rechnung,sustantivo,1,traduccion_es,"cuenta, factura; cálculo",
+Bord,sustantivo,1,traduccion_es,bordo (*an Bord* = a bordo),«estante» no explica la frecuencia
+Bord,sustantivo,1,articulo,der,*an Bord* viene de *der Bord*
+Bord,sustantivo,1,genero,masculino,*an Bord* viene de *der Bord*
+üben,verbo,1,traduccion_es,"practicar, ejercitar",
+ersetzen,verbo,1,traduccion_es,"sustituir, reemplazar; reponer",
+früher,adverbio,1,traduccion_es,"antes, antiguamente",
+Sport,sustantivo,1,plural,—,faltaba
+Glas,sustantivo,1,traduccion_es,"vidrio, cristal; vaso; tarro",
+klappen,verbo,1,traduccion_es,"salir bien, funcionar (*Hat es geklappt?*); plegar",
+süß,adjetivo,1,traduccion_es,"dulce; mono, cuco",incompleto
+Abschied,sustantivo,1,traduccion_es,despedida,
+Abschied,sustantivo,1,raices,ab + scheiden,incompleto
+verabschieden,verbo,1,traduccion_es,"despedir; despedirse (*sich verabschieden*); aprobar (una ley)",
+abgeben,verbo,1,traduccion_es,"entregar; dar, ceder",
+Chinese,sustantivo,1,traduccion_es,chino (persona),
+hinterlassen,verbo,1,traduccion_es,"dejar (un mensaje, una herencia)",
+Behörde,sustantivo,1,traduccion_es,"autoridad, organismo oficial",
+Umstand,sustantivo,1,traduccion_es,"circunstancia; molestia (*keine Umstände!*)",
+wild,adjetivo,1,traduccion_es,"salvaje; silvestre",regionalismo
+Ursache,sustantivo,1,raices,Sache,*Ur* (uro) no es la raíz
+gleichen,verbo,1,traduccion_es,"parecerse a; igualar",
+namens,preposición,1,traduccion_es,llamado (*ein Mann namens Paul*),«en nombre de» impreciso
+überzeugt,adjetivo,1,traduccion_es,convencido,glosa inglesa
+angehen,verbo,1,traduccion_es,"encenderse (luz); concernir (*das geht dich nichts an*); abordar",incompleto
+enthalten,verbo,1,traduccion_es,"contener, incluir; abstenerse (*sich enthalten*)",
+herrschen,verbo,1,traduccion_es,"reinar, gobernar; haber, imperar (*es herrscht Stille*)",
+bestellen,verbo,1,traduccion_es,"pedir, encargar; reservar",
+Hochzeit,sustantivo,1,traduccion_es,boda,
+angreifen,verbo,1,traduccion_es,atacar,
+begrüßen,verbo,1,traduccion_es,"saludar, dar la bienvenida; acoger con agrado",«bienvenida, dar» desordenado
+ereignen,verbo,1,traduccion_es,"ocurrir, suceder (*sich ereignen*)",
+außerhalb,preposición,1,traduccion_es,fuera de,
+verbunden,adjetivo,1,traduccion_es,"unido, conectado; agradecido",
+häufig,adjetivo,1,raices,Haufen,*häufen* no es la raíz
+verheiraten,verbo,1,traduccion_es,"casar; casarse (*sich verheiraten*)",
+beantworten,verbo,1,traduccion_es,"responder, contestar (*eine Frage beantworten*)",
+reißen,verbo,1,traduccion_es,"romper, rasgar; arrancar, tirar de",
+freundlich,adjetivo,1,traduccion_es,"amable, simpático",
+ziehen,verbo,2,traduccion_es,"sacar, extraer (*einen Zahn ziehen*)",
+Mut,sustantivo,1,traduccion_es,"valor, coraje",
+Mittel,sustantivo,1,traduccion_es,"medio, recurso; remedio, medicamento",
+wiederholen,verbo,1,traduccion_es,"repetir; repasar",«iterar» técnico
+Recht,sustantivo,2,traduccion_es,razón (*recht haben* = tener razón),«pretensión» marginal
+darunter,adverbio,1,traduccion_es,"debajo; entre ellos",
+Abschluss,sustantivo,1,traduccion_es,"final, conclusión; título (*Schulabschluss*)",
+Heimat,sustantivo,1,traduccion_es,"patria, tierra natal",
+herstellen,verbo,1,traduccion_es,"fabricar, producir; establecer",
+Wetter,sustantivo,1,traduccion_es,tiempo (meteorológico),
+Beamter,sustantivo,1,traduccion_es,funcionario,
+Erwachsene,sustantivo,1,traduccion_es,"adulta; (*der Erwachsene*) adulto",
+Anruf,sustantivo,1,traduccion_es,llamada,
+Gegend,sustantivo,1,traduccion_es,"zona, región; alrededores",
+umgehen,verbo,1,traduccion_es,"evitar, eludir; tratar, manejar (*mit etwas umgehen*)",incompleto
+Verzicht,sustantivo,1,traduccion_es,renuncia,
+verzichten,verbo,1,traduccion_es,"renunciar a, prescindir de (*auf etwas verzichten*)",
+Verhandlung,sustantivo,1,traduccion_es,"negociación; vista (juicio)",
+darstellen,verbo,1,traduccion_es,"representar; describir",
+Sitz,sustantivo,1,traduccion_es,"asiento; sede",
+Wettbewerb,sustantivo,1,traduccion_es,"concurso, competición; competencia",
+erheben,verbo,1,traduccion_es,"levantar, alzar; cobrar (impuestos)",
+befreien,verbo,1,traduccion_es,liberar,«liberarse» impreciso
+mitbringen,verbo,1,traduccion_es,traer (consigo),
+zeugen,verbo,1,traduccion_es,"atestiguar (*zeugen von*); engendrar",
+bessern,verbo,1,traduccion_es,"mejorar; enmendarse (*sich bessern*)",
+verbessern,verbo,1,traduccion_es,"mejorar; corregir",incompleto
+Jugendliche,sustantivo,1,traduccion_es,"joven, adolescente (mujer); (*der Jugendliche*) joven",
+Verbrechen,sustantivo,1,traduccion_es,"crimen, delito",
+trainieren,verbo,1,traduccion_es,entrenar(se),
+Schreck,sustantivo,1,traduccion_es,susto,
+schrecklich,adjetivo,1,traduccion_es,"terrible, horrible",«korkunç» es turco
+allgemein,adjetivo,1,traduccion_es,general (*im Allgemeinen* = en general),
+Medium,sustantivo,1,traduccion_es,"medio (*die Medien* = los medios); médium",
+übergeben,verbo,1,traduccion_es,"entregar; vomitar (*sich übergeben*)",incompleto
+packen,verbo,1,traduccion_es,"hacer la maleta, empaquetar; agarrar; lograr (coloquial)",incompleto
+Eis,sustantivo,1,traduccion_es,"hielo; helado",
+Eis,sustantivo,1,origen,,no viene del francés *glace*
+stets,adverbio,1,traduccion_es,siempre,
+stets,adverbio,1,raices,,*stet* está descartado
+Hof,sustantivo,1,traduccion_es,"patio; granja; corte",incompleto
+Stimmung,sustantivo,1,traduccion_es,"ambiente; estado de ánimo, humor",
+ernsthaft,adjetivo,1,traduccion_es,"serio; en serio",
+eindeutig,adjetivo,1,traduccion_es,"claro, inequívoco",
+wandeln,verbo,1,traduccion_es,"transformar(se), cambiar; pasear (literario)",orden
+verwandeln,verbo,1,traduccion_es,"transformar, convertir",
+nötigen,verbo,1,traduccion_es,"obligar, coaccionar",
+benötigen,verbo,1,traduccion_es,"necesitar, requerir",
+benötigen,verbo,1,raices,nötig,viene de *nötig*
+kommend,adjetivo,1,traduccion_es,próximo (*kommende Woche*),
+sparen,verbo,1,traduccion_es,ahorrar,
+Täter,sustantivo,1,traduccion_es,"autor (de un delito), culpable",
+fair,adjetivo,1,traduccion_es,"justo, limpio",
+schade,adjetivo,1,traduccion_es,una pena (*wie schade!* = ¡qué pena!),
+sperren,verbo,1,traduccion_es,"bloquear, cerrar; suspender",
+fliehen,verbo,1,traduccion_es,"huir",
+streng,adjetivo,1,traduccion_es,"estricto, severo",
+Landtag,sustantivo,1,traduccion_es,parlamento regional (de un estado federado),glosa sin traducir
+Botschaft,sustantivo,1,traduccion_es,"embajada; mensaje",
+Veränderung,sustantivo,1,traduccion_es,cambio,
+derzeit,adverbio,1,traduccion_es,"actualmente, de momento",
+verständlich,adjetivo,1,traduccion_es,comprensible,
+selbstverständlich,adjetivo,1,traduccion_es,"evidente, natural; ¡por supuesto!",
+Mittag,sustantivo,1,traduccion_es,"mediodía; comida (*zu Mittag essen*)",
+Nachmittag,sustantivo,1,traduccion_es,tarde (después del mediodía),
+Post,sustantivo,1,traduccion_es,"correo; oficina de correos",
+Lager,sustantivo,1,traduccion_es,"almacén; campamento, campo",
+hassen,verbo,1,traduccion_es,odiar,
+einst,adverbio,1,traduccion_es,"en otro tiempo, antes; algún día",
+Zweck,sustantivo,1,traduccion_es,"fin, objetivo; sentido (*das hat keinen Zweck*)",
+Betrieb,sustantivo,1,traduccion_es,"empresa; funcionamiento (*in Betrieb*)",
+Strom,sustantivo,1,traduccion_es,"corriente (eléctrica); río grande",
+Beitrag,sustantivo,1,traduccion_es,"contribución, aportación; cuota; artículo",
+italienisch,adjetivo,1,traduccion_es,italiano,
+laut,adjetivo,1,traduccion_es,"alto, fuerte (sonido), ruidoso",
+Kleid,sustantivo,1,traduccion_es,"vestido; ropa (*Kleider*)",
+tauchen,verbo,1,traduccion_es,"bucear; sumergir(se)",
+Station,sustantivo,1,traduccion_es,"estación, parada; planta (de hospital)",
+Öffentlichkeit,sustantivo,1,traduccion_es,"público, opinión pública",
+empfehlen,verbo,1,traduccion_es,recomendar,
+empfehlen,verbo,1,raices,,no viene de *fehlen*
+billig,adjetivo,1,traduccion_es,barato,«equitativo» arcaico
+löschen,verbo,1,traduccion_es,"apagar (fuego); borrar",incompleto
+empfangen,verbo,1,traduccion_es,"recibir, acoger",
+Bahn,sustantivo,1,traduccion_es,"tren, ferrocarril; vía, carril",«dirección» erróneo
+Bahnhof,sustantivo,1,traduccion_es,estación (de tren),
+managen,verbo,1,traduccion_es,"gestionar, organizar (coloquial)",
+Manager,sustantivo,1,traduccion_es,"directivo, mánager",
+bedingen,verbo,1,traduccion_es,"condicionar, implicar",
+Bedingung,sustantivo,1,traduccion_es,condición,
+lediglich,adverbio,1,traduccion_es,"solamente, simplemente",
+Abteilung,sustantivo,1,traduccion_es,"departamento, sección",
+Vers,sustantivo,1,traduccion_es,"verso; estrofa",
+Version,sustantivo,1,raices,,no viene de *Vers* + *Ion*
+absehen,verbo,1,traduccion_es,"prever; prescindir de (*von etwas absehen*)",«esperar» erróneo
+streichen,verbo,1,traduccion_es,"pintar; tachar, suprimir; acariciar; untar",incompleto
+zustimmen,verbo,1,traduccion_es,"estar de acuerdo, aprobar",
+bekennen,verbo,1,traduccion_es,"confesar, admitir; declararse (*sich bekennen zu*)",
+Katze,sustantivo,1,traduccion_es,gato,
+Halt,sustantivo,1,traduccion_es,"parada; apoyo, sujeción",
+durchaus,adverbio,1,traduccion_es,"perfectamente, totalmente (*durchaus möglich*)",
+Mission,sustantivo,1,raices,,no viene de *Miss* + *Ion*
+streiten,verbo,1,traduccion_es,"discutir, pelearse",
+versichern,verbo,1,traduccion_es,"asegurar (con un seguro); asegurar, afirmar",
+eingehen,verbo,1,traduccion_es,"llegar (correo); asumir (un riesgo); morir (plantas)",incompleto
+freiwillig,adjetivo,1,traduccion_es,voluntario,
+räumen,verbo,1,traduccion_es,"despejar, recoger; desalojar",
+begehen,verbo,1,traduccion_es,"cometer (un delito); celebrar (una fecha)",«explorar» marginal
+Doktor,sustantivo,1,traduccion_es,"doctor; médico (coloquial)",
+auftauchen,verbo,1,traduccion_es,"aparecer; emerger",orden
+Forderung,sustantivo,1,traduccion_es,"exigencia, reivindicación",
+mitnehmen,verbo,1,traduccion_es,llevar(se) consigo,
+Reis,sustantivo,1,plural,—,«Reise» es el plural de otra palabra
+überlassen,verbo,1,traduccion_es,"dejar (en manos de), ceder",
+hoffentlich,adverbio,1,traduccion_es,"ojalá, espero que",
+Sitzung,sustantivo,1,traduccion_es,"reunión, sesión",
+Strecke,sustantivo,1,traduccion_es,"trayecto, recorrido; tramo",
+einrichten,verbo,1,traduccion_es,"amueblar; establecer, instalar",
+Einrichtung,sustantivo,1,traduccion_es,"institución; mobiliario; instalación",
+Anschlag,sustantivo,1,traduccion_es,"atentado; aviso, cartel",«pulsación» marginal
+trauen,verbo,1,traduccion_es,"fiarse de; atreverse (*sich trauen*); casar",
+Datei,sustantivo,1,traduccion_es,archivo (informático),
+Kugel,sustantivo,1,traduccion_es,"bola, esfera; bala",
+weshalb,adverbio,1,traduccion_es,"por qué; por lo cual",
+senden,verbo,1,traduccion_es,"emitir; enviar",
+Sendung,sustantivo,1,traduccion_es,"programa (de televisión); envío",
+heftig,adjetivo,1,traduccion_es,"violento, intenso, fuerte",
+betonen,verbo,1,traduccion_es,"subrayar, enfatizar; acentuar",
+Verein,sustantivo,1,traduccion_es,"asociación, club",
+sinken,verbo,1,traduccion_es,"hundirse; bajar (precios)",
+wunderschön,adjetivo,1,traduccion_es,"precioso, bellísimo",
+wobei,adverbio,1,traduccion_es,"con lo cual; aunque",
+Umgebung,sustantivo,1,traduccion_es,"entorno, alrededores",
+verlaufen,verbo,1,traduccion_es,"transcurrir; perderse (*sich verlaufen*)",
+zuständig,adjetivo,1,traduccion_es,"competente, responsable (*zuständig für*)",
+Ansicht,sustantivo,1,traduccion_es,"opinión; vista",
+Mörder,sustantivo,1,traduccion_es,asesino,
+Regie,sustantivo,1,traduccion_es,"dirección (de cine o teatro)",
+Finanz,sustantivo,1,traduccion_es,finanzas (*die Finanzen*),
+Anlage,sustantivo,1,traduccion_es,"instalación; anexo (de un correo); inversión; parque",
+Bildung,sustantivo,1,traduccion_es,"educación, formación; creación",
+Ausbildung,sustantivo,1,traduccion_es,"formación profesional, aprendizaje",
+eben,adverbio,2,traduccion_es,"hace un momento, ahora mismo (*Ich bin eben angekommen*)",precisar
+erhalten,verbo,2,traduccion_es,"conservar, mantener",
+Rücken,sustantivo,1,traduccion_es,"espalda; lomo",
+Hut,sustantivo,1,traduccion_es,sombrero,
+besiegen,verbo,1,traduccion_es,"vencer, derrotar",
+weg,adverbio,1,traduccion_es,"fuera, lejos; ido (*Er ist weg* = se ha ido)",«perdido» parcial
+jagen,verbo,1,traduccion_es,"cazar; perseguir",
+Verhalten,sustantivo,1,traduccion_es,"comportamiento, conducta",
+nachts,adverbio,1,traduccion_es,"de noche, por la noche",
+hervorragend,adjetivo,1,traduccion_es,"excelente, extraordinario",
+Hang,sustantivo,1,traduccion_es,"ladera, pendiente; tendencia (*Hang zu*)",
+Zusammenhang,sustantivo,1,traduccion_es,"relación, conexión; contexto",
+Zusammenhang,sustantivo,1,raices,zusammen + hängen,viene de *zusammenhängen*
+Rahmen,sustantivo,1,traduccion_es,"marco; ámbito (*im Rahmen*)",«carcasa» erróneo
+weinen,verbo,1,traduccion_es,llorar,
+schließen,verbo,2,traduccion_es,"deducir, concluir (*aus etwas schließen*)",
+Bund,sustantivo,1,traduccion_es,"federación (el Estado federal); alianza",
+Bundestag,sustantivo,1,traduccion_es,Parlamento Federal alemán,
+Kreuz,sustantivo,1,traduccion_es,"cruz; (coloquial) zona lumbar",
+Absicht,sustantivo,1,traduccion_es,"intención, propósito",
+begegnen,verbo,1,traduccion_es,encontrarse con (*jemandem begegnen*),
+Gegenteil,sustantivo,1,traduccion_es,lo contrario (*im Gegenteil* = al contrario),
+festhalten,verbo,1,traduccion_es,"sujetar, agarrar; retener; agarrarse (*sich festhalten*)",
+ausgeben,verbo,1,traduccion_es,"gastar (dinero); repartir; hacerse pasar por (*sich ausgeben als*)",
+Rock,sustantivo,1,traduccion_es,"falda; (música) rock",
+weltweit,adjetivo,1,traduccion_es,"mundial; en todo el mundo",
+Schwein,sustantivo,1,traduccion_es,cerdo,regionalismos
+daneben,adverbio,1,traduccion_es,"al lado; además",
+Interview,sustantivo,1,traduccion_es,entrevista,
+Verkehr,sustantivo,1,traduccion_es,"tráfico; transporte",
+Keller,sustantivo,1,traduccion_es,sótano,
+Ehemann,sustantivo,1,traduccion_es,"marido, esposo",
+Verletzung,sustantivo,1,traduccion_es,"herida, lesión; violación (de una norma)",
+Strafe,sustantivo,1,traduccion_es,"castigo, pena; multa",
+fließen,verbo,1,traduccion_es,fluir,
+betreiben,verbo,1,traduccion_es,"gestionar, explotar (un negocio); practicar, dedicarse a",
+Talent,sustantivo,1,traduccion_es,talento,
+bitte,adverbio,1,traduccion_es,"por favor; ¡de nada!; ¿perdón? (*Bitte?*)",incompleto
+Schreiben,sustantivo,1,traduccion_es,"escrito, carta (formal); escritura",
+Verfahren,sustantivo,1,traduccion_es,"procedimiento; proceso (judicial)",
+dicht,adjetivo,1,traduccion_es,"denso, espeso; hermético, cerrado",
+vollkommen,adjetivo,1,traduccion_es,"perfecto; completamente",
+auslösen,verbo,1,traduccion_es,"provocar, desencadenar; disparar",
+Zufall,sustantivo,1,traduccion_es,casualidad,
+zufällig,adjetivo,1,traduccion_es,"casual; por casualidad",
+beruhigen,verbo,1,traduccion_es,"calmar, tranquilizar",
+Hose,sustantivo,1,traduccion_es,pantalón,
+Geschehen,sustantivo,1,traduccion_es,"acontecimientos, sucesos",
+klug,adjetivo,1,traduccion_es,"listo, inteligente; sensato",
+begeistern,verbo,1,traduccion_es,entusiasmar (*begeistert* = entusiasmado),
+Ausdruck,sustantivo,1,traduccion_es,"expresión; impresión (en papel)",
+Kumpel,sustantivo,1,traduccion_es,"colega, amigo; minero",regionalismos
+Stoff,sustantivo,1,traduccion_es,"tela; sustancia, materia; tema",incompleto
+gegenseitig,adjetivo,1,traduccion_es,"mutuo, recíproco",
+gegenseitig,adjetivo,1,raices,gegen + Seite,*Gegenseite* está descartada
+mittlerweile,adverbio,1,traduccion_es,"entretanto; ya, a estas alturas",
+spanisch,adjetivo,1,traduccion_es,español,
+Gewinn,sustantivo,1,traduccion_es,"ganancia, beneficio; premio",
+Vertreter,sustantivo,1,traduccion_es,"representante; sustituto",
+Tradition,sustantivo,1,traduccion_es,tradición,
+Schnitt,sustantivo,1,traduccion_es,"corte; promedio (*im Schnitt*)",
+aufmerksam,adjetivo,1,traduccion_es,atento,
+fein,adjetivo,1,traduccion_es,"fino; estupendo (*fein!*)",
+Hals,sustantivo,1,traduccion_es,"cuello; garganta",
+gewöhnlich,adjetivo,1,traduccion_es,"habitual, normal; vulgar",
+ungewöhnlich,adjetivo,1,traduccion_es,"inusual, poco común",
+anlegen,verbo,1,traduccion_es,"poner, colocar; crear (un archivo); invertir; atracar (un barco)",
+Weib,sustantivo,1,traduccion_es,mujer (despectivo o anticuado),
+weiblich,adjetivo,1,traduccion_es,femenino,
+Ausstellung,sustantivo,1,traduccion_es,exposición,
+vollständig,adjetivo,1,traduccion_es,"completo, entero",
+Gabe,sustantivo,1,traduccion_es,"don, regalo; dosis",
+Angabe,sustantivo,1,traduccion_es,"dato, indicación; presunción (*Angabe!*)",
+Angabe,sustantivo,1,raices,angeben,viene de *angeben*
+belegen,verbo,1,traduccion_es,"demostrar, documentar; ocupar (una plaza); matricularse en",
+reich,adjetivo,1,traduccion_es,rico,
+aussprechen,verbo,1,traduccion_es,"pronunciar; expresar",
+vertraut,adjetivo,1,traduccion_es,"familiar; de confianza",
+weh,adjetivo,1,traduccion_es,dolorido (*weh tun* = doler),«afligido» impreciso
+sicherlich,adverbio,1,traduccion_es,"seguramente, sin duda",
+nieder,adjetivo,1,traduccion_es,bajo; abajo (*nieder mit…!* = ¡abajo…!),
+niedrig,adjetivo,1,traduccion_es,bajo,
+Anstalt,sustantivo,1,traduccion_es,"institución, centro",
+Veranstaltung,sustantivo,1,traduccion_es,"evento, acto",
+riechen,verbo,1,traduccion_es,oler,
+Vernunft,sustantivo,1,traduccion_es,"razón, sensatez",
+Holz,sustantivo,1,traduccion_es,"madera; leña",
+nahe,preposición,1,traduccion_es,cerca de (*nahe dem Bahnhof*),
+gemeinsam,adjetivo,2,traduccion_es,juntos (*gemeinsam essen*),
+Treffer,sustantivo,1,traduccion_es,"acierto, impacto; gol",
+Widerstand,sustantivo,1,traduccion_es,resistencia,
+Stärke,sustantivo,1,traduccion_es,"fuerza; punto fuerte; almidón",
+entlassen,verbo,1,traduccion_es,"despedir; dar de alta; poner en libertad",
+entfernen,verbo,1,traduccion_es,"quitar, eliminar; alejarse (*sich entfernen*)",«remover» calco
+Prüfung,sustantivo,1,traduccion_es,"examen; inspección",
+Vorsicht,sustantivo,1,traduccion_es,"cuidado, precaución (*Vorsicht!* = ¡cuidado!)",
+Vorsicht,sustantivo,1,origen,,no es un préstamo latino
+dran,adverbio,1,traduccion_es,"(coloquial de *daran*); *ich bin dran* = me toca",«mala pasada» marginal
+Bescheid,sustantivo,1,traduccion_es,"aviso, información (*Bescheid sagen* = avisar); notificación",
+witzig,adjetivo,1,traduccion_es,"gracioso, divertido",
+entscheidend,adjetivo,1,traduccion_es,"decisivo, crucial",
+Verhältnis,sustantivo,1,traduccion_es,"relación; proporción",
+somit,adverbio,1,traduccion_es,"por lo tanto, así",
+blöd,adjetivo,1,traduccion_es,"tonto; fastidioso",
+abhängen,verbo,1,traduccion_es,"depender (*von etwas abhängen*); pasar el rato (coloquial)",
+Anlass,sustantivo,1,traduccion_es,"motivo; ocasión",
+Kuchen,sustantivo,1,traduccion_es,"pastel, tarta",
+Mühe,sustantivo,1,traduccion_es,"esfuerzo, trabajo",
+Stock,sustantivo,1,traduccion_es,"palo, bastón; piso, planta (*im ersten Stock*)",incompleto
+zudem,adverbio,1,traduccion_es,además,
+feststellen,verbo,1,traduccion_es,"constatar, comprobar",
+Blatt,sustantivo,1,traduccion_es,hoja,
+Agent,sustantivo,1,traduccion_es,"agente, espía",
+ausmachen,verbo,1,traduccion_es,"apagar; acordar (una cita); importar (*das macht nichts aus* = no importa)",incompleto
+Flucht,sustantivo,1,traduccion_es,"huida, fuga",
+begreifen,verbo,1,traduccion_es,"comprender, entender",
+Ebene,sustantivo,1,traduccion_es,"nivel, plano; llanura",
+betragen,verbo,1,traduccion_es,"ascender a, ser de (una cantidad)",
+staunen,verbo,1,traduccion_es,asombrarse,
+staunen,verbo,1,origen,,no viene del francés
+Brust,sustantivo,1,traduccion_es,"pecho; seno",
+empfinden,verbo,1,traduccion_es,"sentir, percibir",
+Rang,sustantivo,1,traduccion_es,"rango, categoría; puesto (en una clasificación)",
+Rand,sustantivo,1,traduccion_es,"borde, margen",
+scheitern,verbo,1,traduccion_es,fracasar,
+gucken,verbo,1,traduccion_es,"mirar (coloquial)",
+verdammen,verbo,1,traduccion_es,condenar (*verdammt!* = ¡maldita sea!),
+gestehen,verbo,1,traduccion_es,"confesar, admitir",
+Pfarrer,sustantivo,1,traduccion_es,"párroco, pastor",
+antreten,verbo,1,traduccion_es,"empezar (un trabajo, un viaje); presentarse; enfrentarse (*gegen jemanden antreten*)",«emprender» impreciso
+Linke,sustantivo,1,traduccion_es,"la izquierda (mano, lado o política)",
+Anspruch,sustantivo,1,traduccion_es,"derecho (*Anspruch auf*); exigencia",
+kennenlernen,verbo,1,traduccion_es,conocer (a alguien por primera vez),
+Zelle,sustantivo,1,traduccion_es,"célula; celda",
+Hirn,sustantivo,1,traduccion_es,"cerebro, sesos",
+Reich,sustantivo,1,traduccion_es,"imperio, reino",
+kochen,verbo,1,traduccion_es,"cocinar; hervir",
+gültig,adjetivo,1,traduccion_es,"válido, vigente",
+Gegensatz,sustantivo,1,traduccion_es,"contraste, oposición; lo contrario (*im Gegensatz zu*)",
+Königin,sustantivo,1,traduccion_es,reina,
+verlegen,verbo,1,traduccion_es,"extraviar; trasladar; aplazar; publicar (libros)",
+neben,preposición,2,traduccion_es,"además de, aparte de (*neben der Arbeit*)",
+schmecken,verbo,1,traduccion_es,"saber (a); estar bueno (*das schmeckt!*)",
+Änderung,sustantivo,1,traduccion_es,"cambio, modificación",
+Staffel,sustantivo,1,traduccion_es,"temporada (de una serie); relevo; escuadrilla",
+hinaus,adverbio,1,traduccion_es,"fuera, hacia fuera (alejándose del que habla)",
+überlegen,verbo,1,traduccion_es,"pensar, reflexionar (*sich etwas überlegen*)",
+vereinigt,adjetivo,1,traduccion_es,unido (*die Vereinigten Staaten*),
+kürzlich,adjetivo,1,traduccion_es,"recientemente, hace poco",glosa inglesa
+schuldig,adjetivo,1,traduccion_es,"culpable; deber (*jemandem etwas schuldig sein*)",
+Netz,sustantivo,1,traduccion_es,red,
+steigen,verbo,2,"traduccion_es","subirse a, bajarse de (*in den Bus steigen*, *aus dem Zug steigen*)",precisar
+leihen,verbo,1,traduccion_es,"prestar; pedir prestado (*sich etwas leihen*)",
+verleihen,verbo,1,traduccion_es,"conceder (un premio); prestar, alquilar",
+Böse,sustantivo,1,traduccion_es,el mal (*das Böse*),glosa inglesa
+Bundesrat,sustantivo,1,traduccion_es,Consejo Federal (cámara de los estados federados),glosa inglesa
+Probe,sustantivo,1,traduccion_es,"prueba; ensayo; muestra",
+Wirt,sustantivo,1,traduccion_es,"dueño (de un bar), hostelero; anfitrión",
+Wirtschaft,sustantivo,1,traduccion_es,"economía; bar, taberna",«restaurante» no es lo principal
+Vorwurf,sustantivo,1,traduccion_es,reproche,
+Besitz,sustantivo,1,traduccion_es,"posesión, propiedad",
+abholen,verbo,1,traduccion_es,"recoger (a alguien o algo)",
+Schild,sustantivo,1,traduccion_es,"letrero, cartel, placa",*das Schild*; «escudo» es *der Schild*
+Handel,sustantivo,1,traduccion_es,comercio,
+Drehbuch,sustantivo,1,traduccion_es,guion,
+Dame,sustantivo,2,traduccion_es,damas (el juego),
+Produktion,sustantivo,1,raices,,no viene de *Produkt* + *Ion*
+Einstellung,sustantivo,1,traduccion_es,"actitud; ajuste, configuración; contratación",
+Sender,sustantivo,1,traduccion_es,"emisora, cadena; emisor",«transmissor» con errata
+Hunger,sustantivo,1,traduccion_es,hambre,
+kaputt,adjetivo,1,traduccion_es,"roto, estropeado; agotado (coloquial)",
+Gefangene,sustantivo,1,traduccion_es,"prisionera; (*der Gefangene*) preso",
+äußerst,adverbio,1,traduccion_es,"sumamente, extremadamente",
+anziehen,verbo,1,traduccion_es,"ponerse (ropa), vestir; atraer",incompleto
+durchführen,verbo,1,traduccion_es,"llevar a cabo, realizar",
+Bezirk,sustantivo,1,traduccion_es,distrito,
+Angestellte,sustantivo,1,traduccion_es,"empleada; (*der Angestellte*) empleado",
+täuschen,verbo,1,traduccion_es,"engañar; equivocarse (*sich täuschen*)",
+Ausgabe,sustantivo,1,traduccion_es,"edición; gasto; salida",«reparto» marginal
+Abgeordnete,sustantivo,1,traduccion_es,"diputada; (*der Abgeordnete*) diputado",
+mögen,verbo,3,traduccion_es,puede que (*das mag sein* = puede ser),precisar
+verschieben,verbo,1,traduccion_es,"aplazar; mover, desplazar",
+fremd,adjetivo,1,traduccion_es,"extraño, ajeno; extranjero",
+herzlich,adjetivo,1,traduccion_es,"cordial, afectuoso (*herzlich willkommen*)",
+bauen,verbo,2,traduccion_es,contar con (*auf jemanden bauen*),precisar
+momentan,adjetivo,1,traduccion_es,"en este momento, actualmente; momentáneo",
+aufstellen,verbo,1,traduccion_es,"colocar, montar; establecer (un récord); presentar (un candidato)",
+einsam,adjetivo,1,traduccion_es,"solo, solitario",
+einsam,adjetivo,1,afijos,-sam,*ein* = uno (no el prefijo «hacia dentro»)
+Wesen,sustantivo,1,traduccion_es,"ser, criatura; esencia, carácter",
+regelmäßig,adjetivo,1,traduccion_es,"regular; con regularidad",
+freuen,verbo,2,traduccion_es,tener ganas de (*sich freuen auf*),
+Militär,sustantivo,1,traduccion_es,"ejército, fuerzas armadas",
+militärisch,adjetivo,1,traduccion_es,militar,
+Ware,sustantivo,1,traduccion_es,mercancía,
+Behandlung,sustantivo,1,traduccion_es,"tratamiento; trato",
+versetzen,verbo,1,traduccion_es,"trasladar; pasar de curso; dar plantón (coloquial)",
+besorgen,verbo,1,traduccion_es,"conseguir, comprar; encargarse de",
+übertragen,verbo,1,traduccion_es,"transmitir; transferir; traducir",
+Stellung,sustantivo,1,traduccion_es,"posición, postura; puesto",
+Mauer,sustantivo,1,traduccion_es,"muro, muralla",
+Rückkehr,sustantivo,1,raices,zurück + kehren,viene de *zurückkehren*
+Konzept,sustantivo,1,traduccion_es,"concepto, plan; borrador",
+Stuhl,sustantivo,1,traduccion_es,silla,
+vernichten,verbo,1,traduccion_es,"destruir, aniquilar",
+erweisen,verbo,1,traduccion_es,"demostrar; resultar (*sich erweisen als*); hacer (un favor)",
+angesichts,preposición,1,traduccion_es,"ante, en vista de (*angesichts der Lage*)",
+Club,sustantivo,1,traduccion_es,club,la fuente figuraba como glosa inglesa; traducción revisada

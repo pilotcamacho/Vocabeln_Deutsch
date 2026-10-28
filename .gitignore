@@ -1,0 +1,19 @@
+# Datos de origen descargados (≈2,2 GB; licencias de terceros). Se vuelven a descargar
+# siguiendo CLAUDE.md, «Datos: la lista maestra».
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node / Amplify (fases siguientes)
+node_modules/
+.amplify/
+amplify_outputs.json
+dist/
+.expo/
+.env*
+
+# Sistema
+.DS_Store
+Thumbs.db
