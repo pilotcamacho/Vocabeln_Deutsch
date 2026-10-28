@@ -27,15 +27,18 @@ en `CLAUDE.md`; aquí va solo el avance.
   kit propio `expo-amplify-kit` porque publicar en iPhone exige la licencia de desarrollador de
   Apple; la PWA se instala desde Safari («Añadir a pantalla de inicio») sin licencia.
 
-**Fase 1 casi terminada** (esqueleto Amplify; estructura en `CLAUDE.md`, «Aplicación»).
+**Fase 1 terminada** (esqueleto Amplify; estructura en `CLAUDE.md`, «Aplicación»).
 - PWA con React + Vite: acceso con Cognito en español, perfil creado al entrar, rol según el
   grupo, lista de palabras cargada (15.859 significados, 1.880 para estudiar) e indicador de
   conexión. Iconos generados desde `public/logo.svg`.
 - Backend en un sandbox de AWS (`amplify-vocabelndeutsch-pilot-sandbox-d251d836b1`), con los
   cinco modelos del diseño. `tests/probar_permisos.mjs`: 19 comprobaciones, todas pasan.
 - Usuarios de prueba en el sandbox: `prueba-a`, `prueba-b`, `prueba-admin` @vocabeln.invalid.
-- Falta: conectar el repositorio de GitHub en la consola de Amplify Hosting (lo hace el usuario,
-  porque necesita autorizar la app de GitHub) y hacer admin a su usuario real.
+- Publicada en Amplify Hosting (app `d10r9rml7svpuc`, rama `main`):
+  https://main.d10r9rml7svpuc.amplifyapp.com. Cada push a `main` despliega backend y frontend.
+  `amplify.yml` usa `npm install`, no `npm ci` (ver el comentario del archivo).
+- Falta: hacer admin al usuario real del usuario en el grupo de usuarios de producción
+  (distinto del sandbox).
 
 **Siguiente paso:** la fase 2 (estudio: tarjeta, FSRS, cola, modo sin conexión).
 
