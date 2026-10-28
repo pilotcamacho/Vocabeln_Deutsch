@@ -323,6 +323,10 @@ npm run build                                  # comprueba tipos y genera dist/
 CLAVE_PRUEBA=... node tests/probar_permisos.mjs
 ```
 
+- **Ramas.** `main` es la versión publicada: Amplify Hosting despliega cada push a `main`.
+  Todo el trabajo (código, curación, documentación) se hace en `dev`, que no despliega. Para
+  publicar, se fusiona `dev` en `main` cuando el usuario lo decide:
+  `git switch main && git merge --ff-only dev && git push && git switch dev`.
 - Todo usuario nuevo entra en el grupo `estudiante` al confirmar su correo (función
   `amplify/auth/alta-estudiante`). El grupo `admin` se asigna a mano:
   `aws cognito-idp admin-add-user-to-group --user-pool-id <id> --username <usuario> --group-name admin`.

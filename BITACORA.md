@@ -40,6 +40,9 @@ en `CLAUDE.md`; aquí va solo el avance.
 - Falta: hacer admin al usuario real del usuario en el grupo de usuarios de producción
   (distinto del sandbox).
 
+Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLAUDE.md`,
+«Aplicación»).
+
 **Siguiente paso:** la fase 2 (estudio: tarjeta, FSRS, cola, modo sin conexión).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
