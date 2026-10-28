@@ -1,11 +1,13 @@
 // Cola de la sesión diaria (docs/diseno_app.md, «Sesión diaria»). Código puro.
 //
-// 1. Repasos pendientes hoy, primero los de menor probabilidad de recordar.
+// 1. Repasos pendientes hoy, primero los de menor probabilidad de recordar, y los controles de
+//    las palabras marcadas como conocidas.
 // 2. Producción desbloqueada: palabras de las dos direcciones cuyo reconocimiento ya está en
 //    repaso. Como mucho nuevasPorDia al día.
 // 3. Nuevas de reconocimiento, hasta nuevasPorDia: solo de tramos validados y solo si sus
 //    raíces ya se han recordado alguna vez; una raíz que falta se adelanta.
-// Nunca las dos direcciones de una palabra el mismo día.
+// Nunca las dos direcciones de una palabra el mismo día. Marcar una palabra no cuenta como
+// estudiarla: ni gasta el cupo de nuevas ni bloquea la otra dirección.
 
 import type { FSRS } from 'ts-fsrs'
 import type { Direccion, Palabra } from '../palabras'
@@ -17,7 +19,7 @@ export const HORA_CAMBIO_DIA = 4
 export interface ItemCola {
   palabra: Palabra
   direccion: Direccion
-  motivo: 'repaso' | 'produccion' | 'nueva'
+  motivo: 'repaso' | 'control' | 'produccion' | 'nueva'
 }
 
 export interface DatosCola {
@@ -49,11 +51,13 @@ export function finDelDia(ahora: Date): Date {
 
 // Una raíz cuenta como sabida si se ha recordado alguna vez.
 const RAIZ_SABIDA: readonly Estado[] = ['repaso', 'conocida', 'aprendida', 'retirada']
+const PREGUNTABLES: readonly Estado[] = [...ACTIVOS, 'conocida']
 
 export function construirCola(d: DatosCola): ItemCola[] {
   const fin = finDelDia(d.ahora)
   const tocadasHoy = new Map<number, Set<Direccion>>()
   for (const r of d.repasosHoy) {
+    if (r.tipo === 'marcado') continue
     if (!tocadasHoy.has(r.palabraId)) tocadasHoy.set(r.palabraId, new Set())
     tocadasHoy.get(r.palabraId)!.add(r.direccion)
   }
@@ -61,14 +65,19 @@ export function construirCola(d: DatosCola): ItemCola[] {
     const s = tocadasHoy.get(id)
     return !!s && [...s].some((x) => x !== dir)
   }
-  const tarjeta = (id: number, dir: Direccion) => d.tarjetas.get(clave(id, dir))
+  // Una tarjeta en estado «nueva» (palabra desmarcada) cuenta como inexistente
+  const tarjeta = (id: number, dir: Direccion) => {
+    const t = d.tarjetas.get(clave(id, dir))
+    return t?.estado === 'nueva' ? undefined : t
+  }
+  const tocada = (id: number) => tarjeta(id, 'de-es') ?? tarjeta(id, 'es-de')
 
   // Nuevas ya empezadas hoy, por dirección
   const inicio = inicioDelDia(d.ahora)
   let nuevasReconocimiento = 0
   let nuevasProduccion = 0
   for (const t of d.tarjetas.values()) {
-    if (t.fechaInicio >= inicio) {
+    if (t.fechaInicio >= inicio && t.estado !== 'conocida' && t.estado !== 'nueva') {
       if (t.direccion === 'de-es') nuevasReconocimiento++
       else nuevasProduccion++
     }
@@ -79,7 +88,7 @@ export function construirCola(d: DatosCola): ItemCola[] {
 
   // 1. Repasos pendientes
   const pendientes = [...d.tarjetas.values()]
-    .filter((t) => ACTIVOS.includes(t.estado) && new Date(t.fsrs.due) <= fin && d.porId.has(t.palabraId))
+    .filter((t) => PREGUNTABLES.includes(t.estado) && new Date(t.fsrs.due) <= fin && d.porId.has(t.palabraId))
     .filter((t) => !otraTocadaHoy(t.palabraId, t.direccion))
     .map((t) => ({ t, r: retencion(d.f, t, d.ahora) }))
     // Si las dos direcciones tocan hoy, va la producción (incluye el reconocimiento)
@@ -87,7 +96,11 @@ export function construirCola(d: DatosCola): ItemCola[] {
   const elegidas = new Map<number, (typeof pendientes)[number]>()
   for (const p of pendientes) if (!elegidas.has(p.t.palabraId)) elegidas.set(p.t.palabraId, p)
   for (const { t } of [...elegidas.values()].sort((a, b) => a.r - b.r)) {
-    cola.push({ palabra: d.porId.get(t.palabraId)!, direccion: t.direccion, motivo: 'repaso' })
+    cola.push({
+      palabra: d.porId.get(t.palabraId)!,
+      direccion: t.direccion,
+      motivo: t.estado === 'conocida' ? 'control' : 'repaso',
+    })
     enCola.add(t.palabraId)
   }
 
@@ -112,7 +125,7 @@ export function construirCola(d: DatosCola): ItemCola[] {
   // Un compuesto solo entra si todas sus raíces están sabidas; una raíz recién añadida hoy
   // aún no se ha recordado, así que su compuesto espera.
   const intentar = (p: Palabra): 'sabida' | 'esperar' | 'añadida' => {
-    const t = tarjeta(p.id, 'de-es')
+    const t = tocada(p.id)
     if (t) return RAIZ_SABIDA.includes(t.estado) ? 'sabida' : 'esperar'
     if (vistas.has(p.id)) return 'esperar'
     vistas.add(p.id)

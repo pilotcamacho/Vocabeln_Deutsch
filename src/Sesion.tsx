@@ -100,7 +100,7 @@ export function Sesion({ inicial, responder, terminar }: Props) {
       <Tarjeta
         palabra={item.palabra}
         direccion={item.direccion}
-        nueva={item.motivo !== 'repaso'}
+        motivo={item.motivo}
         mostrada={mostrada}
       />
 

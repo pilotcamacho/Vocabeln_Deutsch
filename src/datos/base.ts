@@ -45,10 +45,10 @@ export async function idDispositivo(db: BaseLocal): Promise<string> {
   return id
 }
 
-/** Guarda un repaso y las tarjetas que cambia, todo o nada. */
-export async function guardarRepaso(db: BaseLocal, repaso: RepasoLocal, tarjetas: TarjetaLocal[]): Promise<void> {
+/** Guarda repasos y las tarjetas que cambian, todo o nada. */
+export async function guardarRepasos(db: BaseLocal, repasos: RepasoLocal[], tarjetas: TarjetaLocal[]): Promise<void> {
   await db.transaction('rw', db.repasos, db.tarjetas, async () => {
-    await db.repasos.add(repaso)
+    await db.repasos.bulkAdd(repasos)
     await db.tarjetas.bulkPut(tarjetas)
   })
 }

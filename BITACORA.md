@@ -56,8 +56,18 @@ Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLA
 
 El usuario usará primero Android y la web; el iPhone, solo para pruebas más adelante.
 
-**Siguiente paso:** el usuario prueba la fase 2 en Android (incluido el modo avión). Después, la
-fase 3 (marcar conocidas).
+**Fase 3 hecha en `dev`, sin publicar** (marcar palabras conocidas).
+- `src/Marcar.tsx`: deslizar (gesto, botones y flechas del teclado; deshacer) y lista por tramos de
+  100 (marcar todo el tramo y desmarcar excepciones). Por defecto, deslizar en pantallas táctiles
+  y lista en el ordenador.
+- Reglas en `responder()`: marcar → `conocida` con control a 7–30 días; desmarcar → `nueva`;
+  control acertado → `aprendida`, fallado → `aprendiendo`. 15 pruebas en `npm test`.
+- Probado en el navegador contra el sandbox (`prueba-b`): marcar 94, desmarcar, deslizar,
+  arrastrar, deshacer y reconstrucción en un «dispositivo nuevo» con el mismo resultado.
+- El control solo se ha probado con las pruebas automáticas: en la app toca dentro de 7 días.
+
+**Siguiente paso:** el usuario decide publicar la fase 3. Después, la fase 4 (informe de
+progreso).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 

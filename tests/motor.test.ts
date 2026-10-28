@@ -140,3 +140,66 @@ test('si las dos direcciones tocan el mismo día, solo va la producción', () =>
   const c = cola([palabra(1)], mapa(h['de-es'], h['es-de']), en(400))
   assert.deepEqual(c, ['1<r'])
 })
+
+// Fase 3: marcar palabras conocidas y su control
+
+function marcarYResponder(id: number, dir: Direccion, pasos: [Resultado, Date, 'marcado' | 'estudio'][]) {
+  let tarjetas: TarjetasPalabra = {}
+  const repasos: RepasoLocal[] = []
+  pasos.forEach(([resultado, fecha, tipo], i) => {
+    const repId = `m${id}-${i}`
+    const { cambiadas } = responder(f, tarjetas, id, { direccion: dir, resultado, fecha, tipo, id: repId })
+    tarjetas = { ...tarjetas }
+    for (const t of cambiadas) tarjetas[t.direccion] = t
+    repasos.push({
+      id: repId, palabraId: id, direccion: dir, fechaHora: fecha.toISOString(), resultado, tipo,
+      versionAlgoritmo: 'x', dispositivo: 'x', enviado: 0,
+    })
+  })
+  return { tarjetas, repasos }
+}
+
+test('marcar como conocida programa un control entre 7 y 30 días', () => {
+  for (let n = 0; n < 50; n++) {
+    const { tarjetas } = marcarYResponder(n, 'es-de', [['acierto', T0, 'marcado']])
+    const t = tarjetas['es-de']!
+    assert.equal(t.estado, 'conocida')
+    const dias = (new Date(t.fsrs.due).getTime() - T0.getTime()) / DIA
+    assert.ok(dias >= 7 && dias <= 30, `control a ${dias} días`)
+  }
+})
+
+test('el control acertado → aprendida; fallado → aprendiendo', () => {
+  const ok = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado'], ['acierto', en(20), 'estudio']])
+  assert.equal(ok.tarjetas['es-de']!.estado, 'aprendida')
+  const ko = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado'], ['fallo', en(20), 'estudio']])
+  assert.equal(ko.tarjetas['es-de']!.estado, 'aprendiendo')
+  assert.equal(ko.tarjetas['es-de']!.fsrs.reps, 1, 'el fallo cuenta como primera presentación')
+})
+
+test('desmarcar devuelve la palabra a nueva; marcar una palabra en estudio no hace nada', () => {
+  const des = marcarYResponder(1, 'de-es', [['acierto', T0, 'marcado'], ['fallo', en(0, 1), 'marcado']])
+  assert.equal(des.tarjetas['de-es']!.estado, 'nueva')
+  const enEstudio = historia(1, aprender('de-es', T0)).tarjetas
+  const { cambiadas } = responder(f, enEstudio, 1, { direccion: 'de-es', resultado: 'acierto', fecha: en(1), tipo: 'marcado', id: 'z' })
+  assert.equal(cambiadas.length, 0)
+})
+
+test('reconstruir con marcas y controles da lo mismo', () => {
+  const h = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado'], ['fallo', en(15), 'estudio'], ['acierto', en(15, 10), 'estudio']])
+  const r = reconstruir(f, 1, [...h.repasos].reverse())
+  assert.deepEqual(r['es-de'], h.tarjetas['es-de'])
+})
+
+test('en la cola: las marcadas no gastan el cupo, son raíces sabidas y su control aparece al tocar', () => {
+  const ps = [palabra(1), palabra(2), palabra(3, { raices: [1] })]
+  const marcada = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado']]).tarjetas['es-de']
+  // Hoy: la 1 no vuelve a salir como nueva; la 3 ya puede entrar (su raíz es conocida)
+  assert.deepEqual(cola(ps, mapa(marcada), en(0, 5), 2), ['2>n', '3>n'])
+  // El día del control, la 1 sale en producción como control
+  const dia = Math.ceil((new Date(marcada!.fsrs.due).getTime() - T0.getTime()) / DIA)
+  assert.ok(cola(ps, mapa(marcada), en(dia), 2).includes('1<c'))
+  // Desmarcada, vuelve a ser nueva
+  const desmarcada = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado'], ['fallo', T0, 'marcado']]).tarjetas['es-de']
+  assert.ok(cola(ps, mapa(desmarcada), en(0, 5), 2).includes('1>n'))
+})

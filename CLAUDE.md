@@ -313,6 +313,7 @@ Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los 
 | `src/` | PWA con React + TypeScript + Vite (`vite-plugin-pwa`) |
 | `src/motor/` | Código puro: `reglas.ts` (FSRS y reglas de estado) y `cola.ts` (la sesión diaria) |
 | `src/datos/` | Base local IndexedDB (`base.ts`), sincronización (`sincronizar.ts`) y perfil |
+| `src/Sesion.tsx`, `src/Tarjeta.tsx`, `src/Marcar.tsx` | Sesión de estudio, tarjeta y marcar palabras conocidas |
 | `amplify/` | Backend: `auth/` (Cognito, grupos `admin` y `estudiante`), `data/resource.ts` (modelos y permisos) |
 | `amplify.yml` | Compilación en Amplify Hosting (backend + frontend, Node 22) |
 | `scripts/copiar_datos.mjs` | Copia `data/export/palabras.json` a `public/datos/` antes de `dev` y `build` |

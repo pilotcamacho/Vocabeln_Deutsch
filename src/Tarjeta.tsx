@@ -2,6 +2,7 @@
 // La pista solo se ve después de intentar recordar (CLAUDE.md, «Curación manual»).
 
 import { Fragment, type ReactNode } from 'react'
+import type { ItemCola } from './motor/cola'
 import type { Direccion, Palabra } from './palabras'
 
 /** Palabra alemana con su artículo, coloreada por género. */
@@ -56,18 +57,19 @@ const ETIQUETA_PISTA: Record<string, string> = {
 interface Props {
   palabra: Palabra
   direccion: Direccion
-  nueva: boolean
+  motivo: ItemCola['motivo']
   mostrada: boolean
 }
 
-export function Tarjeta({ palabra: p, direccion, nueva, mostrada }: Props) {
+export function Tarjeta({ palabra: p, direccion, motivo, mostrada }: Props) {
   const reconocer = direccion === 'de-es'
   return (
     <div className="tarjeta-estudio">
       <div className="etiquetas">
         <span>{p.categoria}</span>
         <span>{reconocer ? 'alemán → español' : 'español → alemán'}</span>
-        {nueva && <span className="nueva">nueva</span>}
+        {(motivo === 'nueva' || motivo === 'produccion') && <span className="nueva">nueva</span>}
+        {motivo === 'control' && <span className="nueva">control</span>}
       </div>
 
       <div className="pregunta">

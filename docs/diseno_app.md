@@ -182,6 +182,8 @@ FSRS. Las tarjetas en aprendizaje (pasos de 1 y 10 minutos) vuelven a salir en l
 
 ### Marcar palabras conocidas
 
+Implementado en `src/Marcar.tsx`; las reglas, en `src/motor/reglas.ts` (`responder`, tipo `marcado`).
+
 Hay dos modos, los dos en orden de frecuencia:
 
 - **Deslizar**, en el móvil: aparece la palabra y se desliza a la derecha («la conozco») o a la
@@ -192,8 +194,17 @@ Hay dos modos, los dos en orden de frecuencia:
 
 Cómo funciona la marca:
 
-- Cada marca crea un `Repaso` con `tipo = marcado`. La tarjeta pasa a `conocida`, con un control
-  programado entre 7 y 30 días después, al azar, para repartir la carga.
+- Cada marca crea un `Repaso` con `tipo = marcado` y `resultado = acierto`. La tarjeta pasa a
+  `conocida`, con un control programado entre 7 y 30 días después, al azar, para repartir la
+  carga. El día sale del id del repaso, así que es el mismo en todos los dispositivos.
+- **Deshacer o desmarcar** no borra nada: añade otro `Repaso` `marcado` con `resultado = fallo`,
+  y la tarjeta vuelve a `nueva`. Solo afecta a palabras en `conocida`; marcar una palabra que ya
+  se está estudiando no hace nada.
+- La tarjeta de una palabra marcada está en la dirección del control.
+- Marcar no cuenta como estudiar: no gasta el cupo de nuevas del día ni impide preguntar la
+  otra dirección ese día.
+- En el modo deslizar, «no» no se guarda en la nube: solo avanza el punto de partida local
+  (`cursorMarcar`), para no volver a mostrar esas palabras.
 - **El control** se hace en producción (español → alemán) si la palabra tiene `orden` ≤ 8.000, y
   en reconocimiento si no.
   - Si se acierta, la palabra pasa a *aprendida*: se toma como saber previo a largo plazo y no se

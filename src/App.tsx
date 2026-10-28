@@ -1,11 +1,20 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react'
 import { fetchAuthSession, fetchUserAttributes, getCurrentUser } from 'aws-amplify/auth'
-import { abrirBase, guardarMeta, guardarRepaso, idDispositivo, leerMeta, type BaseLocal } from './datos/base'
+import { abrirBase, guardarMeta, guardarRepasos, idDispositivo, leerMeta, type BaseLocal } from './datos/base'
 import { ajustesLocales, cambiarAjustes, traerPerfil, type Ajustes } from './datos/perfil'
 import { sincronizar, type Usuario } from './datos/sincronizar'
 import { clave, construirCola, inicioDelDia, type ItemCola } from './motor/cola'
-import { planificador, responder, VERSION_ALGORITMO, type Resultado, type TarjetaLocal } from './motor/reglas'
+import {
+  direccionControl,
+  planificador,
+  responder,
+  VERSION_ALGORITMO,
+  type RepasoLocal,
+  type Resultado,
+  type TarjetaLocal,
+} from './motor/reglas'
+import { Marcar, type CambioMarca } from './Marcar'
 import { cargarPalabras, type Contenido, type Palabra } from './palabras'
 import { Sesion } from './Sesion'
 
@@ -40,6 +49,8 @@ function Principal() {
   const [correo, setCorreo] = useState('')
   const [admin, setAdmin] = useState(false)
   const [sesion, setSesion] = useState<ItemCola[] | null>(null)
+  const [marcando, setMarcando] = useState(false)
+  const [cursorMarcar, setCursorMarcar] = useState(0)
   const [sync, setSync] = useState<EstadoSync>({ tipo: 'parado' })
   const [sinSubir, setSinSubir] = useState(0)
   const [ultimaSync, setUltimaSync] = useState<string | null>(null)
@@ -65,6 +76,7 @@ function Principal() {
         setAjustes(await ajustesLocales(db))
         setCorreo(await leerMeta(db, 'correo', ''))
         setAdmin(await leerMeta(db, 'admin', false))
+        setCursorMarcar(await leerMeta(db, 'cursorMarcar', 0))
         await recargarTarjetas(db)
         setCarga({ usuario: { userId, username }, db, contenido, porId, dispositivo: await idDispositivo(db) })
       } catch (e) {
@@ -122,23 +134,26 @@ function Principal() {
         'de-es': tarjetas.get(clave(id, 'de-es')),
         'es-de': tarjetas.get(clave(id, 'es-de')),
       }
-      const r = responder(f, actuales, id, { direccion: item.direccion, resultado, fecha })
-      await guardarRepaso(
+      const tipo = item.motivo === 'control' ? 'control' : 'estudio'
+      const r = responder(f, actuales, id, { direccion: item.direccion, resultado, fecha, tipo })
+      await guardarRepasos(
         carga.db,
-        {
-          id: crypto.randomUUID(),
-          palabraId: id,
-          direccion: item.direccion,
-          fechaHora: fecha.toISOString(),
-          resultado,
-          tipo: 'estudio',
-          tiempoMs,
-          diasDesdeAnterior: r.diasDesdeAnterior,
-          rPrevista: r.rPrevista,
-          versionAlgoritmo: VERSION_ALGORITMO,
-          dispositivo: carga.dispositivo,
-          enviado: 0,
-        },
+        [
+          {
+            id: crypto.randomUUID(),
+            palabraId: id,
+            direccion: item.direccion,
+            fechaHora: fecha.toISOString(),
+            resultado,
+            tipo,
+            tiempoMs,
+            diasDesdeAnterior: r.diasDesdeAnterior,
+            rPrevista: r.rPrevista,
+            versionAlgoritmo: VERSION_ALGORITMO,
+            dispositivo: carga.dispositivo,
+            enviado: 0,
+          },
+        ],
         r.cambiadas,
       )
       setTarjetas((m) => {
@@ -149,6 +164,49 @@ function Principal() {
       setSinSubir((x) => x + 1)
       programarSync()
       return r.cambiadas[0]
+    },
+    [carga, tarjetas, f, programarSync],
+  )
+
+  // Marcar o desmarcar palabras como conocidas: un repaso «marcado» por palabra
+  const marcarPalabras = useCallback(
+    async (cambios: CambioMarca[]) => {
+      if (!carga) return
+      const fecha = new Date()
+      const local = new Map(tarjetas)
+      const repasos: RepasoLocal[] = []
+      const cambiadas: TarjetaLocal[] = []
+      for (const { palabra, conocida } of cambios) {
+        const id = crypto.randomUUID()
+        const direccion = direccionControl(palabra)
+        const actuales = {
+          'de-es': local.get(clave(palabra.id, 'de-es')),
+          'es-de': local.get(clave(palabra.id, 'es-de')),
+        }
+        const resultado = conocida ? 'acierto' : 'fallo'
+        const r = responder(f, actuales, palabra.id, { direccion, resultado, fecha, tipo: 'marcado', id })
+        if (!r.cambiadas.length) continue
+        for (const t of r.cambiadas) {
+          local.set(clave(t.palabraId, t.direccion), t)
+          cambiadas.push(t)
+        }
+        repasos.push({
+          id,
+          palabraId: palabra.id,
+          direccion,
+          fechaHora: fecha.toISOString(),
+          resultado,
+          tipo: 'marcado',
+          versionAlgoritmo: VERSION_ALGORITMO,
+          dispositivo: carga.dispositivo,
+          enviado: 0,
+        })
+      }
+      if (!repasos.length) return
+      await guardarRepasos(carga.db, repasos, cambiadas)
+      setTarjetas(local)
+      setSinSubir((x) => x + repasos.length)
+      programarSync()
     },
     [carga, tarjetas, f, programarSync],
   )
@@ -170,8 +228,8 @@ function Principal() {
 
   const [colaHoy, setColaHoy] = useState<ItemCola[] | null>(null)
   useEffect(() => {
-    if (!sesion) calcularCola().then(setColaHoy)
-  }, [calcularCola, sesion])
+    if (!sesion && !marcando) calcularCola().then(setColaHoy)
+  }, [calcularCola, sesion, marcando])
 
   if (error && !carga) return <main><p className="error">{error}</p></main>
   if (!carga || !ajustes) return <main><p className="tenue">Cargando…</p></main>
@@ -183,6 +241,22 @@ function Principal() {
         responder={contestar}
         terminar={() => {
           setSesion(null)
+          void sincronizarAhora()
+        }}
+      />
+    )
+  }
+
+  if (marcando) {
+    return (
+      <Marcar
+        palabras={carga.contenido.palabras}
+        tarjetas={tarjetas}
+        marcar={marcarPalabras}
+        cursor={cursorMarcar}
+        guardarCursor={(orden) => void guardarMeta(carga.db, 'cursorMarcar', orden).then(() => setCursorMarcar(orden))}
+        volver={() => {
+          setMarcando(false)
           void sincronizarAhora()
         }}
       />
@@ -203,6 +277,7 @@ function Principal() {
       ultimaSync={ultimaSync}
       error={error}
       estudiar={() => colaHoy?.length && setSesion(colaHoy)}
+      marcar={() => setMarcando(true)}
       sincronizar={sincronizarAhora}
       guardarAjustes={async (a) => {
         await cambiarAjustes(carga.db, a)
@@ -226,6 +301,7 @@ interface PropsInicio {
   ultimaSync: string | null
   error: string
   estudiar: () => void
+  marcar: () => void
   sincronizar: () => void
   guardarAjustes: (a: Ajustes) => Promise<void>
   salir: () => void
@@ -236,12 +312,16 @@ function Inicio(p: PropsInicio) {
   const progreso = useMemo(() => {
     let aprendidas = 0
     let enCurso = 0
+    let conocidas = 0
     for (const w of palabras) {
-      const t = p.tarjetas.get(clave(w.id, w.direcciones.includes('es-de') ? 'es-de' : 'de-es'))
-      if (t?.estado === 'aprendida') aprendidas++
-      else if (t || p.tarjetas.has(clave(w.id, 'de-es'))) enCurso++
+      // La palabra está aprendida cuando lo está su dirección final (producción si la tiene)
+      const final = p.tarjetas.get(clave(w.id, w.direcciones.includes('es-de') ? 'es-de' : 'de-es'))?.estado
+      const estados = [final, p.tarjetas.get(clave(w.id, 'de-es'))?.estado].filter((e) => e && e !== 'nueva')
+      if (final === 'aprendida') aprendidas++
+      else if (estados.includes('conocida')) conocidas++
+      else if (estados.length) enCurso++
     }
-    return { aprendidas, enCurso }
+    return { aprendidas, enCurso, conocidas }
   }, [palabras, p.tarjetas])
 
   const cuenta = (m: ItemCola['motivo']) => p.cola?.filter((x) => x.motivo === m).length ?? 0
@@ -261,6 +341,12 @@ function Inicio(p: PropsInicio) {
             <p>
               <strong>{cuenta('repaso')}</strong> repasos · <strong>{cuenta('nueva')}</strong> nuevas ·{' '}
               <strong>{cuenta('produccion')}</strong> para producir
+              {cuenta('control') > 0 && (
+                <>
+                  {' '}
+                  · <strong>{cuenta('control')}</strong> controles
+                </>
+              )}
             </p>
             <button className="primario ancho" disabled={!p.cola.length} onClick={p.estudiar}>
               {p.cola.length ? 'Estudiar' : 'Nada pendiente por hoy'}
@@ -275,10 +361,14 @@ function Inicio(p: PropsInicio) {
         <h2>Progreso</h2>
         <p>
           <strong>{progreso.aprendidas.toLocaleString('es')}</strong> aprendidas ·{' '}
-          <strong>{progreso.enCurso.toLocaleString('es')}</strong> en curso · de{' '}
+          <strong>{progreso.enCurso.toLocaleString('es')}</strong> en curso ·{' '}
+          <strong>{progreso.conocidas.toLocaleString('es')}</strong> conocidas por controlar · de{' '}
           {palabras.length.toLocaleString('es')}
         </p>
         <p className="tenue">{validadas.toLocaleString('es')} listas para estudiar (tramos revisados)</p>
+        <button className="ancho" onClick={p.marcar}>
+          Marcar palabras que ya conozco
+        </button>
       </section>
 
       <section className="tarjeta">
