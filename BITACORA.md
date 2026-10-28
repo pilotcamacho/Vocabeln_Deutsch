@@ -43,7 +43,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLAUDE.md`,
 «Aplicación»).
 
-**Fase 2 hecha en `dev`, sin publicar** (estudio: tarjeta, FSRS, cola, modo sin conexión).
+**Fase 2 publicada** (fusionada en `main` el 28-10-2026, despliegue 4) (estudio: tarjeta, FSRS, cola, modo sin conexión).
 - `src/motor/` (reglas y cola, 10 pruebas en `npm test`), `src/datos/` (IndexedDB y
   sincronización), `src/Sesion.tsx` y `src/Tarjeta.tsx`.
 - Probado en el navegador contra el sandbox con `prueba-b`: sesión de estudio, subida y
@@ -54,8 +54,10 @@ Se trabaja en la rama `dev`; `main` solo recibe fusiones para publicar (ver `CLA
 - Sin probar todavía: el modo sin conexión en un móvil real (modo avión).
 - Detalle conocido: las teclas pulsadas muy seguidas (más rápido que el repintado) se pierden.
 
-**Siguiente paso:** el usuario prueba la fase 2 y decide publicarla (fusionar `dev` en `main`).
-Después, la fase 3 (marcar conocidas).
+El usuario usará primero Android y la web; el iPhone, solo para pruebas más adelante.
+
+**Siguiente paso:** el usuario prueba la fase 2 en Android (incluido el modo avión). Después, la
+fase 3 (marcar conocidas).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 
