@@ -15,6 +15,8 @@ import {
   type TarjetaLocal,
 } from './motor/reglas'
 import { Admin } from './Admin'
+import { Conjuntos } from './Conjuntos'
+import { conjuntosLocales, traerConjuntos, type Conjunto } from './datos/conjuntos'
 import { Informe } from './Informe'
 import { Marcar, type CambioMarca } from './Marcar'
 import { estadoPalabra } from './motor/informe'
@@ -52,7 +54,10 @@ function Principal() {
   const [correo, setCorreo] = useState('')
   const [admin, setAdmin] = useState(false)
   const [sesion, setSesion] = useState<ItemCola[] | null>(null)
-  const [marcando, setMarcando] = useState(false)
+  // Palabras para marcar: toda la lista o las de un conjunto
+  const [marcando, setMarcando] = useState<Palabra[] | null>(null)
+  const [conjuntos, setConjuntos] = useState<Conjunto[]>([])
+  const [viendoConjuntos, setViendoConjuntos] = useState(false)
   // Informe propio (con los repasos locales) o vista de administrador
   const [informe, setInforme] = useState<RepasoLocal[] | 'admin' | null>(null)
   const [cursorMarcar, setCursorMarcar] = useState(0)
@@ -82,6 +87,7 @@ function Principal() {
         setCorreo(await leerMeta(db, 'correo', ''))
         setAdmin(await leerMeta(db, 'admin', false))
         setCursorMarcar(await leerMeta(db, 'cursorMarcar', 0))
+        setConjuntos(await conjuntosLocales(db))
         await recargarTarjetas(db)
         setCarga({ usuario: { userId, username }, db, contenido, porId, dispositivo: await idDispositivo(db) })
       } catch (e) {
@@ -114,7 +120,8 @@ function Principal() {
         setAdmin(grupos.includes('admin'))
         await guardarMeta(carga.db, 'correo', atributos.email ?? '')
         await guardarMeta(carga.db, 'admin', grupos.includes('admin'))
-        setAjustes(await traerPerfil(carga.db, (atributos.email ?? '').split('@')[0]))
+        setAjustes(await traerPerfil(carga.db, carga.usuario.userId, (atributos.email ?? '').split('@')[0]))
+        setConjuntos(await traerConjuntos(carga.db, carga.usuario.userId))
       } catch (e) {
         setError(String(e))
       }
@@ -220,7 +227,10 @@ function Principal() {
     if (!carga || !ajustes) return []
     const ahora = new Date()
     const repasosHoy = await carga.db.repasos.where('fechaHora').aboveOrEqual(inicioDelDia(ahora).toISOString()).toArray()
+    // El conjunto priorizado: sus palabras, de más a menos apariciones en el texto
+    const activo = conjuntos.find((c) => c.id === ajustes.conjuntoActivoId)
     return construirCola({
+      prioritarias: activo?.palabras.map(([id]) => id),
       palabras: carga.contenido.palabras,
       porId: carga.porId,
       tarjetas,
@@ -229,12 +239,12 @@ function Principal() {
       ahora,
       f,
     })
-  }, [carga, ajustes, tarjetas, f])
+  }, [carga, ajustes, tarjetas, f, conjuntos])
 
   const [colaHoy, setColaHoy] = useState<ItemCola[] | null>(null)
   useEffect(() => {
-    if (!sesion && !marcando && !informe) calcularCola().then(setColaHoy)
-  }, [calcularCola, sesion, marcando, informe])
+    if (!sesion && !marcando && !informe && !viendoConjuntos) calcularCola().then(setColaHoy)
+  }, [calcularCola, sesion, marcando, informe, viendoConjuntos])
 
   if (error && !carga) return <main><p className="error">{error}</p></main>
   if (!carga || !ajustes) return <main><p className="tenue">Cargando…</p></main>
@@ -253,17 +263,46 @@ function Principal() {
   }
 
   if (marcando) {
+    // El punto de partida de «deslizar» solo se recuerda para la lista completa
+    const todas = marcando === carga.contenido.palabras
     return (
       <Marcar
-        palabras={carga.contenido.palabras}
+        palabras={marcando}
         tarjetas={tarjetas}
         marcar={marcarPalabras}
-        cursor={cursorMarcar}
-        guardarCursor={(orden) => void guardarMeta(carga.db, 'cursorMarcar', orden).then(() => setCursorMarcar(orden))}
+        cursor={todas ? cursorMarcar : 0}
+        guardarCursor={(orden) => {
+          if (todas) void guardarMeta(carga.db, 'cursorMarcar', orden).then(() => setCursorMarcar(orden))
+        }}
         volver={() => {
-          setMarcando(false)
+          setMarcando(null)
           void sincronizarAhora()
         }}
+      />
+    )
+  }
+
+  if (viendoConjuntos) {
+    return (
+      <Conjuntos
+        conjuntos={conjuntos}
+        palabras={carga.contenido.palabras}
+        porId={carga.porId}
+        tarjetas={tarjetas}
+        admin={admin}
+        enLinea={enLinea}
+        activoId={ajustes.conjuntoActivoId ?? null}
+        nuevasPorDia={ajustes.nuevasPorDia}
+        retencionObjetivo={ajustes.retencionObjetivo}
+        activar={async (id) => {
+          const nuevos = { ...ajustes, conjuntoActivoId: id }
+          await cambiarAjustes(carga.db, nuevos)
+          setAjustes(nuevos)
+        }}
+        recargar={async () => setConjuntos(await traerConjuntos(carga.db, carga.usuario.userId))}
+        cargarRepasos={() => carga.db.repasos.toArray()}
+        marcar={setMarcando}
+        volver={() => setViendoConjuntos(false)}
       />
     )
   }
@@ -297,7 +336,9 @@ function Principal() {
       ultimaSync={ultimaSync}
       error={error}
       estudiar={() => colaHoy?.length && setSesion(colaHoy)}
-      marcar={() => setMarcando(true)}
+      marcar={() => setMarcando(carga.contenido.palabras)}
+      verConjuntos={() => setViendoConjuntos(true)}
+      activo={conjuntos.find((c) => c.id === ajustes.conjuntoActivoId)?.nombre}
       verInforme={() => void carga.db.repasos.toArray().then(setInforme)}
       verEstudiantes={() => setInforme('admin')}
       sincronizar={sincronizarAhora}
@@ -325,6 +366,8 @@ interface PropsInicio {
   estudiar: () => void
   marcar: () => void
   verInforme: () => void
+  verConjuntos: () => void
+  activo?: string
   verEstudiantes: () => void
   sincronizar: () => void
   guardarAjustes: (a: Ajustes) => Promise<void>
@@ -370,6 +413,7 @@ function Inicio(p: PropsInicio) {
                 </>
               )}
             </p>
+            {p.activo && <p className="tenue">Priorizando el conjunto «{p.activo}»</p>}
             <button className="primario ancho" disabled={!p.cola.length} onClick={p.estudiar}>
               {p.cola.length ? 'Estudiar' : 'Nada pendiente por hoy'}
             </button>
@@ -393,6 +437,9 @@ function Inicio(p: PropsInicio) {
         </button>
         <button className="ancho" onClick={p.marcar}>
           Marcar palabras que ya conozco
+        </button>
+        <button className="ancho" onClick={p.verConjuntos}>
+          Conjuntos: libros, temas y textos
         </button>
       </section>
 

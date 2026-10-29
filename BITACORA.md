@@ -66,7 +66,7 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   arrastrar, deshacer y reconstrucción en un «dispositivo nuevo» con el mismo resultado.
 - El control solo se ha probado con las pruebas automáticas: en la app toca dentro de 7 días.
 
-**Fase 4 hecha en `dev`, sin publicar** (informe de progreso).
+**Fase 4 publicada** (fusionada en `main` el 28-10-2026, despliegue 6) (informe de progreso).
 - Cálculos en `src/motor/informe.ts` (código puro, 7 pruebas en `tests/informe.test.ts`; 22 en
   total): estado de cada palabra, desglose total, por tramos de 1.000 y por categoría, palabras
   en repaso por nivel, empezadas, aprendidas y marcadas por semana (8 semanas), proyección de
@@ -82,7 +82,28 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
 - Colores por estado validados con el validador de paletas (claro y oscuro).
 - Probado en el navegador contra el sandbox con `prueba-b` y `prueba-admin`.
 
-**Siguiente paso:** el usuario decide publicar la fase 4. Después, la fase 5 (conjuntos).
+**Fase 5 hecha en `dev`, sin publicar** (conjuntos).
+- Decisión del usuario: el texto se lematiza **en el dispositivo**, no en una Lambda.
+  `src/motor/lematizar.ts` traduce `scripts/lematizar.py` y da lo mismo con
+  `tests/texto_prueba.txt` (122 palabras, 71 en la lista, 61 lemas).
+- Modelo: las palabras van en `Conjunto.palabras` (JSON) y desaparece `ConjuntoPalabra`. Sandbox
+  ya desplegado con el cambio; producción lo recibirá al publicar.
+- `src/Conjuntos.tsx`: lista (propios y públicos, con la cobertura del texto), nuevo conjunto
+  (pegar texto o archivo `.txt`, analizar, guardar), priorizar, hacer público (admin), borrar e
+  informe del conjunto con la cobertura y «Marcar las que ya conozco de este conjunto».
+- Cola: el conjunto priorizado pasa sus palabras nuevas delante (`prioritarias`), por
+  apariciones en el texto y con las raíces antes. 26 pruebas en `npm test`.
+- Errores encontrados al probar y corregidos:
+  - **Nadie podía borrar un conjunto**: los permisos por campo de `owner` y `lectores` no
+    incluían `delete`. Las pruebas de permisos lo comprueban ahora (y la limpieza ya funciona).
+  - **Un admin leía el perfil de otro estudiante** como si fuera el suyo (`Perfil.list` le
+    devuelve todos y se tomaba el primero), y no podía guardar sus ajustes. Ahora se filtra por
+    `owner`. Afectaba a producción en cuanto hubiera más estudiantes.
+- Probado en el navegador contra el sandbox con `prueba-admin`: crear, analizar, guardar,
+  priorizar, hacer público e informe.
+
+**Siguiente paso:** el usuario prueba y decide publicar la fase 5. Después, la fase 6
+(optimizar FSRS con los datos de cada estudiante).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 

@@ -44,8 +44,12 @@ comprobar('A consulta sus repasos por hora de llegada', porFecha.data?.some((r) 
 const tarjetaA = await cliente.models.Tarjeta.create({ palabraId: 1, direccion: 'de_es', estado: 'aprendiendo' })
 comprobar('A crea y modifica su tarjeta', permitido(tarjetaA) &&
   permitido(await cliente.models.Tarjeta.update({ id: tarjetaA.data.id, estado: 'repaso', nivel: 1 })))
-const privadoA = await cliente.models.Conjunto.create({ nombre: 'Texto de A', tipo: 'texto' })
-comprobar('A crea un conjunto privado', permitido(privadoA))
+const privadoA = await cliente.models.Conjunto.create({
+  nombre: 'Texto de A', tipo: 'texto', palabras: JSON.stringify([[1, 3], [2, 1]]),
+})
+comprobar('A crea un conjunto privado con sus palabras', permitido(privadoA))
+comprobar('A cambia el nombre de su conjunto',
+  permitido(await cliente.models.Conjunto.update({ id: privadoA.data.id, nombre: 'Texto de A (2)' })))
 comprobar('A no puede hacer público su conjunto',
   !permitido(await cliente.models.Conjunto.update({ id: privadoA.data.id, lectores: ['estudiante'] })))
 comprobar('A no puede crear un conjunto ya público',
@@ -53,32 +57,43 @@ comprobar('A no puede crear un conjunto ya público',
 
 // Administrador: conjunto público
 await entrar('admin')
-const publico = await cliente.models.Conjunto.create({ nombre: 'Tema público', tipo: 'tema', lectores: ['estudiante'] })
-comprobar('El admin crea un conjunto público', permitido(publico))
-const enlace = await cliente.models.ConjuntoPalabra.create({
-  conjuntoId: publico.data.id, palabraId: 1, ocurrencias: 3, lectores: ['estudiante'],
+const publico = await cliente.models.Conjunto.create({
+  nombre: 'Tema público', tipo: 'tema', lectores: ['estudiante'], palabras: JSON.stringify([[1, 1]]),
 })
-comprobar('El admin añade una palabra al conjunto público', permitido(enlace))
+comprobar('El admin crea un conjunto público', permitido(publico))
 comprobar('El admin lee los repasos de A', permitido(await cliente.models.Repaso.get({ id: repasoA.data.id })))
 
 // Estudiante B
 await entrar('b')
-comprobar('B no ve los repasos de A', (await cliente.models.Repaso.list()).data.length === 0)
+// B puede tener repasos propios: lo que no debe ver es el de A
+comprobar('B no ve los repasos de A', !(await cliente.models.Repaso.list()).data.some((r) => r.id === repasoA.data.id) &&
+  !(await cliente.models.Repaso.get({ id: repasoA.data.id })).data)
 comprobar('B no lee el perfil de A', !(await cliente.models.Perfil.get({ id: perfilA.data.id })).data)
 comprobar('B no modifica la tarjeta de A',
   !permitido(await cliente.models.Tarjeta.update({ id: tarjetaA.data.id, estado: 'aprendida' })))
 comprobar('B no lee el conjunto privado de A', !(await cliente.models.Conjunto.get({ id: privadoA.data.id })).data)
 comprobar('B lee el conjunto público', permitido(await cliente.models.Conjunto.get({ id: publico.data.id })))
-const palabrasPublico = await cliente.models.ConjuntoPalabra.listConjuntoPalabraByConjuntoId({ conjuntoId: publico.data.id })
-comprobar('B lee las palabras del conjunto público', palabrasPublico.data?.length === 1)
+const leido = (await cliente.models.Conjunto.get({ id: publico.data.id })).data
+comprobar('B lee las palabras del conjunto público', JSON.stringify(leido?.palabras).includes('[[1,1]]'))
+const listaB = (await cliente.models.Conjunto.list()).data.map((c) => c.id)
+comprobar('La lista de B tiene el público y no el privado de A',
+  listaB.includes(publico.data.id) && !listaB.includes(privadoA.data.id))
 comprobar('B no modifica el conjunto público',
   !permitido(await cliente.models.Conjunto.update({ id: publico.data.id, nombre: 'Cambiado' })))
+comprobar('B no borra el conjunto público', !permitido(await cliente.models.Conjunto.delete({ id: publico.data.id })))
+
+// A borra un conjunto suyo
+await entrar('a')
+const efimero = await cliente.models.Conjunto.create({ nombre: 'Efímero de A', tipo: 'texto' })
+comprobar('A borra su conjunto', permitido(await cliente.models.Conjunto.delete({ id: efimero.data.id })))
 
 // Limpieza (el admin puede borrar los conjuntos; los repasos se quedan en el sandbox)
 await entrar('admin')
-await cliente.models.ConjuntoPalabra.delete({ id: enlace.data.id })
-await cliente.models.Conjunto.delete({ id: publico.data.id })
-await cliente.models.Conjunto.delete({ id: privadoA.data.id })
+comprobar('El admin borra su conjunto público', permitido(await cliente.models.Conjunto.delete({ id: publico.data.id })))
+comprobar('El admin borra el conjunto privado de A',
+  permitido(await cliente.models.Conjunto.delete({ id: privadoA.data.id })))
+await entrar('a')
+await cliente.models.Perfil.delete({ id: perfilA.data.id })
 await signOut()
 
 console.log(fallos ? `\n${fallos} comprobaciones fallidas` : '\nTodas las comprobaciones pasan')

@@ -13,10 +13,12 @@ const propietario = () =>
   ]);
 
 // En los conjuntos, también lo leen los grupos de «lectores» (conjuntos públicos).
+// Para borrar un elemento, todos sus campos con permisos propios deben permitir «delete»: el
+// admin puede borrar cualquier conjunto.
 const propietarioConjunto = () =>
   a.string().authorization((allow) => [
     allow.owner().to(["read", "delete"]),
-    allow.group("admin").to(["read"]),
+    allow.group("admin").to(["read", "delete"]),
     allow.groupsDefinedIn("lectores").to(["read"]),
   ]);
 
@@ -28,7 +30,7 @@ const lectores = () =>
     .array()
     .authorization((allow) => [
       allow.group("admin"),
-      allow.owner().to(["read"]),
+      allow.owner().to(["read", "delete"]), // sin «delete», el dueño no podría borrar su conjunto
       allow.groupsDefinedIn("lectores").to(["read"]),
     ]);
 
@@ -107,6 +109,9 @@ const schema = a.schema({
     .authorization((allow) => [allow.owner(), allow.group("admin").to(["read"])]),
 
   // Libro, tema o texto. No se guarda el texto original (derechos de autor), solo sus palabras.
+  // El texto se lematiza en el dispositivo (src/motor/lematizar.ts) y sus palabras se guardan
+  // aquí mismo, como JSON: una sola escritura por conjunto (cabe de sobra en un elemento de
+  // DynamoDB: 10.000 palabras ≈ 120 KB de 400 KB).
   Conjunto: a
     .model({
       nombre: a.string().required(),
@@ -114,26 +119,10 @@ const schema = a.schema({
       descripcion: a.string(),
       nTokens: a.integer(), // palabras totales del texto
       nTokensEnLista: a.integer(),
-      lectores: lectores(),
-      owner: propietarioConjunto(),
-      palabras: a.hasMany("ConjuntoPalabra", "conjuntoId"),
-    })
-    .authorization((allow) => [
-      allow.owner(),
-      allow.group("admin"),
-      allow.groupsDefinedIn("lectores").to(["read"]),
-    ]),
-
-  ConjuntoPalabra: a
-    .model({
-      conjuntoId: a.id().required(),
-      conjunto: a.belongsTo("Conjunto", "conjuntoId"),
-      palabraId: a.integer().required(),
-      ocurrencias: a.integer(),
+      palabras: a.json(), // [[palabraId, ocurrencias], …], de más a menos ocurrencias
       lectores: lectores(),
       owner: propietarioConjunto(),
     })
-    .secondaryIndexes((index) => [index("conjuntoId"), index("palabraId")])
     .authorization((allow) => [
       allow.owner(),
       allow.group("admin"),

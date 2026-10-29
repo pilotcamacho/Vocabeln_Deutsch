@@ -1,7 +1,7 @@
 // Informe de progreso (docs/diseno_app.md, «Informe de progreso»). Los cálculos están en
 // src/motor/informe.ts; aquí solo se dibujan. Lo usan el estudiante y la vista de administrador.
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import {
   calcularInforme,
   estadoPalabra,
@@ -44,6 +44,10 @@ interface Props {
   nuevasPorDia: number
   retencionObjetivo: number
   volver: () => void
+  /** Secciones propias al principio del informe (la cobertura de un conjunto) */
+  extra?: ReactNode
+  /** Nombre del total en la proyección: «Toda la lista» o «Todo el conjunto» */
+  todo?: string
 }
 
 export function Informe(p: Props) {
@@ -79,8 +83,9 @@ export function Informe(p: Props) {
       <h1>{p.titulo}</h1>
       {vista === 'informe' ? (
         <>
+          {p.extra}
           <Resumen inf={inf} />
-          <Ritmo inf={inf} validadas={validadas} />
+          <Ritmo inf={inf} validadas={validadas} todo={p.todo ?? 'Toda la lista'} />
           <Carga inf={inf} />
           {inf.retencion && <Retencion inf={inf} objetivo={p.retencionObjetivo} />}
           <Grupos titulo="Por tramos de frecuencia" grupos={inf.tramos} />
@@ -94,7 +99,7 @@ export function Informe(p: Props) {
 }
 
 /** Barra apilada por estado; las nuevas son el fondo. */
-function Barra({ d, alta }: { d: Desglose; alta?: boolean }) {
+export function Barra({ d, alta }: { d: Desglose; alta?: boolean }) {
   return (
     <div className={`barra ${alta ? 'alta' : ''}`} role="img" aria-label={textoDesglose(d)} title={textoDesglose(d)}>
       {ESTADOS_GLOBALES.filter((e) => e !== 'nueva' && d[e] > 0).map((e) => (
@@ -109,7 +114,7 @@ const textoDesglose = (d: Desglose) =>
     .map((e) => `${n(d[e])} ${NOMBRE[e]}`)
     .join(' · ')
 
-function Leyenda({ d }: { d: Desglose }) {
+export function Leyenda({ d }: { d: Desglose }) {
   return (
     <ul className="leyenda">
       {ESTADOS_GLOBALES.map((e) => (
@@ -127,7 +132,7 @@ function Resumen({ inf }: { inf: DatosInforme }) {
   const maxNivel = Math.max(1, ...inf.niveles)
   return (
     <section className="tarjeta">
-      <h2>Total de la lista</h2>
+      <h2>Palabras</h2>
       <div className="cifras">
         <div>
           <strong>{n(t.aprendida)}</strong>
@@ -163,7 +168,7 @@ function Resumen({ inf }: { inf: DatosInforme }) {
   )
 }
 
-function Ritmo({ inf, validadas }: { inf: DatosInforme; validadas: number }) {
+function Ritmo({ inf, validadas, todo }: { inf: DatosInforme; validadas: number; todo: string }) {
   const max = Math.max(1, ...inf.semanas.map((s) => s.empezadas))
   const ultimas = inf.semanas.slice(-4)
   const suma = (k: 'empezadas' | 'aprendidas' | 'marcadas') => ultimas.reduce((s, x) => s + x[k], 0)
@@ -200,14 +205,14 @@ function Ritmo({ inf, validadas }: { inf: DatosInforme; validadas: number }) {
           <tbody>
             {proximos.map((h) => (
               <tr key={h.palabras}>
-                <td>{h === total ? 'Toda la lista' : `${n(h.palabras)} palabras`}</td>
+                <td>{h === total ? todo : `${n(h.palabras)} palabras`}</td>
                 <td>{fechaLarga(h.fecha!)}</td>
               </tr>
             ))}
           </tbody>
         </table>
       ) : (
-        <p>Ya has empezado toda la lista.</p>
+        <p>Ya las has empezado todas.</p>
       )}
       <p className="tenue">
         Fecha en que estarían todas empezadas. Cada palabra pasa a aprendida unos 3–4 meses después de empezarla. Por

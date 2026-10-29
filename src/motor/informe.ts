@@ -288,3 +288,29 @@ function calcularRetencion(repasos: RepasoLocal[], ahora: Date): Pick<Informe, '
   for (const g of retencion) if (g.n) g.prevista /= g.n
   return { retencion, controles }
 }
+
+export interface Cobertura {
+  /** Apariciones en el texto de las palabras de la lista, según el estado de cada palabra */
+  tokens: Desglose
+  /** Apariciones de palabras fuera de la lista (funcionales, nombres propios…) */
+  fuera: number
+  /** Palabras del texto */
+  nTokens: number
+}
+
+/** Qué parte del texto cubre cada estado, contando cada aparición. */
+export function cobertura(
+  palabras: [number, number][],
+  porId: Map<number, Palabra>,
+  tarjetas: Map<string, TarjetaLocal>,
+  nTokens: number,
+): Cobertura {
+  const tokens = vacio()
+  for (const [id, n] of palabras) {
+    const w = porId.get(id)
+    if (!w) continue // significado retirado de la lista
+    tokens[estadoPalabra(w, tarjetas).estado] += n
+    tokens.total += n
+  }
+  return { tokens, fuera: Math.max(0, nTokens - tokens.total), nTokens }
+}

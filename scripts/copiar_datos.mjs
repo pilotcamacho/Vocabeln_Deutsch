@@ -4,3 +4,5 @@ import { copyFileSync, mkdirSync } from "node:fs";
 
 mkdirSync("public/datos", { recursive: true });
 copyFileSync("data/export/palabras.json", "public/datos/palabras.json");
+// Tabla forma → lema: solo se descarga al crear un conjunto (no se guarda para usar sin conexión)
+copyFileSync("data/export/formas.json", "public/datos/formas.json");

@@ -27,6 +27,8 @@ export default defineConfig({
       workbox: {
         // palabras.json (≈5 MB) se guarda en el dispositivo para estudiar sin conexión
         globPatterns: ['**/*.{js,css,html,svg,png,ico,json}'],
+        // formas.json (2,7 MB) solo hace falta con conexión, al crear un conjunto
+        globIgnores: ['**/datos/formas.json'],
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       },
     }),

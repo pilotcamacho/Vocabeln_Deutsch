@@ -32,7 +32,7 @@ conexión y sincroniza con AWS cuando hay red.
 | Backend | **Amplify Gen 2** |
 | Usuarios | Cognito, con grupos `admin` y `estudiante` |
 | API y datos | Amplify Data, es decir, AppSync (GraphQL) + DynamoDB |
-| Funciones | Lambda: lematizar textos, recalcular estadísticas y ajustar FSRS |
+| Funciones | Lambda: alta de estudiantes en su grupo; más adelante, ajustar FSRS. Lematizar textos y los informes se hacen en el dispositivo |
 | Alojamiento | Amplify Hosting, con despliegue desde un repositorio git (p. ej. GitHub gratuito) |
 
 - **Sincronización sin conexión** (`src/datos/sincronizar.ts`). Amplify Gen 2 ya no ofrece
@@ -141,20 +141,22 @@ Con 16.000 palabras en dos direcciones son unas 24.000 filas como máximo por es
 | `descripcion` | |
 | `lectores` | grupos que pueden leerlo: `["estudiante"]` = público; vacío = privado de su `owner`. Solo un admin puede rellenarlo |
 | `owner`, `nTokens`, `nTokensEnLista`, `creadoEn` | `nTokens` = palabras totales del texto |
+| `palabras` | JSON `[[palabraId, ocurrencias], …]`, de más a menos ocurrencias; las ocurrencias sirven para la cobertura |
 
 **No se guarda el texto original**, porque los libros tienen derechos de autor. Solo se guarda la
 lista de palabras con sus recuentos.
 
-### `ConjuntoPalabra`: la relación muchos a muchos
-
-| Campo | Notas |
-|---|---|
-| `conjuntoId`, `palabraId` | clave, con un índice secundario por `palabraId` («¿en qué conjuntos está esta palabra?») |
-| `ocurrencias` | cuántas veces aparece en el texto; sirve para calcular la cobertura |
-
+- **Las palabras van dentro del conjunto, como JSON** (decisión del 28-10-2026). Sustituye al
+  modelo `ConjuntoPalabra` previsto, una fila por palabra: guardar un libro serían miles de
+  escrituras, y así es una sola. Un elemento de DynamoDB admite 400 KB; 10.000 palabras ocupan
+  unos 120 KB. Se pierde el índice «¿en qué conjuntos está esta palabra?», que no se usa.
+- **Permisos.** El dueño crea, cambia y borra su conjunto; solo un admin lo publica (`lectores`)
+  o borra conjuntos ajenos. Para borrar un elemento, todos sus campos con permisos propios deben
+  permitir `delete` (`owner` y `lectores`).
 - **Textos pegados por el estudiante.** Un lema se enlaza con su significado 1, porque no se sabe
   qué sentido usa el texto.
-- **Conjuntos del administrador.** El administrador puede elegir significados concretos.
+- **Conjuntos del administrador.** Se crean igual, desde un texto, y el admin los hace públicos.
+  Elegir significados concretos queda pendiente.
 
 ## Lógica principal
 
@@ -235,14 +237,24 @@ dispositivo con las tarjetas y los repasos locales, sin coste de servidor.
 
 ### Crear un conjunto a partir de un texto
 
-1. El estudiante pega el texto en la aplicación.
-2. Una Lambda lo divide en palabras y convierte cada forma en su lema con la tabla
-   `data/export/formas.json`, generada a partir de Wiktionary (hecho el 28-10-2026). La tabla se
-   incluye en la propia Lambda; no se usan servicios externos. La referencia de su
-   comportamiento es `scripts/lematizar.py`.
+Implementado en `src/Conjuntos.tsx` y `src/motor/lematizar.ts`. **Se hace en el dispositivo, no
+en una Lambda** (decisión del usuario, 28-10-2026): el texto no sale del dispositivo, no hay
+límite de tamaño ni coste.
+
+1. El estudiante pega el texto o elige un archivo `.txt`.
+2. La aplicación descarga la tabla `data/export/formas.json` (2,7 MB; unos 400 KB comprimida)
+   solo la primera vez que se crea un conjunto; no se guarda para usar sin conexión. Divide el
+   texto en palabras y convierte cada forma en su lema. `src/motor/lematizar.ts` traduce
+   `scripts/lematizar.py`, que es la especificación; `tests/lematizar.test.ts` comprueba que dan
+   lo mismo.
 3. Detecta los verbos separables («kommt … an» → *ankommen*) cuando la partícula está al final de
    la oración. Es una detección aproximada.
-4. Guarda el `Conjunto` y sus `ConjuntoPalabra`. El texto se descarta.
+4. Muestra el resultado (palabras, % en la lista, las más frecuentes y las de fuera) y guarda el
+   `Conjunto` con sus palabras. El texto se descarta.
+
+**Priorizar** un conjunto guarda su id en `Perfil.conjuntoActivoId`. La cola pone delante sus
+palabras nuevas, de más a menos apariciones en el texto, respetando la regla de raíces. Desde el
+informe de un conjunto se pueden marcar las que ya se conocen.
 
 ## Fases
 
@@ -256,7 +268,7 @@ dispositivo con las tarjetas y los repasos locales, sin coste de servidor.
    - Modo sin conexión y sincronización.
 3. **Marcar conocidas.** Deslizar, la lista por tramos y los controles.
 4. **Informe de progreso.**
-5. **Conjuntos.** Los del administrador, los privados desde un texto, la Lambda lematizadora y
+5. **Conjuntos.** Los del administrador, los privados desde un texto, el lematizador y
    la opción de priorizar un conjunto.
 6. **Optimización.** Ajustar los parámetros de FSRS de cada estudiante con su historial y
    comparar estrategias de intervalos.

@@ -591,3 +591,38 @@ button.enlace {
   color: var(--tenue);
   white-space: nowrap;
 }
+
+/* Conjuntos */
+.conjunto.activo {
+  border-color: var(--acento);
+}
+.conjunto h2 {
+  margin-top: 8px;
+}
+.conjunto .acciones-tramo {
+  margin-top: 10px;
+}
+button.peligro {
+  color: var(--error);
+}
+.campo-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+.campo-texto input,
+.campo-texto select,
+.campo-texto textarea {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  background: var(--fondo);
+  color: var(--texto);
+}
+.campo-texto textarea {
+  resize: vertical;
+  min-height: 8em;
+}

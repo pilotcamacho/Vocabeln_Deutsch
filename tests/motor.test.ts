@@ -203,3 +203,14 @@ test('en la cola: las marcadas no gastan el cupo, son raíces sabidas y su contr
   const desmarcada = marcarYResponder(1, 'es-de', [['acierto', T0, 'marcado'], ['fallo', T0, 'marcado']]).tarjetas['es-de']
   assert.ok(cola(ps, mapa(desmarcada), en(0, 5), 2).includes('1>n'))
 })
+
+test('el conjunto priorizado pasa delante, con sus raíces antes', () => {
+  // 5 es un compuesto de 4; el conjunto pide 5 y 3
+  const palabras = [palabra(1), palabra(2), palabra(3), palabra(4), palabra(5, { raices: [4] })]
+  const porId = new Map(palabras.map((p) => [p.id, p]))
+  const cola = construirCola({
+    palabras, porId, tarjetas: new Map(), repasosHoy: [], nuevasPorDia: 3, ahora: T0, f, prioritarias: [5, 3],
+  })
+  // La raíz 4 se adelanta, pero el compuesto 5 espera a que se recuerde; después, la 3 y la 1
+  assert.deepEqual(cola.map((x) => x.palabra.id), [4, 3, 1])
+})

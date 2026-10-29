@@ -292,7 +292,8 @@ python -I -X utf8 scripts/lematizar.py texto.txt --detalle
 Excluye las palabras funcionales que coinciden con alguna forma (*weil* ≠ *weilen*). Hay que
 volver a ejecutarlo después del exportador.
 
-`lematizar.py` es la **especificación de referencia** de la Lambda que creará los conjuntos. Sus
+`lematizar.py` es la **especificación de referencia** del lematizador de la app
+(`src/motor/lematizar.ts`, que crea los conjuntos en el dispositivo). Sus
 reglas están en el propio script:
 - divide el texto en cláusulas;
 - reconoce la mayúscula de principio de oración;
@@ -315,10 +316,11 @@ Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los 
 | `src/datos/` | Base local IndexedDB (`base.ts`), sincronización (`sincronizar.ts`) y perfil |
 | `src/Sesion.tsx`, `src/Tarjeta.tsx`, `src/Marcar.tsx` | Sesión de estudio, tarjeta y marcar palabras conocidas |
 | `src/motor/informe.ts`, `src/Informe.tsx`, `src/Admin.tsx` | Informe de progreso, lista de palabras y vista de administrador |
+| `src/motor/lematizar.ts`, `src/datos/conjuntos.ts`, `src/Conjuntos.tsx` | Conjuntos: lematizar un texto en el dispositivo, guardarlo y priorizarlo |
 | `amplify/` | Backend: `auth/` (Cognito, grupos `admin` y `estudiante`), `data/resource.ts` (modelos y permisos) |
 | `amplify.yml` | Compilación en Amplify Hosting (backend + frontend, Node 22) |
-| `scripts/copiar_datos.mjs` | Copia `data/export/palabras.json` a `public/datos/` antes de `dev` y `build` |
-| `tests/motor.test.ts`, `tests/informe.test.ts` | Pruebas de las reglas, la cola y el informe (`npm test`) |
+| `scripts/copiar_datos.mjs` | Copia `palabras.json` y `formas.json` de `data/export/` a `public/datos/` antes de `dev` y `build` |
+| `tests/*.test.ts` | Pruebas de las reglas, la cola, el informe y el lematizador (`npm test`) |
 | `tests/probar_permisos.mjs` | Prueba los permisos de los modelos contra el sandbox |
 
 ```
@@ -355,5 +357,5 @@ leerla al empezar cada sesión y actualizarla al terminar.
 - Revisión de la investigación hecha (ver «Método basado en la investigación»).
 - Lista maestra de 16.000 palabras generada (ver «Datos: la lista maestra»).
 - Curación: tramos 1–2.000 de la maestra `validado` (ver `data/curacion/tramos.csv`).
-- Herramienta de estudio: PWA propia sobre AWS Amplify Gen 2 (Cognito, AppSync/DynamoDB, Lambda, Hosting), para varios estudiantes, con `ts-fsrs` y modo sin conexión. Diseño y modelo de datos en `docs/diseno_app.md`. Fase 1 (esqueleto) hecha: ver «Aplicación».
+- Herramienta de estudio: PWA propia sobre AWS Amplify Gen 2 (Cognito, AppSync/DynamoDB, Hosting), para varios estudiantes, con `ts-fsrs` y modo sin conexión. Diseño y modelo de datos en `docs/diseno_app.md`. Fase 1 (esqueleto) hecha: ver «Aplicación».
 - Pendiente: completar las traducciones que faltan e implementar la aplicación por fases. Las decisiones técnicas (lenguaje, formato de datos, exportación a Anki u otra app) se documentarán aquí a medida que se tomen.

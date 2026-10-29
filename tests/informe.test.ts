@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { clave } from '../src/motor/cola.ts'
-import { calcularInforme, estadoPalabra } from '../src/motor/informe.ts'
+import { calcularInforme, cobertura, estadoPalabra } from '../src/motor/informe.ts'
 import { planificador, reconstruir, type RepasoLocal, type TarjetaLocal } from '../src/motor/reglas.ts'
 import type { Direccion, Palabra } from '../src/palabras.ts'
 
@@ -129,4 +129,13 @@ test('retención: solo repasos de días distintos, por dirección, y controles',
   assert.deepEqual([rec.n, rec.aciertos], [2, 1])
   assert.ok(Math.abs(rec.prevista - 0.9) < 1e-9)
   assert.deepEqual(inf.controles, { n: 1, aciertos: 0 })
+})
+
+test('cobertura de un texto: cada aparición cuenta según el estado de su palabra', () => {
+  const palabras = [palabra(1), palabra(2), palabra(3)]
+  const porId = new Map(palabras.map((w) => [w.id, w]))
+  const { tarjetas } = datos({ 1: aprender('de-es', T0), 2: [['es-de', 'acierto', T0, 'marcado']] })
+  // 10 palabras en el texto: 5 veces la 1, 2 la 2, 1 la 3, 1 una retirada (99) y 1 fuera de la lista
+  const c = cobertura([[1, 5], [2, 2], [3, 1], [99, 1]], porId, tarjetas, 10)
+  assert.deepEqual([c.tokens.repaso, c.tokens.conocida, c.tokens.nueva, c.tokens.total, c.fuera], [5, 2, 1, 8, 2])
 })
