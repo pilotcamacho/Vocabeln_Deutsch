@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–4.500 `borrador` (429 + 428) · 4.501–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–5.000 `borrador` (429 + 428 + 427) · 5.001–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -126,6 +126,12 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   - Repeticiones de palabras ya validadas descartadas (*Frieden, Schatz, Schlag, Leistung, Feld, stoppen*…). Se conservan como significados propios *Erklärung* 2 (declaración), *Art* 3 (especie), *ankommen* 2 (depender de) y *Leiter* 2 (*die Leiter*, escalera).
   - Descartados: participios (*glänzend, entspannt, verehrt, geliebt, gemischt, bestehend, steigend, verändert, gefallen*…), *niedersächsisch*, *rot-grün*, *Summer*.
   - Raíces falsas corregidas: *Datenbank* (≠ *Date*), *Reichweite* (→ *reichen*), *Bargeld* (→ *bar*), *Überlebende* (≠ *Ende*), *Sektion* (≠ *Sekt* + *Ion*), *Umzug* (→ *umziehen*), *Abfall*, *Rückstand*, *Institution*, *Infektion*, *Supermarkt*, *missbrauchen*.
+- Tramo 4.501–5.000 en `borrador`, pendiente de la revisión del usuario:
+  - 223 correcciones, 185 descartes y 126 pistas manuales: quedan 427 significados.
+  - Se conserva *Ton* 2 (arcilla), *Spitze* 2 (encaje), *Steuer* 2 (*das Steuer*, volante) y *Laster* (*das Laster*, vicio).
+  - Descartados: frecuencia inflada por el inglés (*First, walken, Walker*), gentilicios (*Pariser, Dresdner*), *Heros*, *Aktive*, *etc.*, *Kreistag*, *heuen* y participios (*gefüllt, brennend, gewählt, fliegend, liegend, belastet*…).
+  - Raíces falsas corregidas: *Teenager* (≠ *Tee* + *Nager*), *Kriminelle* (≠ *Krimi* + *Elle*), *Rücksicht*, *Rückgang*, *loswerden*, *Heroin*, *Missbrauch*, *unverändert*.
+- **Siguiente paso de la curación:** el usuario revisa los tramos 3.501–5.000 (archivos `revision_tramo_*.md` del scratchpad) y, si los aprueba, se pasan a `validado`.
 
 ## Cómo se cura un tramo
 
