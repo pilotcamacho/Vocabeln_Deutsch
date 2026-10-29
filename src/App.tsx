@@ -14,7 +14,10 @@ import {
   type Resultado,
   type TarjetaLocal,
 } from './motor/reglas'
+import { Admin } from './Admin'
+import { Informe } from './Informe'
 import { Marcar, type CambioMarca } from './Marcar'
+import { estadoPalabra } from './motor/informe'
 import { cargarPalabras, type Contenido, type Palabra } from './palabras'
 import { Sesion } from './Sesion'
 
@@ -50,6 +53,8 @@ function Principal() {
   const [admin, setAdmin] = useState(false)
   const [sesion, setSesion] = useState<ItemCola[] | null>(null)
   const [marcando, setMarcando] = useState(false)
+  // Informe propio (con los repasos locales) o vista de administrador
+  const [informe, setInforme] = useState<RepasoLocal[] | 'admin' | null>(null)
   const [cursorMarcar, setCursorMarcar] = useState(0)
   const [sync, setSync] = useState<EstadoSync>({ tipo: 'parado' })
   const [sinSubir, setSinSubir] = useState(0)
@@ -228,8 +233,8 @@ function Principal() {
 
   const [colaHoy, setColaHoy] = useState<ItemCola[] | null>(null)
   useEffect(() => {
-    if (!sesion && !marcando) calcularCola().then(setColaHoy)
-  }, [calcularCola, sesion, marcando])
+    if (!sesion && !marcando && !informe) calcularCola().then(setColaHoy)
+  }, [calcularCola, sesion, marcando, informe])
 
   if (error && !carga) return <main><p className="error">{error}</p></main>
   if (!carga || !ajustes) return <main><p className="tenue">Cargando…</p></main>
@@ -263,6 +268,21 @@ function Principal() {
     )
   }
 
+  if (informe === 'admin') return <Admin palabras={carga.contenido.palabras} volver={() => setInforme(null)} />
+  if (informe) {
+    return (
+      <Informe
+        titulo="Tu progreso"
+        palabras={carga.contenido.palabras}
+        tarjetas={tarjetas}
+        repasos={informe}
+        nuevasPorDia={ajustes.nuevasPorDia}
+        retencionObjetivo={ajustes.retencionObjetivo}
+        volver={() => setInforme(null)}
+      />
+    )
+  }
+
   return (
     <Inicio
       carga={carga}
@@ -278,6 +298,8 @@ function Principal() {
       error={error}
       estudiar={() => colaHoy?.length && setSesion(colaHoy)}
       marcar={() => setMarcando(true)}
+      verInforme={() => void carga.db.repasos.toArray().then(setInforme)}
+      verEstudiantes={() => setInforme('admin')}
       sincronizar={sincronizarAhora}
       guardarAjustes={async (a) => {
         await cambiarAjustes(carga.db, a)
@@ -302,6 +324,8 @@ interface PropsInicio {
   error: string
   estudiar: () => void
   marcar: () => void
+  verInforme: () => void
+  verEstudiantes: () => void
   sincronizar: () => void
   guardarAjustes: (a: Ajustes) => Promise<void>
   salir: () => void
@@ -314,12 +338,10 @@ function Inicio(p: PropsInicio) {
     let enCurso = 0
     let conocidas = 0
     for (const w of palabras) {
-      // La palabra está aprendida cuando lo está su dirección final (producción si la tiene)
-      const final = p.tarjetas.get(clave(w.id, w.direcciones.includes('es-de') ? 'es-de' : 'de-es'))?.estado
-      const estados = [final, p.tarjetas.get(clave(w.id, 'de-es'))?.estado].filter((e) => e && e !== 'nueva')
-      if (final === 'aprendida') aprendidas++
-      else if (estados.includes('conocida')) conocidas++
-      else if (estados.length) enCurso++
+      const { estado } = estadoPalabra(w, p.tarjetas)
+      if (estado === 'aprendida') aprendidas++
+      else if (estado === 'conocida') conocidas++
+      else if (estado !== 'nueva') enCurso++
     }
     return { aprendidas, enCurso, conocidas }
   }, [palabras, p.tarjetas])
@@ -366,6 +388,9 @@ function Inicio(p: PropsInicio) {
           {palabras.length.toLocaleString('es')}
         </p>
         <p className="tenue">{validadas.toLocaleString('es')} listas para estudiar (tramos revisados)</p>
+        <button className="ancho" onClick={p.verInforme}>
+          Ver informe y lista de palabras
+        </button>
         <button className="ancho" onClick={p.marcar}>
           Marcar palabras que ya conozco
         </button>
@@ -394,7 +419,14 @@ function Inicio(p: PropsInicio) {
         <p className="tenue">
           {p.admin ? 'Administrador' : 'Estudiante'} · contenido {p.carga.contenido.version}
         </p>
-        <button onClick={p.salir}>Cerrar sesión</button>
+        {p.admin && (
+          <button className="ancho" disabled={!p.enLinea} onClick={p.verEstudiantes}>
+            Progreso de los estudiantes
+          </button>
+        )}
+        <button className="ancho" onClick={p.salir}>
+          Cerrar sesión
+        </button>
       </section>
       {p.error && <p className="error">{p.error}</p>}
     </main>

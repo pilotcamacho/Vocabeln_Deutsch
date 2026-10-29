@@ -314,10 +314,11 @@ Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los 
 | `src/motor/` | Código puro: `reglas.ts` (FSRS y reglas de estado) y `cola.ts` (la sesión diaria) |
 | `src/datos/` | Base local IndexedDB (`base.ts`), sincronización (`sincronizar.ts`) y perfil |
 | `src/Sesion.tsx`, `src/Tarjeta.tsx`, `src/Marcar.tsx` | Sesión de estudio, tarjeta y marcar palabras conocidas |
+| `src/motor/informe.ts`, `src/Informe.tsx`, `src/Admin.tsx` | Informe de progreso, lista de palabras y vista de administrador |
 | `amplify/` | Backend: `auth/` (Cognito, grupos `admin` y `estudiante`), `data/resource.ts` (modelos y permisos) |
 | `amplify.yml` | Compilación en Amplify Hosting (backend + frontend, Node 22) |
 | `scripts/copiar_datos.mjs` | Copia `data/export/palabras.json` a `public/datos/` antes de `dev` y `build` |
-| `tests/motor.test.ts` | Pruebas de las reglas y la cola (`npm test`) |
+| `tests/motor.test.ts`, `tests/informe.test.ts` | Pruebas de las reglas, la cola y el informe (`npm test`) |
 | `tests/probar_permisos.mjs` | Prueba los permisos de los modelos contra el sandbox |
 
 ```

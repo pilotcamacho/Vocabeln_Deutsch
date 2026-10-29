@@ -66,7 +66,23 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   arrastrar, deshacer y reconstrucción en un «dispositivo nuevo» con el mismo resultado.
 - El control solo se ha probado con las pruebas automáticas: en la app toca dentro de 7 días.
 
-**Siguiente paso:** la fase 4 (informe de progreso).
+**Fase 4 hecha en `dev`, sin publicar** (informe de progreso).
+- Cálculos en `src/motor/informe.ts` (código puro, 7 pruebas en `tests/informe.test.ts`; 22 en
+  total): estado de cada palabra, desglose total, por tramos de 1.000 y por categoría, palabras
+  en repaso por nivel, empezadas, aprendidas y marcadas por semana (8 semanas), proyección de
+  hitos (ritmo real con una semana de datos o más; si no, el ajuste de nuevas por día), carga de
+  los próximos 30 días (repasos y controles) y retención de 30 días por dirección frente a la
+  prevista por FSRS.
+- `src/Informe.tsx`: pestañas «Informe» y «Palabras» (lista con filtro por estado, buscador sin
+  acentos, nivel y próxima fecha). Botón «Ver informe y lista de palabras» en el inicio.
+- `src/Admin.tsx`: «Progreso de los estudiantes» (solo grupo `admin`). Lee `Perfil` y `Tarjeta`
+  de todos en el navegador, sin Lambda (basta con pocos estudiantes); al elegir un estudiante
+  muestra su informe, sin retención. Las tarjetas antiguas sin el campo `fsrs` se rehacen con
+  las columnas sueltas.
+- Colores por estado validados con el validador de paletas (claro y oscuro).
+- Probado en el navegador contra el sandbox con `prueba-b` y `prueba-admin`.
+
+**Siguiente paso:** el usuario decide publicar la fase 4. Después, la fase 5 (conjuntos).
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 

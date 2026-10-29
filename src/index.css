@@ -372,3 +372,222 @@ button.enlace {
   cursor: default;
   opacity: 0.6;
 }
+
+/* Informe de progreso. Colores por estado validados con el validador de paletas (contraste
+   bajo en modo claro: cada barra lleva leyenda con números y detalle al pasar el ratón). */
+:root {
+  --e-aprendida: #1baf7a;
+  --e-conocida: #eda100;
+  --e-repaso: #2a78d6;
+  --e-aprendiendo: #e87ba4;
+  --e-nueva: #e9e6df;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --e-aprendida: #199e70;
+    --e-conocida: #c98500;
+    --e-repaso: #3987e5;
+    --e-aprendiendo: #d55181;
+    --e-nueva: #2e3036;
+  }
+}
+.seg-aprendida {
+  background: var(--e-aprendida);
+}
+.seg-conocida {
+  background: var(--e-conocida);
+}
+.seg-repaso {
+  background: var(--e-repaso);
+}
+.seg-aprendiendo {
+  background: var(--e-aprendiendo);
+}
+.seg-nueva {
+  background: var(--e-nueva);
+}
+.informe h1 {
+  margin: 12px 0;
+}
+.informe h3 {
+  font-size: 0.9rem;
+  margin: 16px 0 6px;
+  color: var(--tenue);
+  font-weight: 600;
+}
+.cifras {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0 12px;
+}
+.cifras div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cifras strong {
+  font-size: 1.6rem;
+}
+.cifras span {
+  font-size: 0.8rem;
+  color: var(--tenue);
+}
+.barra {
+  display: flex;
+  gap: 2px;
+  height: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--e-nueva);
+}
+.barra.alta {
+  height: 16px;
+}
+.barra span:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.leyenda {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 0.85rem;
+}
+.muestra {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: baseline;
+}
+.columnas {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 120px;
+  margin-bottom: 4px;
+}
+.columnas > div {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  min-width: 0;
+}
+.columnas .col {
+  border-radius: 4px 4px 0 0;
+  min-height: 0;
+}
+.columnas .col.apilada {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+.columnas .col.apilada span {
+  min-height: 1px;
+}
+.columnas .valor,
+.columnas .eje {
+  font-size: 0.7rem;
+  color: var(--tenue);
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+  height: 1.2em;
+}
+.columnas .eje {
+  border-top: 1px solid var(--borde);
+  padding-top: 2px;
+}
+.columnas.carga {
+  height: 100px;
+}
+.columnas.carga .eje {
+  text-align: left;
+}
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 6px 0;
+}
+.tabla th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--tenue);
+  font-size: 0.8rem;
+}
+.tabla td,
+.tabla th {
+  padding: 5px 6px 5px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.tabla.estudiantes tbody tr {
+  cursor: pointer;
+}
+.grupos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.grupos li {
+  display: grid;
+  grid-template-columns: 7.5em 1fr 3em;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+.grupos .porcentaje {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.filtros button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+.filtros button.activa {
+  border-color: var(--acento);
+  color: var(--acento);
+  font-weight: 600;
+}
+.buscador {
+  width: 100%;
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  color: var(--texto);
+  margin-bottom: 8px;
+}
+.lista-palabras li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 12px;
+}
+.lista-palabras .orden {
+  font-size: 0.75rem;
+  color: var(--tenue);
+  min-width: 3.2em;
+  font-variant-numeric: tabular-nums;
+}
+.lista-palabras .estado {
+  color: var(--tenue);
+  white-space: nowrap;
+}

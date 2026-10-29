@@ -214,7 +214,8 @@ Cómo funciona la marca:
 
 ### Informe de progreso
 
-Se calcula en el dispositivo con las tarjetas locales, sin coste de servidor.
+Implementado en `src/motor/informe.ts` (cálculos) y `src/Informe.tsx`. Se calcula en el
+dispositivo con las tarjetas y los repasos locales, sin coste de servidor.
 
 - **Total de la lista.** Barra apilada con aprendidas, conocidas pendientes de control, en
   repaso por nivel, aprendiendo y nuevas. *Completadas* = aprendidas.
@@ -227,7 +228,10 @@ Se calcula en el dispositivo con las tarjetas locales, sin coste de servidor.
   - % del texto que cubren las palabras aprendidas, contando cada aparición;
   - % que cubren las palabras en curso;
   - % de palabras fuera de la lista (funcionales, nombres propios), que se muestra aparte.
-- **Para el administrador.** Un resumen por estudiante, calculado con una Lambda.
+- **Para el administrador** (`src/Admin.tsx`). Un resumen por estudiante. Con pocos estudiantes
+  se calcula en el navegador leyendo todas las tarjetas de la nube, sin Lambda; si crecen, se
+  pasará a una Lambda. No tiene retención, porque no baja los repasos.
+- **Lista de palabras** con filtro por estado y buscador.
 
 ### Crear un conjunto a partir de un texto
 
