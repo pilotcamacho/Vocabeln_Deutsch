@@ -82,7 +82,7 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
 - Colores por estado validados con el validador de paletas (claro y oscuro).
 - Probado en el navegador contra el sandbox con `prueba-b` y `prueba-admin`.
 
-**Fase 5 hecha en `dev`, sin publicar** (conjuntos).
+**Fase 5 publicada** (fusionada en `main` el 28-10-2026, despliegue 7) (conjuntos).
 - Decisión del usuario: el texto se lematiza **en el dispositivo**, no en una Lambda.
   `src/motor/lematizar.ts` traduce `scripts/lematizar.py` y da lo mismo con
   `tests/texto_prueba.txt` (122 palabras, 71 en la lista, 61 lemas).
@@ -102,8 +102,8 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
 - Probado en el navegador contra el sandbox con `prueba-admin`: crear, analizar, guardar,
   priorizar, hacer público e informe.
 
-**Siguiente paso:** el usuario prueba y decide publicar la fase 5. Después, la fase 6
-(optimizar FSRS con los datos de cada estudiante).
+**Siguiente paso:** el usuario prueba los conjuntos en producción. La fase 6
+(optimizar FSRS con los datos de cada estudiante) necesita unas semanas de historial.
 
 La curación (tramo 2.001–2.500) puede seguir en paralelo.
 
