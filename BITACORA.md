@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–4.000 `borrador` (429) · 4.001–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–4.500 `borrador` (429 + 428) · 4.501–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -121,6 +121,11 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   - Descartados: participios (*verletzt, geschlossen, geöffnet, führend, umfassend, faszinierend*…), *Voraus*, *tollen*, *Kochen*, *zeit*, *Begriffsklärung* y gentilicios (*Mainzer, Tiroler*).
   - Raíces falsas corregidas: *Kapelle* (≠ *Kap* + *Elle*), *Reisende* (≠ *Reis* + *Ende*), *Alltag*, *erregen* (→ *regen*), *losgehen*, *wegnehmen*, *Rücktritt*, *Werkstatt*, *Missverständnis*.
   - *See* 2: «mar», con artículo *die*. *Bedeutung* 2: «importancia», se conserva.
+- Tramo 4.001–4.500 en `borrador`, pendiente de la revisión del usuario:
+  - 274 correcciones, 195 descartes y 153 pistas manuales: quedan 428 significados.
+  - Repeticiones de palabras ya validadas descartadas (*Frieden, Schatz, Schlag, Leistung, Feld, stoppen*…). Se conservan como significados propios *Erklärung* 2 (declaración), *Art* 3 (especie), *ankommen* 2 (depender de) y *Leiter* 2 (*die Leiter*, escalera).
+  - Descartados: participios (*glänzend, entspannt, verehrt, geliebt, gemischt, bestehend, steigend, verändert, gefallen*…), *niedersächsisch*, *rot-grün*, *Summer*.
+  - Raíces falsas corregidas: *Datenbank* (≠ *Date*), *Reichweite* (→ *reichen*), *Bargeld* (→ *bar*), *Überlebende* (≠ *Ende*), *Sektion* (≠ *Sekt* + *Ion*), *Umzug* (→ *umziehen*), *Abfall*, *Rückstand*, *Institution*, *Infektion*, *Supermarkt*, *missbrauchen*.
 
 ## Cómo se cura un tramo
 
