@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–2.000 `validado` (1.880 significados) · 2.001–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–2.000 `validado` (1.880 significados) · 2.001–2.500 `borrador` (435) · 2.501–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -105,7 +105,16 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
 **Siguiente paso:** el usuario prueba los conjuntos en producción. La fase 6
 (optimizar FSRS con los datos de cada estudiante) necesita unas semanas de historial.
 
-La curación (tramo 2.001–2.500) puede seguir en paralelo.
+**Curación, tramo 2.001–2.500, en `borrador`** (pendiente de la revisión del usuario):
+- 336 correcciones, 219 descartes y 262 pistas manuales: quedan 435 significados.
+- Se descartan palabras enteras: *Super, genehm, Fort, Pein, Verbandsgemeinde, grünen, Vize,
+  Es, Alt, erklärt, Mannheimer, hehr, Große, Letzt*. La mayoría son formas o fragmentos.
+- Raíces corregidas: *Fortschritt*, *fortsetzen*, *Schriftsteller*, *Haushalt*, *bislang*,
+  *sogenannt*, *Verstand*, *dankbar*, *wüten*… Se vacían las falsas: *achten* (no viene de *Acht*),
+  *drüben* (no viene de *üben*), *erzeugen*, *angenehm*, *peinlich*, *herrlich*, *letztlich*.
+- El exportador retiró 220 ids (los significados descartados) y no creó ninguno nuevo.
+- Al aprobarlo: `validado` en `tramos.csv`, `aplicar_curacion.py`, `exportar_palabras.py`,
+  `construir_formas.py`, y publicar si el usuario lo pide.
 
 ## Cómo se cura un tramo
 
