@@ -307,7 +307,7 @@ cara de la pregunta.
 
 ## Aplicación (PWA + Amplify Gen 2)
 
-Diseño en `docs/diseno_app.md`. Está en la raíz del repositorio, junto a los datos:
+Diseño en `docs/diseno_app.md`; el ciclo de vida de una palabra, explicado paso a paso, en `docs/ciclo_de_vida_palabra.md`. Está en la raíz del repositorio, junto a los datos:
 
 | Ruta | Contenido |
 |---|---|
