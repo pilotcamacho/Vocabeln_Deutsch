@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–5.000 `borrador` (429 + 428 + 427) · 5.001–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–5.000 `validado` (4.486 significados) · 5.001–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -115,23 +115,23 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   - Raíces falsas corregidas: *Transport* (≠ *Tran* + *Sport*), *Schweigen* (≠ *Schwein* + *Gen*), *Fotograf* (≠ *Graf*), *Oberfläche* (≠ *Ober*, camarero), *Diebstahl* (→ *stehlen*, no *Stahl*), *aufregen* (→ *regen*, no *Regen*), *Uniform*.
   - Sentidos principales recuperados: *ausziehen* (quitarse ropa), *verhalten* (comportarse), *vorgehen* (proceder), *Messe* (feria), *neulich* (hace poco), *trotzen* (desafiar).
 - `aplicar_tramo.py` (scratchpad) admite ahora `DESDE HASTA`.
-- Tramo 3.501–4.000 en `borrador`, pendiente de la revisión del usuario (el usuario pidió encadenar los tramos hasta el 5.000):
+- Tramo 3.501–4.000 aprobado por el usuario: `validado` (el usuario pidió encadenar los tramos hasta el 5.000):
   - 291 correcciones, 186 descartes y 161 pistas manuales: quedan 429 significados.
   - Muchos significados 2 fusionados en el 1 (*Fassung*, *Annahme*, *Panzer*, *Orden*, *Abzug*, *Einnahme*…) y repeticiones de palabras ya validadas descartadas (*Druck, Aufnahme, lustig, Pass, Farbe, still*…).
   - Descartados: participios (*verletzt, geschlossen, geöffnet, führend, umfassend, faszinierend*…), *Voraus*, *tollen*, *Kochen*, *zeit*, *Begriffsklärung* y gentilicios (*Mainzer, Tiroler*).
   - Raíces falsas corregidas: *Kapelle* (≠ *Kap* + *Elle*), *Reisende* (≠ *Reis* + *Ende*), *Alltag*, *erregen* (→ *regen*), *losgehen*, *wegnehmen*, *Rücktritt*, *Werkstatt*, *Missverständnis*.
   - *See* 2: «mar», con artículo *die*. *Bedeutung* 2: «importancia», se conserva.
-- Tramo 4.001–4.500 en `borrador`, pendiente de la revisión del usuario:
+- Tramo 4.001–4.500 aprobado por el usuario: `validado`:
   - 274 correcciones, 195 descartes y 153 pistas manuales: quedan 428 significados.
   - Repeticiones de palabras ya validadas descartadas (*Frieden, Schatz, Schlag, Leistung, Feld, stoppen*…). Se conservan como significados propios *Erklärung* 2 (declaración), *Art* 3 (especie), *ankommen* 2 (depender de) y *Leiter* 2 (*die Leiter*, escalera).
   - Descartados: participios (*glänzend, entspannt, verehrt, geliebt, gemischt, bestehend, steigend, verändert, gefallen*…), *niedersächsisch*, *rot-grün*, *Summer*.
   - Raíces falsas corregidas: *Datenbank* (≠ *Date*), *Reichweite* (→ *reichen*), *Bargeld* (→ *bar*), *Überlebende* (≠ *Ende*), *Sektion* (≠ *Sekt* + *Ion*), *Umzug* (→ *umziehen*), *Abfall*, *Rückstand*, *Institution*, *Infektion*, *Supermarkt*, *missbrauchen*.
-- Tramo 4.501–5.000 en `borrador`, pendiente de la revisión del usuario:
+- Tramo 4.501–5.000 aprobado por el usuario: `validado`:
   - 223 correcciones, 185 descartes y 126 pistas manuales: quedan 427 significados.
   - Se conserva *Ton* 2 (arcilla), *Spitze* 2 (encaje), *Steuer* 2 (*das Steuer*, volante) y *Laster* (*das Laster*, vicio).
   - Descartados: frecuencia inflada por el inglés (*First, walken, Walker*), gentilicios (*Pariser, Dresdner*), *Heros*, *Aktive*, *etc.*, *Kreistag*, *heuen* y participios (*gefüllt, brennend, gewählt, fliegend, liegend, belastet*…).
   - Raíces falsas corregidas: *Teenager* (≠ *Tee* + *Nager*), *Kriminelle* (≠ *Krimi* + *Elle*), *Rücksicht*, *Rückgang*, *loswerden*, *Heroin*, *Missbrauch*, *unverändert*.
-- **Siguiente paso de la curación:** el usuario revisa los tramos 3.501–5.000 (archivos `revision_tramo_*.md` del scratchpad) y, si los aprueba, se pasan a `validado`.
+- **Siguiente paso de la curación:** tramo 5.001–5.500. Publicar en `main` las palabras validadas desde el 2.001 cuando el usuario lo pida.
 
 ## Cómo se cura un tramo
 
