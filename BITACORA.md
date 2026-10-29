@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–3.000 `validado` (2.761 significados) · 3.001–3.500 `borrador` (441) · 3.501–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–3.500 `validado` (3.202 significados) · 3.501–4.000 `borrador` (429) · 4.001–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -108,13 +108,19 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
 **Curación:**
 - Tramo 2.001–2.500 aprobado por el usuario: `validado`. Quedan 435 significados; se descartaron palabras enteras como *Super*, *Fort*, *Vize* y *Letzt*, y se corrigieron raíces falsas (*achten*, *drüben*…).
 - Tramo 2.501–3.000 aprobado por el usuario: `validado` (446 significados). Se descartaron *Erste, Zweite, Sang, Trank, linken, Real*…; se corrigieron *Pech*, *Studium*, *beibringen* y las raíces de *Anzug*, *Herrschaft*, *Getränk*…
-- Tramo 3.001–3.500 en `borrador`, pendiente de la revisión del usuario:
+- Tramo 3.001–3.500 aprobado por el usuario: `validado` (441 significados):
   - 320 correcciones, 190 descartes y 224 pistas manuales: quedan 441 significados.
   - Palabras descartadas enteras por frecuencia inflada: *einen* (artículo), *polen* (*Polen*), *funken* (*Funken*), *Aus* (preposición), *Kleine* y *Schwarze* (adjetivos). También participios (*erwartet, verloren, begrenzt, bewaffnet*), infinitivos (*Hören*) y palabras marginales (*Treff, schränken, Tran, Harm, Queen*).
   - *Gehalt*: el sentido frecuente, *das Gehalt* (sueldo), estaba en el significado 2. Se intercambia con *der Gehalt* (contenido), incluidos artículo, género y plural.
   - Raíces falsas corregidas: *Transport* (≠ *Tran* + *Sport*), *Schweigen* (≠ *Schwein* + *Gen*), *Fotograf* (≠ *Graf*), *Oberfläche* (≠ *Ober*, camarero), *Diebstahl* (→ *stehlen*, no *Stahl*), *aufregen* (→ *regen*, no *Regen*), *Uniform*.
   - Sentidos principales recuperados: *ausziehen* (quitarse ropa), *verhalten* (comportarse), *vorgehen* (proceder), *Messe* (feria), *neulich* (hace poco), *trotzen* (desafiar).
 - `aplicar_tramo.py` (scratchpad) admite ahora `DESDE HASTA`.
+- Tramo 3.501–4.000 en `borrador`, pendiente de la revisión del usuario (el usuario pidió encadenar los tramos hasta el 5.000):
+  - 291 correcciones, 186 descartes y 161 pistas manuales: quedan 429 significados.
+  - Muchos significados 2 fusionados en el 1 (*Fassung*, *Annahme*, *Panzer*, *Orden*, *Abzug*, *Einnahme*…) y repeticiones de palabras ya validadas descartadas (*Druck, Aufnahme, lustig, Pass, Farbe, still*…).
+  - Descartados: participios (*verletzt, geschlossen, geöffnet, führend, umfassend, faszinierend*…), *Voraus*, *tollen*, *Kochen*, *zeit*, *Begriffsklärung* y gentilicios (*Mainzer, Tiroler*).
+  - Raíces falsas corregidas: *Kapelle* (≠ *Kap* + *Elle*), *Reisende* (≠ *Reis* + *Ende*), *Alltag*, *erregen* (→ *regen*), *losgehen*, *wegnehmen*, *Rücktritt*, *Werkstatt*, *Missverständnis*.
+  - *See* 2: «mar», con artículo *die*. *Bedeutung* 2: «importancia», se conserva.
 
 ## Cómo se cura un tramo
 
