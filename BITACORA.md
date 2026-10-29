@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–5.000 `validado` (4.486 significados) · 5.001–16.000 sin curar |
+| Curación manual, tramos de 500 | 1–5.000 `validado` (4.486 significados) · 5.001–5.500 `borrador` (430) · 5.501–16.000 sin curar |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -131,7 +131,13 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   - Se conserva *Ton* 2 (arcilla), *Spitze* 2 (encaje), *Steuer* 2 (*das Steuer*, volante) y *Laster* (*das Laster*, vicio).
   - Descartados: frecuencia inflada por el inglés (*First, walken, Walker*), gentilicios (*Pariser, Dresdner*), *Heros*, *Aktive*, *etc.*, *Kreistag*, *heuen* y participios (*gefüllt, brennend, gewählt, fliegend, liegend, belastet*…).
   - Raíces falsas corregidas: *Teenager* (≠ *Tee* + *Nager*), *Kriminelle* (≠ *Krimi* + *Elle*), *Rücksicht*, *Rückgang*, *loswerden*, *Heroin*, *Missbrauch*, *unverändert*.
-- **Siguiente paso de la curación:** tramo 5.001–5.500. Publicar en `main` las palabras validadas desde el 2.001 cuando el usuario lo pida.
+- Tramo 5.001–5.500 curado en `borrador`, pendiente de aprobación:
+  - 334 correcciones, 203 descartes y 112 pistas manuales: quedan 430 significados.
+  - Se conservan como significados propios *Kiefer* 2 (*der Kiefer*, mandíbula), *verlassen* 3 (fiarse de), *eingehen* 3 (abordar) y *brennen* 3 (escocer). En *Verdienst*, *Plastik* y *Pack* el género cambia el sentido y va en la traducción.
+  - Descartados: participios (*wachsend, angegeben, gebrochen, verfehlt*), *Schweiger* y *Braunschweiger*, *Etwas*, *Ade*, *Schöne* y el adverbio *genau* (duplica el adjetivo).
+  - Traducciones erróneas corregidas: *buchen* (reservar), *überdies* (además), *Begleiter* (acompañante), *umlegen*, *Elf* (el once), *Gymnasium* (instituto).
+  - Raíces falsas corregidas: *Fassade* y *Ballade* (≠ *Ade*), *loslassen* (≠ *Los*), *rückwärts* (→ *Rücken*), *Korruption* y *Formation* (≠ *Ion*), *erstklassig* (→ *erst*), *Ehrgeiz*, *Stellungnahme*.
+- **Siguiente paso de la curación:** aprobar el tramo 5.001–5.500 y seguir con el 5.501–6.000.
 
 ## Cómo se cura un tramo
 
