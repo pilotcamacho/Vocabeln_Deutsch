@@ -1,4 +1,4 @@
-lema,categoria,significado_n,columna,valor,motivo
+﻿lema,categoria,significado_n,columna,valor,motivo
 in,preposición,1,traduccion_es,"en, dentro de",«a» sobra
 haben,verbo,1,traduccion_es,tener,el auxiliar va en el significado 2
 haben,verbo,2,traduccion_es,"haber (auxiliar: *ich habe gesehen* = he visto)",«contener» duplicaba el significado 1
@@ -40,9 +40,9 @@ mal,adverbio,1,traduccion_es,"vez, veces (*dreimal* = tres veces); a ver",glosa 
 ganz,adverbio,1,traduccion_es,"totalmente, completamente; bastante",incompleto
 ganz,adjetivo,1,traduccion_es,"entero, todo, completo",orden
 einfach,adjetivo,1,traduccion_es,"simple, sencillo, fácil",«humilde» marginal
-einfach,adjetivo,1,raices,ein,ein = uno (no el prefijo «hacia dentro»)
+einfach,adjetivo,1,raices,,la raíz original fue descartada
 einfach,adjetivo,1,afijos,-fach,ein = uno (no el prefijo «hacia dentro»)
-einmal,adverbio,1,raices,ein + Mal,ein = uno (no el prefijo «hacia dentro»)
+einmal,adverbio,1,raices,,la raíz original fue descartada
 einmal,adverbio,1,afijos,,ein = uno (no el prefijo «hacia dentro»)
 seit,preposición,1,traduccion_es,"desde, desde hace",precisar
 weit,adjetivo,1,traduccion_es,"amplio, ancho",«extenso» poco natural; «lejos» va en el 2
@@ -392,7 +392,7 @@ Himmel,sustantivo,1,traduccion_es,cielo,
 knapp,adjetivo,1,traduccion_es,"escaso, justo; apenas, por poco",incompleto
 gegenüber,preposición,1,traduccion_es,"enfrente de, frente a; respecto a",glosa inglesa
 starten,verbo,1,traduccion_es,"empezar, arrancar; despegar",
-deswegen,adverbio,1,raices,des + wegen,no viene de *Des* (re bemol)
+deswegen,adverbio,1,raices,wegen,la raíz original fue descartada
 Hotel,sustantivo,1,traduccion_es,hotel,
 Paar,sustantivo,1,traduccion_es,"pareja; par",
 genauso,adverbio,1,traduccion_es,"exactamente igual, igual de",«coincidir» erróneo
@@ -852,7 +852,7 @@ begrüßen,verbo,1,traduccion_es,"saludar, dar la bienvenida; acoger con agrado"
 ereignen,verbo,1,traduccion_es,"ocurrir, suceder (*sich ereignen*)",
 außerhalb,preposición,1,traduccion_es,fuera de,
 verbunden,adjetivo,1,traduccion_es,"unido, conectado; agradecido",
-häufig,adjetivo,1,raices,Haufen,*häufen* no es la raíz
+häufig,adjetivo,1,raices,,la raíz original fue descartada
 verheiraten,verbo,1,traduccion_es,"casar; casarse (*sich verheiraten*)",
 beantworten,verbo,1,traduccion_es,"responder, contestar (*eine Frage beantworten*)",
 reißen,verbo,1,traduccion_es,"romper, rasgar; arrancar, tirar de",
@@ -4604,7 +4604,7 @@ Dorfbewohner,sustantivo,1,traduccion_es,"habitante del pueblo, aldeano",
 Praktikum,sustantivo,1,traduccion_es,prácticas (laborales),
 Imperium,sustantivo,1,traduccion_es,imperio,
 Dreieck,sustantivo,1,traduccion_es,triángulo,
-Dreieck,sustantivo,1,raices,Drei + Eck,
+Dreieck,sustantivo,1,raices,,la raíz original fue descartada
 Rippe,sustantivo,1,traduccion_es,costilla,
 Befürchtung,sustantivo,1,traduccion_es,temor,
 Packung,sustantivo,1,traduccion_es,"paquete, envase",
@@ -11939,3 +11939,8 @@ Testspiel,sustantivo,1,traduccion_es,"partido amistoso, partido de preparación"
 nordöstlich,adjetivo,1,traduccion_es,"del nordeste, al nordeste de",
 Lila,sustantivo,1,traduccion_es,"(color) lila, morado",
 Elfenbein,sustantivo,1,traduccion_es,marfil,
+vermuten,verbo,1,raices,,la raíz original fue descartada
+ungewollt,adjetivo,1,raices,wollen,la raíz original fue descartada
+Zwanziger,sustantivo,1,raices,,la raíz original fue descartada
+mürrisch,adjetivo,1,raices,,la raíz original fue descartada
+anhäufen,verbo,1,raices,,la raíz original fue descartada

@@ -14,7 +14,7 @@ en `CLAUDE.md`; aquí va solo el avance.
 |---|---|
 | Investigación sobre métodos de memorización | Hecha (ver `CLAUDE.md`, «Método basado en la investigación») |
 | Lista maestra de 16.000 significados | Hecha: `data/lista_maestra.csv` |
-| Curación manual, tramos de 500 | 1–5.000 `validado` (4.486 significados) · 5.001–5.500 `borrador` (430) · 5.501–16.000 sin curar |
+| Curación manual, tramos de 500 | **Terminada**: los 32 tramos (1–16.000) `validado` · 13.846 significados en `palabras.json` |
 | Herramienta de estudio | Decidida: PWA propia sobre AWS Amplify Gen 2, para varios estudiantes. Diseño en `docs/diseno_app.md` |
 | Registro de progreso | Modelo de datos en `docs/diseno_app.md`; sin implementar |
 
@@ -137,7 +137,28 @@ El usuario usará primero Android y la web; el iPhone, solo para pruebas más ad
   - Descartados: participios (*wachsend, angegeben, gebrochen, verfehlt*), *Schweiger* y *Braunschweiger*, *Etwas*, *Ade*, *Schöne* y el adverbio *genau* (duplica el adjetivo).
   - Traducciones erróneas corregidas: *buchen* (reservar), *überdies* (además), *Begleiter* (acompañante), *umlegen*, *Elf* (el once), *Gymnasium* (instituto).
   - Raíces falsas corregidas: *Fassade* y *Ballade* (≠ *Ade*), *loslassen* (≠ *Los*), *rückwärts* (→ *Rücken*), *Korruption* y *Formation* (≠ *Ion*), *erstklassig* (→ *erst*), *Ehrgeiz*, *Stellungnahme*.
-- **Siguiente paso de la curación:** aprobar el tramo 5.001–5.500 y seguir con el 5.501–6.000.
+- Tramos 5.001–16.000 (30-10-2026). El usuario pidió seguir hasta el final con los mismos
+  criterios, sin aprobar tramo a tramo, y pasarlo todo a `validado` al terminar:
+  - Cada tramo se escribió en `borrador` con su propio commit en `dev` y al final los 22 tramos
+    pasaron a `validado` en un solo paso.
+  - Mismos criterios que en los tramos anteriores. Se descartaron sobre todo participios sin
+    sentido propio, gentilicios de ciudades y regiones (se conservan los de países, y
+    *Berliner* por la berlina), infinitivos sustantivados, variantes antiguas, términos
+    marginales y discriminatorios (*Zigeuner*, *Neger*), y significados secundarios que
+    duplicaban el primero.
+  - Se conservan secundarios con sentido propio: *Laster* 2 (camión), *Kiefer* 2 (mandíbula),
+    *Gang* 3 (pasillo), *anlegen* 3 (meterse con alguien)…
+  - Raíces falsas corregidas en todos los tramos (*Kommode* ≠ *kommen* + *Ode*, *Kranich* ≠
+    *Kran* + *Ich*, *Eidechse* ≠ *Eid*, *Konzeption* ≠ *Ion*…). *Ober*, *Ur*, *Erz*, *Miss*,
+    *Fort* y *rücken* (en *Rück-*) se sustituyen por *oben*, *zurück* o se quitan.
+  - Pistas de uso para expresiones y falsos amigos (*pathetisch*, *punktuell*, *Mobile*…).
+  - Al validar se corrigieron también las 10 raíces que apuntaban a palabras descartadas
+    (*einfach*, *einmal* → *ein*; *deswegen* → *des*; *häufig* → *Haufen*…): ahora no queda
+    ninguna raíz fuera de la lista. Ninguna fila conserva la glosa inglesa sin traducir (la
+    última, *Regensburger*, era un gentilicio y se descartó).
+  - Resultado: 13.846 significados, todos validados. `npm test` (26) y `npm run build` pasan.
+- Las traducciones de 5.001–16.000 no las revisó el usuario una a una: si al estudiar aparece
+  alguna dudosa, se corrige en `data/curacion/` y se vuelve a exportar.
 
 ## Cómo se cura un tramo
 
@@ -235,7 +256,6 @@ Errores que hay que buscar en cada tramo:
 
 ## Pendientes conocidos
 
-- Las ~1.150 palabras de los tramos sin curar que llevan la glosa inglesa como traducción.
 - Las etimologías escritas de memoria que señaló el tramo 1.501–2.000 (*scheitern*, *kaputt*,
   *Gerücht*, *Wirtschaft*, *Reich*): revisadas en esta sesión y parecen correctas, pero no se
   han contrastado con una fuente.

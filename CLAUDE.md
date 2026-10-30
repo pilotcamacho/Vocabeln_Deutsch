@@ -356,6 +356,6 @@ leerla al empezar cada sesión y actualizarla al terminar.
 
 - Revisión de la investigación hecha (ver «Método basado en la investigación»).
 - Lista maestra de 16.000 palabras generada (ver «Datos: la lista maestra»).
-- Curación: tramos 1–5.000 de la maestra `validado` (ver `data/curacion/tramos.csv`).
+- Curación terminada: los 32 tramos (1–16.000) de la maestra `validado`, 13.846 significados (ver `data/curacion/tramos.csv`).
 - Herramienta de estudio: PWA propia sobre AWS Amplify Gen 2 (Cognito, AppSync/DynamoDB, Hosting), para varios estudiantes, con `ts-fsrs` y modo sin conexión. Diseño y modelo de datos en `docs/diseno_app.md`. Fase 1 (esqueleto) hecha: ver «Aplicación».
 - Pendiente: completar las traducciones que faltan e implementar la aplicación por fases. Las decisiones técnicas (lenguaje, formato de datos, exportación a Anki u otra app) se documentarán aquí a medida que se tomen.
